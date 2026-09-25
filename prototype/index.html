@@ -1,0 +1,1843 @@
+<title>AEP-CLW Prototip</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2F5F5; --surface:#FFFFFF; --surface-2:#F7F9F9; --surface-3:#EBF0F0;
+  --border:#DCE4E3; --border-strong:#C3D0CF;
+  --text:#122322; --text-2:#3B4F4D; --muted:#667977;
+  --accent:#0B6B6B; --accent-hover:#085757; --accent-ink:#FFFFFF; --accent-soft:#DCEEED;
+  --ok:#157043; --ok-soft:#DDF1E5; --warn:#8A5B00; --warn-soft:#FAEFD3;
+  --danger:#B42318; --danger-soft:#FBE3E0; --info:#2D5B88; --info-soft:#E0EBF5;
+  --series-1:#0B6B6B; --series-2:#B7791F; --grid:#E3EAE9;
+  --device:#0F1717; --device-edge:#2A3535; --phone-bg:#F6F7F7; --phone-card:#FFFFFF;
+  --shadow:0 1px 2px rgba(16,40,40,.06),0 6px 20px rgba(16,40,40,.06);
+  --shadow-lg:0 10px 40px rgba(10,30,30,.18);
+  --focus:#0B6B6B;
+  --radius:12px;
+  --font:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0C1313; --surface:#131C1C; --surface-2:#172222; --surface-3:#1D2A2A;
+    --border:#243333; --border-strong:#324545;
+    --text:#E3ECEB; --text-2:#B3C3C1; --muted:#849796;
+    --accent:#3DB5AD; --accent-hover:#5BC8C0; --accent-ink:#052020; --accent-soft:#12302F;
+    --ok:#4DC38A; --ok-soft:#123324; --warn:#E2B24A; --warn-soft:#352B12;
+    --danger:#F07368; --danger-soft:#3A1B19; --info:#80B1E0; --info-soft:#172839;
+    --series-1:#3DB5AD; --series-2:#E0A84A; --grid:#223030;
+    --device:#030707; --device-edge:#1F2A2A; --phone-bg:#0F1616; --phone-card:#182222;
+    --shadow:0 1px 2px rgba(0,0,0,.35),0 6px 20px rgba(0,0,0,.25);
+    --shadow-lg:0 10px 40px rgba(0,0,0,.5);
+    --focus:#5BC8C0;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0C1313; --surface:#131C1C; --surface-2:#172222; --surface-3:#1D2A2A;
+  --border:#243333; --border-strong:#324545;
+  --text:#E3ECEB; --text-2:#B3C3C1; --muted:#849796;
+  --accent:#3DB5AD; --accent-hover:#5BC8C0; --accent-ink:#052020; --accent-soft:#12302F;
+  --ok:#4DC38A; --ok-soft:#123324; --warn:#E2B24A; --warn-soft:#352B12;
+  --danger:#F07368; --danger-soft:#3A1B19; --info:#80B1E0; --info-soft:#172839;
+  --series-1:#3DB5AD; --series-2:#E0A84A; --grid:#223030;
+  --device:#030707; --device-edge:#1F2A2A; --phone-bg:#0F1616; --phone-card:#182222;
+  --shadow:0 1px 2px rgba(0,0,0,.35),0 6px 20px rgba(0,0,0,.25);
+  --shadow-lg:0 10px 40px rgba(0,0,0,.5);
+  --focus:#5BC8C0;
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);font-size:14px;line-height:1.5;overflow-x:hidden}
+[hidden]{display:none !important}
+h1,h2,h3,h4{margin:0;line-height:1.25;letter-spacing:-.01em}
+p{margin:0}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:6px}
+.ic{flex:none;display:block}
+.mono{font-family:var(--mono);font-size:.92em}
+.num,.tnum{font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- App header ---------- */
+.topbar{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.topbar-in{max-width:1360px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brandmark{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.02em}
+.brandmark .logo{width:30px;height:30px;border-radius:8px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-size:13px;font-weight:800}
+.brandmark small{display:block;font-weight:500;color:var(--muted);font-size:11.5px;letter-spacing:0}
+.seg{display:flex;gap:4px;padding:4px;background:var(--surface-3);border-radius:10px;overflow-x:auto;scrollbar-width:none;flex:1 1 auto;max-width:max-content;margin-inline:auto}
+.seg::-webkit-scrollbar{display:none}
+.seg button{display:flex;align-items:center;gap:8px;border:0;background:transparent;padding:8px 14px;border-radius:7px;font-weight:600;color:var(--text-2);white-space:nowrap}
+.seg button[aria-selected="true"]{background:var(--surface);color:var(--text);box-shadow:var(--shadow)}
+.seg button:hover{color:var(--text)}
+.theme-btn{border:1px solid var(--border);background:var(--surface);border-radius:8px;height:36px;padding:0 10px;display:flex;align-items:center;gap:6px;color:var(--text-2);font-weight:600;font-size:12.5px}
+
+.wrap{max-width:1360px;margin:0 auto;padding:20px 16px 48px}
+.view-lead{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-bottom:16px;color:var(--text-2);font-size:13px}
+.view-lead strong{color:var(--text)}
+.ms{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;letter-spacing:.02em;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
+.ms.m4{background:var(--info-soft);color:var(--info)}
+.ms.m5{background:var(--warn-soft);color:var(--warn)}
+
+/* ---------- Common UI ---------- */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
+.card-h{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.card-h h3{font-size:14.5px}
+.card-b{padding:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;height:36px;padding:0 14px;border-radius:8px;border:1px solid var(--border-strong);background:var(--surface);font-weight:600;font-size:13px;color:var(--text);white-space:nowrap;transition:background .15s,border-color .15s}
+.btn:hover{background:var(--surface-3)}
+.btn-primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn-primary:hover{background:var(--accent-hover);border-color:var(--accent-hover)}
+.btn-danger{color:var(--danger);border-color:color-mix(in srgb,var(--danger) 40%,transparent)}
+.btn-danger:hover{background:var(--danger-soft)}
+.btn-ok{color:var(--ok);border-color:color-mix(in srgb,var(--ok) 40%,transparent)}
+.btn-ok:hover{background:var(--ok-soft)}
+.btn-sm{height:30px;padding:0 10px;font-size:12.5px}
+.btn-ghost{border-color:transparent;background:transparent}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+.chip{display:inline-flex;align-items:center;gap:5px;padding:2px 9px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap;background:var(--surface-3);color:var(--text-2)}
+.chip::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.85}
+.chip.plain::before{display:none}
+.chip.ok{background:var(--ok-soft);color:var(--ok)}
+.chip.warn{background:var(--warn-soft);color:var(--warn)}
+.chip.danger{background:var(--danger-soft);color:var(--danger)}
+.chip.info{background:var(--info-soft);color:var(--info)}
+.chip.accent{background:var(--accent-soft);color:var(--accent)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.fchip{border:1px solid var(--border);background:var(--surface);border-radius:999px;padding:5px 12px;font-size:12.5px;font-weight:600;color:var(--text-2)}
+.fchip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.input,.select{height:36px;border:1px solid var(--border-strong);border-radius:8px;background:var(--surface);padding:0 10px;min-width:0}
+.input:focus,.select:focus{outline:2px solid var(--focus);outline-offset:0}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:12px;font-weight:600;color:var(--text-2)}
+.search{position:relative;display:flex;align-items:center}
+.search .ic{position:absolute;left:10px;color:var(--muted)}
+.search .input{padding-left:32px;width:240px;max-width:100%}
+.switch{position:relative;width:40px;height:22px;border-radius:999px;border:0;background:var(--border-strong);padding:0;flex:none;transition:background .2s}
+.switch::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.25);transition:transform .2s}
+.switch[aria-checked="true"]{background:var(--accent)}
+.switch[aria-checked="true"]::after{transform:translateX(18px)}
+.bar{height:6px;border-radius:999px;background:var(--surface-3);overflow:hidden}
+.bar>i{display:block;height:100%;border-radius:inherit;background:var(--accent)}
+.grid{display:grid;gap:16px}
+.row{display:flex;align-items:center;gap:10px}
+.between{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.stack>*+*{margin-top:12px}
+
+/* tables */
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table.tbl{width:100%;border-collapse:collapse;font-size:13px}
+.tbl th{text-align:left;font-size:11.5px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:var(--muted);padding:10px 14px;border-bottom:1px solid var(--border);background:var(--surface-2);white-space:nowrap}
+.tbl td{padding:11px 14px;border-bottom:1px solid var(--border);vertical-align:middle;white-space:nowrap}
+.tbl tr:last-child td{border-bottom:0}
+.tbl .num{text-align:right;font-variant-numeric:tabular-nums}
+.tbl th.num{text-align:right}
+.tbl tbody tr.clickable{cursor:pointer}
+.tbl tbody tr.clickable:hover td{background:var(--surface-2)}
+.tbl tbody tr[aria-selected="true"] td{background:var(--accent-soft)}
+.tbl .sub{display:block;font-size:11.5px;color:var(--muted)}
+.tbl.wide{min-width:760px}
+.tbl.mid{min-width:560px}
+.pos-amt{color:var(--ok)}
+.neg-amt{color:var(--text)}
+
+/* toast & modal */
+#toasts{position:fixed;right:16px;bottom:16px;z-index:100;display:flex;flex-direction:column;gap:8px;max-width:calc(100vw - 32px);width:360px}
+.toast{background:var(--text);color:var(--bg);border-radius:10px;padding:12px 14px;display:flex;gap:10px;align-items:flex-start;box-shadow:var(--shadow-lg);font-size:13px;animation:tin .25s ease-out}
+.toast .ic{margin-top:1px}
+.toast.ok .ic{color:#6EE7A8}.toast.err .ic{color:#FF9A8F}
+@keyframes tin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.modal-bg{position:fixed;inset:0;z-index:90;background:rgba(6,16,16,.5);display:grid;grid-template-columns:minmax(0,560px);justify-content:center;align-items:center;padding:16px}
+.modal{background:var(--surface);border-radius:14px;box-shadow:var(--shadow-lg);width:100%;max-height:calc(100vh - 32px);overflow:auto;border:1px solid var(--border)}
+.modal-h{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border-bottom:1px solid var(--border)}
+.modal-h h3{font-size:16px}
+.modal-b{padding:18px}
+.modal-f{display:flex;justify-content:flex-end;gap:8px;padding:14px 18px;border-top:1px solid var(--border);flex-wrap:wrap}
+.icon-btn{border:0;background:transparent;border-radius:8px;width:32px;height:32px;display:grid;place-items:center;color:var(--muted)}
+.icon-btn:hover{background:var(--surface-3);color:var(--text)}
+
+/* ---------- Mobile view ---------- */
+.mob-layout{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:24px;align-items:start}
+.explain h2{font-size:20px;margin-bottom:8px}
+.explain p{color:var(--text-2)}
+.explain ul{margin:10px 0 0;padding-left:18px;color:var(--text-2)}
+.explain li{margin:6px 0}
+.sector-pick{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.sector-pick button{display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;border:1px solid var(--border);background:var(--surface);text-align:left;font-weight:600}
+.sector-pick button .sw{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:13px;flex:none}
+.sector-pick button small{display:block;font-weight:500;color:var(--muted);font-size:11.5px}
+.sector-pick button[aria-pressed="true"]{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset;background:var(--accent-soft)}
+.try-list{counter-reset:t;list-style:none;padding:0 !important}
+.try-list li{counter-increment:t;position:relative;padding-left:30px}
+.try-list li::before{content:counter(t);position:absolute;left:0;top:1px;width:20px;height:20px;border-radius:50%;background:var(--surface-3);color:var(--text-2);font-size:11px;font-weight:700;display:grid;place-items:center}
+
+.phone{--brand:#7B4B2A;--brand-soft:color-mix(in srgb,var(--brand) 12%,transparent);--brand-deep:color-mix(in srgb,var(--brand) 78%,#000);
+  width:390px;max-width:100%;height:780px;border-radius:48px;background:var(--device);padding:11px;box-shadow:0 0 0 1px var(--device-edge),var(--shadow-lg);position:relative}
+.phone-screen{height:100%;border-radius:38px;overflow:hidden;background:var(--phone-bg);display:flex;flex-direction:column;position:relative}
+.p-notch{position:absolute;top:19px;left:50%;transform:translateX(-50%);width:104px;height:28px;background:var(--device);border-radius:20px;z-index:5}
+.p-status{height:46px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:6px 28px 0 30px;font-weight:700;font-size:13.5px}
+.p-status .r{display:flex;gap:5px;align-items:center}
+.p-head{flex:none;display:flex;align-items:center;justify-content:space-between;padding:6px 18px 10px}
+.p-logo{display:flex;align-items:center;gap:9px;font-weight:800;font-size:15.5px}
+.p-logo .lt{width:32px;height:32px;border-radius:10px;background:var(--brand);color:#fff;display:grid;place-items:center;font-size:15px}
+.p-avatar{width:34px;height:34px;border-radius:50%;border:0;background:var(--brand-soft);color:var(--brand);font-weight:800;font-size:12.5px}
+.p-body{flex:1;overflow-y:auto;padding:4px 16px 20px;scrollbar-width:thin}
+.p-tabs{flex:none;display:grid;grid-template-columns:repeat(5,1fr);padding:6px 6px 18px;border-top:1px solid var(--border);background:var(--phone-card)}
+.p-tabs button{border:0;background:transparent;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:10.5px;font-weight:600;color:var(--muted);padding:6px 0}
+.p-tabs button[aria-current="page"]{color:var(--brand)}
+.p-tabs .pay-tab .ic-wrap{width:44px;height:44px;margin-top:-18px;border-radius:14px;background:var(--brand);color:#fff;display:grid;place-items:center;box-shadow:0 6px 16px color-mix(in srgb,var(--brand) 40%,transparent)}
+.p-card{background:var(--phone-card);border-radius:16px;padding:14px;border:1px solid var(--border)}
+.p-sec-t{display:flex;justify-content:space-between;align-items:center;margin:18px 2px 8px;font-weight:700;font-size:14px}
+.p-sec-t button{border:0;background:none;color:var(--brand);font-weight:700;font-size:12.5px}
+.bal-card{border-radius:20px;padding:18px;color:#fff;background:linear-gradient(135deg,var(--brand),var(--brand-deep));position:relative;overflow:hidden}
+.bal-card::after{content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.08)}
+.bal-card .lbl{font-size:12px;opacity:.85;font-weight:600}
+.bal-card .amt{font-size:32px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums;margin:2px 0 10px}
+.bal-card .sub{display:flex;gap:18px;font-size:12px}
+.bal-card .sub b{display:block;font-size:14.5px;font-variant-numeric:tabular-nums}
+.bal-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px;position:relative;z-index:1}
+.bal-actions button{height:40px;border-radius:12px;border:0;font-weight:700;display:flex;align-items:center;justify-content:center;gap:6px}
+.bal-actions .b1{background:#fff;color:var(--brand-deep)}
+.bal-actions .b2{background:rgba(255,255,255,.18);color:#fff}
+.tx-item{display:flex;align-items:center;gap:12px;padding:10px 2px;border-bottom:1px solid var(--border)}
+.tx-item:last-child{border-bottom:0}
+.tx-ic{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;flex:none;background:var(--brand-soft);color:var(--brand)}
+.tx-ic.in{background:var(--ok-soft);color:var(--ok)}
+.tx-main{flex:1;min-width:0}
+.tx-main b{display:block;font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tx-main span{font-size:11.5px;color:var(--muted)}
+.tx-amt{font-weight:700;font-variant-numeric:tabular-nums;font-size:13.5px;white-space:nowrap}
+.tx-amt.in{color:var(--ok)}
+.p-btn{width:100%;height:48px;border-radius:14px;border:0;background:var(--brand);color:#fff;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;gap:8px}
+.p-btn:hover{filter:brightness(1.06)}
+.p-btn.ghost{background:var(--brand-soft);color:var(--brand)}
+.p-btn[disabled]{opacity:.55}
+.loy-bar{height:8px;border-radius:999px;background:var(--brand-soft);overflow:hidden;margin:8px 0 6px}
+.loy-bar i{display:block;height:100%;background:var(--brand);border-radius:inherit}
+.special{border-radius:16px;padding:14px;margin-top:12px;border:1px solid color-mix(in srgb,var(--brand) 30%,transparent);background:var(--brand-soft)}
+.special .t{display:flex;align-items:center;gap:8px;font-weight:800;font-size:13.5px}
+.live{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 color-mix(in srgb,var(--ok) 60%,transparent);animation:pulse 1.6s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 8px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.kv{display:grid;grid-template-columns:1fr auto;gap:4px 12px;font-size:12.5px;margin-top:8px}
+.kv span{color:var(--muted)}
+.kv b{text-align:right;font-variant-numeric:tabular-nums}
+.sub-wallet{display:flex;align-items:center;gap:10px;padding:10px;background:var(--phone-card);border-radius:12px;margin-top:8px}
+.sub-wallet .av{width:34px;height:34px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;font-weight:800;font-size:12px;flex:none}
+.p-title{font-size:20px;font-weight:800;margin:6px 2px 4px}
+.p-desc{font-size:12.5px;color:var(--muted);margin:0 2px 14px}
+.qr-box{background:#fff;border-radius:20px;padding:18px;display:grid;place-items:center;position:relative;border:1px solid var(--border)}
+.qr-box svg{width:220px;height:220px;display:block}
+.qr-logo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:12px;background:var(--brand);color:#fff;display:grid;place-items:center;font-weight:800;border:4px solid #fff}
+.qr-meta{display:flex;align-items:center;justify-content:space-between;margin-top:12px;gap:10px}
+.ring{position:relative;width:48px;height:48px;flex:none}
+.ring svg{transform:rotate(-90deg)}
+.ring b{position:absolute;inset:0;display:grid;place-items:center;font-size:12px;font-variant-numeric:tabular-nums}
+.amt-chips{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.amt-chips button{height:44px;border-radius:12px;border:1px solid var(--border);background:var(--phone-card);font-weight:700;font-variant-numeric:tabular-nums}
+.amt-chips button[aria-pressed="true"]{border-color:var(--brand);background:var(--brand-soft);color:var(--brand);box-shadow:0 0 0 1px var(--brand) inset}
+.amt-big{text-align:center;font-size:40px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums;margin:6px 0 14px}
+.pm{display:flex;align-items:center;gap:12px;padding:12px;border-radius:14px;border:1px solid var(--border);background:var(--phone-card)}
+.pm .cardic{width:42px;height:28px;border-radius:6px;background:linear-gradient(135deg,#2B3A3A,#101818);color:#fff;display:grid;place-items:center;font-size:9px;font-weight:800;letter-spacing:.04em}
+.setting-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px;border-radius:14px;background:var(--phone-card);border:1px solid var(--border)}
+.setting-row small{display:block;color:var(--muted);font-size:11.5px}
+.phone .switch[aria-checked="true"]{background:var(--brand)}
+.success{text-align:center;padding:36px 8px 12px}
+.success .ok-ic{width:72px;height:72px;margin:0 auto 14px;border-radius:50%;background:var(--ok-soft);color:var(--ok);display:grid;place-items:center;animation:pop .4s ease-out}
+@keyframes pop{from{transform:scale(.6);opacity:0}to{transform:none;opacity:1}}
+.success h3{font-size:20px}
+.success .big{font-size:30px;font-weight:800;font-variant-numeric:tabular-nums;margin:6px 0}
+.receipt-lines{text-align:left;margin:18px 0;background:var(--phone-card);border-radius:14px;padding:12px 14px;border:1px solid var(--border)}
+.p-fchips{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+.p-fchips button{border:1px solid var(--border);background:var(--phone-card);border-radius:999px;padding:6px 12px;font-size:12px;font-weight:700;white-space:nowrap;color:var(--text-2)}
+.p-fchips button[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:#fff}
+.day-h{font-size:11.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin:14px 2px 2px}
+.camp{border-radius:16px;overflow:hidden;background:var(--phone-card);border:1px solid var(--border);margin-bottom:10px}
+.camp .top{padding:14px;background:var(--brand-soft)}
+.camp .tag{font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--brand)}
+.camp h4{font-size:14.5px;margin:4px 0}
+.camp p{font-size:12px;color:var(--text-2)}
+.camp .bot{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;font-size:12px;color:var(--muted)}
+.camp .bot button{border:0;border-radius:10px;padding:7px 14px;font-weight:800;font-size:12px;background:var(--brand);color:#fff}
+.camp .bot button[aria-pressed="true"]{background:var(--ok-soft);color:var(--ok)}
+.coupon{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1.5px dashed color-mix(in srgb,var(--brand) 50%,transparent);border-radius:14px;background:var(--phone-card)}
+.tier{border-radius:18px;padding:16px;color:#fff;background:linear-gradient(135deg,var(--brand-deep),var(--brand))}
+.limit{margin-top:10px}
+.limit .between{font-size:12px}
+.device{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)}
+.device:last-child{border-bottom:0}
+.kyc-steps{display:flex;gap:6px;margin-top:10px}
+.kyc-steps span{flex:1;height:6px;border-radius:999px;background:var(--brand-soft)}
+.kyc-steps span.on{background:var(--brand)}
+.back{border:0;background:none;display:flex;align-items:center;gap:4px;color:var(--text-2);font-weight:700;padding:4px 0;margin-bottom:4px}
+.spinner{width:36px;height:36px;border-radius:50%;border:3px solid var(--brand-soft);border-top-color:var(--brand);animation:spin .8s linear infinite;margin:0 auto}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ---------- Admin ---------- */
+.admin{display:grid;grid-template-columns:236px minmax(0,1fr);background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);min-height:760px;overflow:hidden}
+.side{border-right:1px solid var(--border);background:var(--surface-2);padding:14px 10px;display:flex;flex-direction:column;gap:2px}
+.tenant-sw{display:flex;align-items:center;gap:10px;padding:8px 10px 14px;margin-bottom:6px;border-bottom:1px solid var(--border)}
+.tenant-sw .lt{width:32px;height:32px;border-radius:9px;background:#7B4B2A;color:#fff;display:grid;place-items:center;font-weight:800}
+.tenant-sw b{display:block;font-size:13px}
+.tenant-sw small{color:var(--muted);font-size:11.5px}
+.side-g{font-size:10.5px;font-weight:800;color:var(--muted);letter-spacing:.07em;text-transform:uppercase;padding:12px 10px 4px}
+.side button{display:flex;align-items:center;gap:10px;border:0;background:transparent;padding:8px 10px;border-radius:8px;font-weight:600;color:var(--text-2);text-align:left;font-size:13px;white-space:nowrap}
+.side button:hover{background:var(--surface-3);color:var(--text)}
+.side button[aria-current="page"]{background:var(--accent-soft);color:var(--accent)}
+.side .cnt{margin-left:auto;font-size:11px;font-weight:800;background:var(--danger);color:#fff;border-radius:999px;padding:0 7px;line-height:18px}
+.adm-main{padding:20px 24px 28px;min-width:0}
+.adm-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.adm-top h2{font-size:21px}
+.adm-top p{color:var(--muted);font-size:13px;margin-top:2px}
+.kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.kpi{padding:14px 16px}
+.kpi .l{font-size:12px;font-weight:600;color:var(--muted)}
+.kpi .v{font-size:21px;font-weight:800;letter-spacing:-.02em;margin:4px 0 2px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.kpi .d{font-size:12px;font-weight:700;font-variant-numeric:tabular-nums}
+.kpi .d.up{color:var(--ok)}.kpi .d.down{color:var(--danger)}
+.kpi .d span{color:var(--muted);font-weight:500}
+.chart-box{position:relative}
+.chart-box svg{width:100%;height:auto;display:block}
+.chart-tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow-lg);border-radius:8px;padding:8px 10px;font-size:12px;min-width:170px;z-index:3}
+.chart-tip b{font-variant-numeric:tabular-nums}
+.legend{display:flex;gap:16px;font-size:12.5px;color:var(--text-2);flex-wrap:wrap}
+.legend i{display:inline-block;width:12px;height:3px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.two{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:16px;align-items:start}
+.detail .sect{padding:14px 16px;border-bottom:1px solid var(--border)}
+.detail .sect:last-child{border-bottom:0}
+.detail h4{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:8px}
+.dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:13px}
+.dl dt{color:var(--muted)}.dl dd{margin:0;text-align:right;font-variant-numeric:tabular-nums}
+.av-lg{width:44px;height:44px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-weight:800}
+.score{display:inline-grid;place-items:center;min-width:36px;height:24px;border-radius:6px;font-weight:800;font-size:12px;font-variant-numeric:tabular-nums}
+.score.h{background:var(--danger-soft);color:var(--danger)}.score.m{background:var(--warn-soft);color:var(--warn)}.score.l{background:var(--ok-soft);color:var(--ok)}
+.merchant-tree{display:grid;gap:16px}
+.term{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:11.5px;padding:2px 8px;border-radius:6px;background:var(--surface-3);margin:2px 4px 2px 0}
+.term i{width:6px;height:6px;border-radius:50%;background:var(--ok)}
+.term.off i{background:var(--danger)}
+.camp-grid,.rep-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.rep-card{padding:16px;display:flex;flex-direction:column;gap:10px}
+.rep-card .ri{width:36px;height:36px;border-radius:9px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center}
+.rep-card p{font-size:12.5px;color:var(--text-2);flex:1}
+.fmt{font-family:var(--mono);font-size:10.5px;border:1px solid var(--border);border-radius:4px;padding:1px 5px;color:var(--muted)}
+.chain{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:var(--ok-soft);color:var(--ok);font-weight:800;font-size:12.5px}
+.chain.busy{background:var(--info-soft);color:var(--info)}
+.hash{font-family:var(--mono);font-size:11.5px;color:var(--text-2)}
+.diff-old{color:var(--danger);text-decoration:line-through;text-decoration-thickness:1px}
+.diff-new{color:var(--ok);font-weight:700}
+.appr{padding:16px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center}
+.appr+.appr{border-top:1px solid var(--border)}
+.appr h4{font-size:14px}
+.appr .meta{font-size:12px;color:var(--muted);margin-top:2px}
+.appr .diffbox{margin-top:8px;font-size:12.5px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:8px 10px;overflow-x:auto}
+.set-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.flag{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)}
+.flag:last-child{border-bottom:0}
+.flag small{display:block;color:var(--muted);font-size:12px}
+.swatches{display:flex;gap:8px;flex-wrap:wrap}
+.swatches button{width:32px;height:32px;border-radius:8px;border:2px solid transparent;box-shadow:0 0 0 1px var(--border) inset}
+.swatches button[aria-pressed="true"]{border-color:var(--text)}
+.journal td.dr,.journal td.cr{font-family:var(--mono);font-size:12px}
+
+/* ---------- POS ---------- */
+.tablet{max-width:1080px;margin:0 auto;border-radius:34px;background:var(--device);padding:14px;box-shadow:0 0 0 1px var(--device-edge),var(--shadow-lg)}
+.tablet-screen{border-radius:22px;background:var(--surface-2);overflow:hidden;min-height:640px;display:flex;flex-direction:column}
+.pos-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px;background:var(--surface);border-bottom:1px solid var(--border);flex-wrap:wrap}
+.pos-bar b{font-size:14px}
+.pos-bar small{color:var(--muted);font-size:12px}
+.pos-modes{display:flex;gap:6px;padding:12px 18px 0;overflow-x:auto}
+.pos-modes button{border:1px solid var(--border);background:var(--surface);border-radius:10px;padding:9px 14px;font-weight:700;display:flex;gap:8px;align-items:center;white-space:nowrap;color:var(--text-2)}
+.pos-modes button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.pos-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;padding:16px 18px 18px;flex:1}
+.pos-amount{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:16px 18px;text-align:right}
+.pos-amount small{display:block;text-align:left;color:var(--muted);font-weight:600;font-size:12px}
+.pos-amount .v{font-size:44px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.2;overflow-wrap:anywhere}
+.keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.keypad button{height:62px;border-radius:14px;border:1px solid var(--border);background:var(--surface);font-size:22px;font-weight:700;font-variant-numeric:tabular-nums}
+.keypad button:hover{background:var(--surface-3)}
+.keypad button:active{transform:scale(.98)}
+.pos-panel{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:12px;min-height:100%}
+.pos-panel h3{font-size:16px}
+.big-btn{height:56px;border-radius:14px;border:0;background:var(--accent);color:var(--accent-ink);font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;gap:10px;width:100%}
+.big-btn:hover{background:var(--accent-hover)}
+.big-btn.sec{background:var(--surface-3);color:var(--text)}
+.big-btn.danger{background:var(--danger);color:#fff}
+.big-btn[disabled]{opacity:.45;cursor:not-allowed}
+.scan-area{position:relative;height:220px;border-radius:14px;background:#0B1212;overflow:hidden;display:grid;place-items:center}
+.scan-area .frame{width:150px;height:150px;border:3px solid rgba(255,255,255,.85);border-radius:16px;position:relative}
+.scan-area .line{position:absolute;left:8%;right:8%;height:2px;background:#3DE0C9;box-shadow:0 0 12px #3DE0C9;animation:scan 1.2s ease-in-out infinite alternate}
+@keyframes scan{from{top:18%}to{top:82%}}
+.check-row{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;background:var(--surface-2);font-size:13.5px}
+.check-row .ic{color:var(--ok)}
+.fis{font-family:var(--mono);font-size:12.5px;background:#FFFFFF;color:#1A1A1A;border-radius:6px;padding:16px;border:1px dashed #BFC8C8;line-height:1.6}
+.fis .c{text-align:center}
+.fis hr{border:0;border-top:1px dashed #BFC8C8;margin:8px 0}
+.fis .ln{display:flex;justify-content:space-between;gap:10px}
+.refund-list button{display:flex;width:100%;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:var(--surface);margin-bottom:6px;text-align:left}
+.refund-list button[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.meter{font-size:38px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+
+/* ---------- Platform ---------- */
+.plat-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.health-grid{display:grid;gap:16px;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);margin-top:16px}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px}
+.svc{border:1px solid var(--border);border-radius:10px;padding:10px 12px;background:var(--surface)}
+.svc .n{font-family:var(--mono);font-size:12px;font-weight:500;display:flex;align-items:center;gap:7px}
+.svc .dot{width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none}
+.svc.warn{border-color:color-mix(in srgb,var(--warn) 50%,transparent);background:var(--warn-soft)}
+.svc.warn .dot{background:var(--warn)}
+.svc .m{display:flex;justify-content:space-between;font-size:11.5px;color:var(--muted);margin-top:6px;font-variant-numeric:tabular-nums}
+.svc .m b{color:var(--text)}
+.stepper{display:flex;gap:8px;margin-bottom:16px}
+.stepper div{flex:1;display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;color:var(--muted)}
+.stepper div i{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-style:normal;background:var(--surface-3);font-size:12px;flex:none}
+.stepper div.on{color:var(--text)}
+.stepper div.on i{background:var(--accent);color:var(--accent-ink)}
+.stepper div.done i{background:var(--ok-soft);color:var(--ok)}
+.preset-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.preset-grid button{text-align:left;border:1px solid var(--border);background:var(--surface);border-radius:10px;padding:12px}
+.preset-grid button[aria-pressed="true"]{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset;background:var(--accent-soft)}
+.preset-grid b{display:block;font-size:13.5px}
+.preset-grid small{color:var(--muted);font-size:11.5px}
+.mini-prev{display:flex;align-items:center;gap:12px;padding:14px;border-radius:14px;color:#fff;margin-top:14px}
+.mini-prev .lt{width:40px;height:40px;border-radius:11px;background:rgba(255,255,255,.2);display:grid;place-items:center;font-weight:800;font-size:18px}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1180px){
+  .mob-layout{grid-template-columns:minmax(0,1fr) auto}
+  .mob-side-r{grid-column:1 / -1}
+  .kpis{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .two{grid-template-columns:minmax(0,1fr)}
+  .health-grid{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:900px){
+  .mob-layout{grid-template-columns:minmax(0,1fr)}
+  .phone-col{display:flex;justify-content:center}
+  .admin{grid-template-columns:minmax(0,1fr);min-height:0}
+  .side{flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px solid var(--border);padding:8px;gap:4px;align-items:center;scrollbar-width:thin}
+  .side-g{display:none}
+  .tenant-sw{border-bottom:0;border-right:1px solid var(--border);margin:0 4px 0 0;padding:4px 10px 4px 4px;flex:none}
+  .tenant-sw .txt{display:none}
+  .side button{flex:none}
+  .adm-main{padding:16px}
+  .pos-body{grid-template-columns:minmax(0,1fr)}
+  .set-grid,.plat-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:600px){
+  .topbar-in{gap:10px}
+  .seg{order:3;flex-basis:100%;max-width:100%;margin:0}
+  .seg button{padding:7px 10px;font-size:12.5px}
+  .kpis,.set-grid,.form-grid,.plat-kpis,.preset-grid{grid-template-columns:minmax(0,1fr)}
+  .sector-pick{grid-template-columns:1fr 1fr}
+  .phone{height:720px;border-radius:40px;padding:8px}
+  .phone-screen{border-radius:32px}
+  .tablet{padding:8px;border-radius:22px}
+  .tablet-screen{border-radius:16px}
+  .pos-amount .v{font-size:36px}
+  .keypad button{height:54px}
+  .appr{grid-template-columns:minmax(0,1fr)}
+  .search .input{width:100%}
+  .search{flex:1 1 100%}
+  .theme-btn .lbl{display:none}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important}
+}
+</style>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <div class="brandmark">
+      <div class="logo">CLW</div>
+      <div>AEP-CLW<small>Closed-Loop Wallet · Prototip v0.9</small></div>
+    </div>
+    <nav class="seg" role="tablist" aria-label="Ürün yüzeyleri" id="viewTabs"></nav>
+    <button class="theme-btn" id="themeBtn" data-act="theme" aria-label="Tema değiştir"></button>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="view-mobile" data-view="mobile"></section>
+  <section id="view-admin" data-view="admin" hidden></section>
+  <section id="view-pos" data-view="pos" hidden></section>
+  <section id="view-platform" data-view="platform" hidden></section>
+</main>
+
+<div class="modal-bg" id="modalBg" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-h"><h3 id="modalTitle"></h3><button class="icon-btn" data-act="closeModal" aria-label="Kapat" id="modalX"></button></div>
+    <div class="modal-b" id="modalBody"></div>
+    <div class="modal-f" id="modalFoot"></div>
+  </div>
+</div>
+<div id="toasts" aria-live="polite"></div>
+
+<script>
+(() => {
+'use strict';
+
+/* =========================================================
+   Helpers
+   ========================================================= */
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const tl = n => '₺' + Number(n).toLocaleString('tr-TR', {minimumFractionDigits:2, maximumFractionDigits:2});
+const tl0 = n => '₺' + Math.round(n).toLocaleString('tr-TR');
+const nf = (n, d = 0) => Number(n).toLocaleString('tr-TR', {minimumFractionDigits:d, maximumFractionDigits:d});
+const signed = n => (n > 0 ? '+' : n < 0 ? '−' : '') + tl(Math.abs(n));
+const initials = name => name.split(' ').map(p => p[0]).slice(0, 2).join('');
+const maskName = name => name.split(' ').map(p => p[0] + '*'.repeat(Math.max(2, p.length - 1))).join(' ');
+function rng(seed){ return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+const hex = (r, n) => Array.from({length:n}, () => '0123456789abcdef'[Math.floor(r() * 16)]).join('');
+
+const IC = {
+  home:'<path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/>',
+  qr:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v.01M14 20.5h.01M17 17h4v4h-4z"/>',
+  plus:'<path d="M12 5v14M5 12h14"/>',
+  wallet:'<path d="M3 7a2 2 0 0 1 2-2h13v4"/><path d="M3 7v11a2 2 0 0 0 2 2h15V9H5a2 2 0 0 1-2-2z"/><circle cx="16" cy="14.5" r="1.2"/>',
+  list:'<path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/>',
+  gift:'<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M5 12v9h14v-9"/><path d="M12 8S10.5 3.2 8 3.6 7.2 8 12 8zm0 0s1.5-4.8 4-4.4S16.8 8 12 8z"/>',
+  user:'<circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/>',
+  bolt:'<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>',
+  car:'<path d="M5 17h14v-5l-2-5H7l-2 5z"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/><path d="M5 12h14"/>',
+  ticket:'<path d="M3 8a2 2 0 0 0 2-2h14a2 2 0 0 0 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 0-2 2H5a2 2 0 0 0-2-2v-2a2 2 0 0 0 0-4z"/><path d="M13 7v10" stroke-dasharray="2 2.2"/>',
+  cup:'<path d="M4 8h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 2.5v3M12 2.5v3"/>',
+  chart:'<path d="M3 3v18h18"/><path d="m7 15 4-5 3 3 5-7"/>',
+  users:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c1-3.5 3.5-5 6.5-5s5.5 1.5 6.5 5"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 15c2 .6 3.2 2.2 3.8 5"/>',
+  receipt:'<path d="M5 3h14v18l-3-2-2 2-2-2-2 2-2-2-3 2z"/><path d="M9 8h6M9 12h6"/>',
+  store:'<path d="M3 9 5 4h14l2 5"/><path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/><path d="M5 11v10h14V11"/><path d="M10 21v-5h4v5"/>',
+  megaphone:'<path d="M3 10v4a1 1 0 0 0 1 1h3l8 5V4L7 9H4a1 1 0 0 0-1 1z"/><path d="M19 8a5 5 0 0 1 0 8"/>',
+  file:'<path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/>',
+  book:'<path d="M4 4h6a3 3 0 0 1 2 1 3 3 0 0 1 2-1h6v15h-6a2 2 0 0 0-2 2 2 2 0 0 0-2-2H4z"/><path d="M12 5v16"/>',
+  shield:'<path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/>',
+  audit:'<circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M8 9h6M8 12h6M8 15h3"/>',
+  check:'<path d="m5 12.5 4.5 4.5L19 7"/>',
+  checkc:'<circle cx="12" cy="12" r="9"/><path d="m8 12.5 3 3 5-6"/>',
+  inbox:'<path d="M3 13h5l1.5 3h5L16 13h5"/><path d="M5.5 5h13l2.5 8v6H3v-6z"/>',
+  sliders:'<path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/>',
+  building:'<path d="M4 21V5l8-3v19M12 8h8v13M8 8v.01M8 12v.01M8 16v.01M16 12v.01M16 16v.01M2 21h20"/>',
+  server:'<rect x="3" y="4" width="18" height="7" rx="1.5"/><rect x="3" y="13" width="18" height="7" rx="1.5"/><path d="M7 7.5h.01M7 16.5h.01"/>',
+  up:'<path d="M12 19V5M5 12l7-7 7 7"/>',
+  down:'<path d="M12 5v14M5 12l7 7 7-7"/>',
+  refund:'<path d="M9 14 4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 0 10h-3"/>',
+  card:'<rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M2.5 10h19M6 15h4"/>',
+  sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+  moon:'<path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/>',
+  auto:'<circle cx="12" cy="12" r="9"/><path d="M12 3v18a9 9 0 0 0 0-18z" fill="currentColor"/>',
+  x:'<path d="M6 6l12 12M18 6 6 18"/>',
+  chevR:'<path d="m9 6 6 6-6 6"/>',
+  chevL:'<path d="m15 6-6 6 6 6"/>',
+  lock:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>',
+  unlock:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.5-2"/>',
+  phone:'<rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 18.5h2"/>',
+  tablet:'<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M11 18h2"/>',
+  star:'<path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/>',
+  scan:'<path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3M4 12h16"/>',
+  download:'<path d="M12 4v11M7 10l5 5 5-5M5 20h14"/>',
+  search:'<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>',
+  pos:'<rect x="5" y="2.5" width="14" height="19" rx="2"/><rect x="8" y="5.5" width="8" height="5" rx=".5"/><path d="M9 14h.01M12 14h.01M15 14h.01M9 17h.01M12 17h.01M15 17h.01"/>',
+  layers:'<path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/>',
+  monitor:'<rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/>',
+  clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  alert:'<path d="M12 3.5 2.5 20h19z"/><path d="M12 10v4M12 17h.01"/>',
+  link:'<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
+  back:'<path d="M9 14 4 9l5-5"/><path d="M4 9h16"/>',
+  info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/>',
+  refresh:'<path d="M20 11a8 8 0 0 0-14.9-3M4 5v4h4"/><path d="M4 13a8 8 0 0 0 14.9 3M20 19v-4h-4"/>',
+  family:'<circle cx="8" cy="6" r="2.5"/><circle cx="16" cy="6" r="2.5"/><circle cx="12" cy="13" r="2"/><path d="M4 21v-6a4 4 0 0 1 8-1 4 4 0 0 1 8 1v6M10 21v-3a2 2 0 0 1 4 0v3"/>',
+  sparkle:'<path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/>'
+};
+const icon = (n, s = 18, w = 1.8) => `<svg class="ic" width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[n] || ''}</svg>`;
+
+/* =========================================================
+   Toast & Modal
+   ========================================================= */
+function toast(msg, kind = 'ok'){
+  const el = document.createElement('div');
+  el.className = 'toast ' + kind;
+  el.innerHTML = icon(kind === 'err' ? 'alert' : kind === 'info' ? 'info' : 'checkc', 18) + `<div>${msg}</div>`;
+  $('#toasts').appendChild(el);
+  setTimeout(() => el.remove(), 4200);
+}
+let modalCtx = null;
+function openModal({title, body, actions = [], ctx = null}){
+  modalCtx = ctx;
+  $('#modalTitle').textContent = title;
+  $('#modalBody').innerHTML = body;
+  $('#modalFoot').innerHTML = actions.map(a => `<button class="btn ${a.cls || ''}" data-act="${a.act}" ${a.arg ? `data-arg="${a.arg}"` : ''}>${a.label}</button>`).join('');
+  $('#modalBg').hidden = false;
+  const f = $('#modalBody input, #modalBody select, #modalBody button') || $('#modalFoot .btn:last-child');
+  f && f.focus();
+}
+function closeModal(){ $('#modalBg').hidden = true; modalCtx = null; }
+
+/* =========================================================
+   DATA — Customer mobile (per tenant/sector)
+   ========================================================= */
+const DAY = d => d === 0 ? 'Bugün' : d === 1 ? 'Dün' : `${25 - d} Eylül`;
+const USER = {name:'Elif Yıldırım', phone:'+90 532 *** ** 47', email:'e***@posta.com.tr'};
+
+const SECTORS = {
+  coffee:{
+    name:'Kahve Durağı', letter:'K', color:'#7B4B2A', label:'Kahve zinciri', icon:'cup',
+    main:486.50, bonus:42.00, loyalty:{unit:'yıldız', cur:38, target:50, tier:'Yeşil Üye', next:'Altın Üye'},
+    payAmount:87.50, payDesc:'Latte (Grande) + Su', payStore:'Kahve Durağı — Kadıköy Moda', earn:'+3 yıldız',
+    txs:[
+      {d:0,t:'08:14',title:'Latte (Grande) + Kruvasan',sub:'Kadıköy Moda',type:'spend',amt:-142.50},
+      {d:0,t:'07:58',title:'Kart ile yükleme',sub:'Kayıtlı kart •••• 4821',type:'topup',amt:250},
+      {d:1,t:'16:42',title:'Filtre Kahve',sub:'Nişantaşı',type:'spend',amt:-68.00},
+      {d:1,t:'16:42',title:'Yıldız ödülü — bonus bakiye',sub:'Sadakat programı',type:'bonus',amt:15.00},
+      {d:2,t:'12:10',title:'İade — Soğuk Brew',sub:'Ataşehir · hatalı sipariş',type:'refund',amt:74.00},
+      {d:2,t:'12:02',title:'Soğuk Brew (Venti)',sub:'Ataşehir',type:'spend',amt:-74.00},
+      {d:4,t:'09:30',title:'Otomatik yükleme',sub:'Bakiye ₺100 altına düştü',type:'topup',amt:500},
+      {d:5,t:'15:20',title:'Mocha + Cheesecake',sub:'Karşıyaka',type:'spend',amt:-189.00}
+    ],
+    campaigns:[
+      {tag:'Bonus',title:'Sabah kahvesi %20 bonus',desc:'09:00 öncesi alışverişlerde tutarın %20’si bonus bakiye olarak cüzdanına.',until:'30 Eylül',joined:true},
+      {tag:'Yükleme',title:'₺500 yükle, ₺50 bonus kazan',desc:'Tek seferde ₺500 ve üzeri yüklemelerde anında ₺50 bonus bakiye.',until:'15 Ekim',joined:false},
+      {tag:'Yıldız',title:'3 içecek al, 15 yıldız hediye',desc:'Hafta içi 3 içecek alışverişine 15 yıldız — Altın Üye’ye hızlı geçiş.',until:'31 Ekim',joined:false}
+    ],
+    coupons:[{title:'Kruvasan ₺20 indirim',code:'KDURAK-EKIM',until:'31 Ekim'},{title:'Doğum günü içeceği',code:'DG-2026-EY',until:'12 Kasım'}]
+  },
+  ev:{
+    name:'VoltGo Şarj', letter:'V', color:'#0B7A55', label:'EV şarj ağı', icon:'bolt',
+    main:1240.00, bonus:60.00, loyalty:{unit:'puan', cur:1820, target:2500, tier:'Gümüş Sürücü', next:'Altın Sürücü'},
+    payAmount:192.24, payDesc:'DC Hızlı Şarj · 21,6 kWh', payStore:'VoltGo — Maslak DC-04', earn:'+192 puan',
+    special:{station:'VoltGo Maslak · DC-04 (120 kW)', kwh:12.4, hold:400, rate:8.90, mins:14},
+    txs:[
+      {d:0,t:'09:02',title:'Şarj provizyonu (hold)',sub:'Maslak DC-04 · aktif oturum',type:'hold',amt:-400},
+      {d:1,t:'19:44',title:'DC Hızlı Şarj · 34,2 kWh',sub:'Ataşehir DC-02',type:'spend',amt:-304.38},
+      {d:1,t:'19:44',title:'Provizyon çözüldü',sub:'Ataşehir DC-02 · ₺95,62 iade',type:'refund',amt:95.62},
+      {d:2,t:'08:15',title:'Kart ile yükleme',sub:'Kayıtlı kart •••• 4821',type:'topup',amt:1000},
+      {d:3,t:'22:30',title:'AC Şarj · 18,0 kWh',sub:'Kadıköy AC-11',type:'spend',amt:-124.20},
+      {d:5,t:'13:05',title:'Hatalı oturum iadesi',sub:'Levent DC-01',type:'refund',amt:42.00}
+    ],
+    campaigns:[
+      {tag:'Gece tarifesi',title:'00:00–06:00 arası kWh başına ₺1 indirim',desc:'Gece şarjında otomatik indirim; provizyon tutarı değişmez.',until:'31 Aralık',joined:true},
+      {tag:'Puan',title:'İlk 5 DC şarja 2x puan',desc:'Bu ay yaptığın ilk 5 DC hızlı şarj oturumunda çift puan.',until:'30 Eylül',joined:false},
+      {tag:'Filo',title:'Aylık ₺2.000 yükle, ₺150 bonus',desc:'Kurumsal filo sürücülerine özel yükleme bonusu.',until:'31 Ekim',joined:false}
+    ],
+    coupons:[{title:'Bir sonraki DC şarjda ₺30 indirim',code:'VOLT-30',until:'10 Ekim'}]
+  },
+  parking:{
+    name:'ParkPlus', letter:'P', color:'#2356B8', label:'Otopark işletmesi', icon:'car',
+    main:356.75, bonus:25.00, loyalty:{unit:'puan', cur:640, target:1000, tier:'Standart', next:'Premium'},
+    payAmount:110.00, payDesc:'Otopark · 2 sa 40 dk', payStore:'ParkPlus — Levent Kapalı', earn:'+110 puan',
+    special:{plate:'34 ABC 123', lot:'ParkPlus Levent Kapalı Otopark · Kat −2', entry:'09:12', mins:47, est:60, hold:250},
+    txs:[
+      {d:0,t:'09:12',title:'Giriş provizyonu',sub:'Levent Kapalı · 34 ABC 123',type:'hold',amt:-250},
+      {d:1,t:'18:40',title:'Otopark · 2 sa 40 dk',sub:'Kadıköy İskele',type:'spend',amt:-110.00},
+      {d:1,t:'18:40',title:'Provizyon çözüldü',sub:'Kadıköy İskele',type:'refund',amt:140.00},
+      {d:3,t:'10:05',title:'Kart ile yükleme',sub:'Kayıtlı kart •••• 4821',type:'topup',amt:250},
+      {d:4,t:'14:22',title:'Otopark · 55 dk',sub:'Nişantaşı AVM',type:'spend',amt:-60.00},
+      {d:6,t:'09:00',title:'Sadakat bonusu',sub:'10. giriş ödülü',type:'bonus',amt:25.00}
+    ],
+    campaigns:[
+      {tag:'Abonelik',title:'Aylık abonelikte %15 indirim',desc:'Levent Kapalı otoparkta aylık abonelik cüzdandan ödenirse %15 indirim.',until:'31 Ekim',joined:false},
+      {tag:'Hafta sonu',title:'Hafta sonu ilk saat ücretsiz',desc:'Cumartesi–Pazar girişlerinde ilk 60 dakika ücretsiz.',until:'30 Kasım',joined:true}
+    ],
+    coupons:[{title:'Vale hizmetinde ₺40 indirim',code:'VALE-40',until:'15 Ekim'}]
+  },
+  park:{
+    name:'FunLand', letter:'F', color:'#B8336A', label:'Eğlence parkı', icon:'ticket',
+    main:850.00, bonus:120.00, loyalty:{unit:'bilet puanı', cur:2340, target:3000, tier:'Aile Gold', next:'Aile Platin'},
+    payAmount:180.00, payDesc:'Roller Coaster × 2', payStore:'FunLand — Macera Bölgesi', earn:'+180 puan',
+    special:{kids:[{name:'Deniz',age:10,bal:180,limit:250,used:70},{name:'Ada',age:7,bal:95,limit:150,used:55}]},
+    txs:[
+      {d:0,t:'11:20',title:'Roller Coaster × 2',sub:'Macera Bölgesi',type:'spend',amt:-180.00},
+      {d:0,t:'11:05',title:'Alt cüzdana aktarım — Deniz',sub:'Aile cüzdanı',type:'spend',amt:-100.00},
+      {d:0,t:'10:40',title:'Pamuk şeker + Limonata',sub:'Yiyecek Meydanı',type:'spend',amt:-95.00},
+      {d:0,t:'10:02',title:'Kart ile yükleme',sub:'Kayıtlı kart •••• 4821',type:'topup',amt:1000},
+      {d:8,t:'16:30',title:'Doğum günü paketi bonusu',sub:'Kampanya',type:'bonus',amt:120.00}
+    ],
+    campaigns:[
+      {tag:'Aile',title:'4 kişilik aile paketi ₺200 bonus',desc:'₺1.500 ve üzeri yüklemede tüm aile için ₺200 bonus bakiye.',until:'31 Ekim',joined:true},
+      {tag:'Oyun',title:'Oyun salonu jetonlarına %25 ek',desc:'Oyun salonu harcamalarında %25 ek jeton kredisi.',until:'15 Ekim',joined:false}
+    ],
+    coupons:[{title:'Dondurma 1 alana 1 bedava',code:'FUN-DONDURMA',until:'30 Eylül'}]
+  }
+};
+Object.values(SECTORS).forEach(s => { s._base = {main:s.main, bonus:s.bonus, txs:s.txs.slice()}; });
+
+const mob = {sector:'coffee', screen:'home', topAmt:500, autoTop:true, autoThr:100, txFilter:'all', payState:'qr', topState:'form', qrLeft:30, qrSeed:7, bonusFirst:true, consent:{mkt:true, loc:false, kvkk:true}};
+
+/* =========================================================
+   DATA — Tenant admin (Kahve Durağı)
+   ========================================================= */
+const ME = {name:'Zeynep Kaya', role:'Finans Yöneticisi'};
+const KYC = ['Seviye 0 · Anonim','Seviye 1 · Temel','Seviye 2 · Doğrulanmış'];
+const KYC_LIMIT = [750, 5000, 25000];
+
+const CUSTOMERS = [
+  {id:'CUS-100482',name:'Elif Yıldırım',phone:'+90 532 *** ** 47',kyc:2,bal:486.50,bonus:42.00,gift:0,status:'Aktif',last:'Bugün 08:14',city:'İstanbul',since:'Mart 2024',risk:12,tx30:23},
+  {id:'CUS-100517',name:'Mehmet Demir',phone:'+90 505 *** ** 12',kyc:1,bal:1250.00,bonus:0,gift:250,status:'Aktif',last:'Bugün 07:52',city:'Ankara',since:'Ocak 2025',risk:18,tx30:11},
+  {id:'CUS-100623',name:'Ayşe Kaya',phone:'+90 542 *** ** 88',kyc:2,bal:3120.40,bonus:15.00,gift:0,status:'İncelemede',last:'Bugün 06:31',city:'İzmir',since:'Haziran 2023',risk:71,tx30:64},
+  {id:'CUS-100701',name:'Burak Şahin',phone:'+90 555 *** ** 03',kyc:0,bal:95.00,bonus:0,gift:0,status:'Aktif',last:'Dün 21:10',city:'Bursa',since:'Eylül 2026',risk:22,tx30:3},
+  {id:'CUS-100744',name:'Zeynep Arslan',phone:'+90 533 *** ** 61',kyc:2,bal:742.10,bonus:30.00,gift:100,status:'Aktif',last:'Dün 18:45',city:'İstanbul',since:'Kasım 2024',risk:9,tx30:31},
+  {id:'CUS-100812',name:'Emre Çelik',phone:'+90 507 *** ** 29',kyc:1,bal:18.75,bonus:0,gift:0,status:'Bloke',last:'22 Eylül',city:'Antalya',since:'Şubat 2026',risk:88,tx30:42},
+  {id:'CUS-100856',name:'Selin Koç',phone:'+90 536 *** ** 74',kyc:2,bal:2210.00,bonus:55.00,gift:0,status:'Aktif',last:'Dün 09:02',city:'Ankara',since:'Nisan 2024',risk:15,tx30:19},
+  {id:'CUS-100903',name:'Can Öztürk',phone:'+90 544 *** ** 16',kyc:1,bal:410.30,bonus:12.00,gift:0,status:'Aktif',last:'23 Eylül',city:'Eskişehir',since:'Temmuz 2025',risk:27,tx30:8},
+  {id:'CUS-100947',name:'Deniz Aydın',phone:'+90 552 *** ** 90',kyc:0,bal:60.00,bonus:0,gift:0,status:'Aktif',last:'21 Eylül',city:'İstanbul',since:'Eylül 2026',risk:14,tx30:2},
+  {id:'CUS-101002',name:'Hakan Yılmaz',phone:'+90 530 *** ** 55',kyc:2,bal:5480.00,bonus:0,gift:500,status:'İncelemede',last:'Bugün 05:48',city:'Kocaeli',since:'Ağustos 2025',risk:64,tx30:37}
+];
+
+const ADMIN_TX = [
+  {id:'TX-8F21A7',time:'25.09 08:14:22',cust:'Elif Yıldırım',store:'Kadıköy Moda',term:'T-0142',type:'Harcama',ch:'Müşteri QR',amt:-142.50,st:'Başarılı'},
+  {id:'TX-8F21A2',time:'25.09 08:12:05',cust:'Selin Koç',store:'Çankaya Tunalı',term:'T-0311',type:'Harcama',ch:'NFC/HCE',amt:-96.00,st:'Başarılı'},
+  {id:'TX-8F2199',time:'25.09 08:09:41',cust:'Hakan Yılmaz',store:'—',term:'—',type:'Yükleme',ch:'Kart (3DS)',amt:2500,st:'Beklemede'},
+  {id:'TX-8F2190',time:'25.09 08:07:13',cust:'Mehmet Demir',store:'Nişantaşı',term:'T-0205',type:'Harcama',ch:'Müşteri QR',amt:-88.00,st:'Başarılı'},
+  {id:'TX-8F2188',time:'25.09 08:05:59',cust:'Ayşe Kaya',store:'—',term:'—',type:'Yükleme',ch:'Kart (3DS)',amt:1000,st:'Başarısız'},
+  {id:'TX-8F2181',time:'25.09 08:01:30',cust:'Zeynep Arslan',store:'Ataşehir',term:'T-0418',type:'İade',ch:'Web POS',amt:74.00,st:'İade'},
+  {id:'TX-8F2177',time:'25.09 07:58:02',cust:'Elif Yıldırım',store:'—',term:'—',type:'Yükleme',ch:'Kayıtlı kart',amt:250,st:'Başarılı'},
+  {id:'TX-8F2170',time:'25.09 07:55:48',cust:'Can Öztürk',store:'Karşıyaka',term:'T-0520',type:'Harcama',ch:'Barkod',amt:-61.50,st:'Başarılı'},
+  {id:'TX-8F2164',time:'25.09 07:52:10',cust:'Mehmet Demir',store:'—',term:'—',type:'Yükleme',ch:'Havale/EFT',amt:1250,st:'Başarılı'},
+  {id:'TX-8F215B',time:'25.09 07:49:33',cust:'Burak Şahin',store:'Kadıköy Moda',term:'T-0143',type:'Harcama',ch:'Müşteri QR',amt:-54.00,st:'Başarılı'},
+  {id:'TX-8F2150',time:'25.09 07:46:12',cust:'Emre Çelik',store:'—',term:'—',type:'Yükleme',ch:'Kart (3DS)',amt:500,st:'Başarısız'},
+  {id:'TX-8F2149',time:'25.09 07:41:57',cust:'Selin Koç',store:'—',term:'—',type:'Bonus',ch:'Kampanya motoru',amt:19.20,st:'Başarılı'},
+  {id:'TX-8F2141',time:'25.09 07:39:20',cust:'Deniz Aydın',store:'Ataşehir',term:'T-0418',type:'Harcama',ch:'Müşteri QR',amt:-60.00,st:'Beklemede'},
+  {id:'TX-8F2135',time:'25.09 07:35:04',cust:'Zeynep Arslan',store:'Nişantaşı',term:'T-0206',type:'Harcama',ch:'NFC/HCE',amt:-118.00,st:'Başarılı'}
+];
+
+const TOP_STORES = [
+  {name:'Kadıköy Moda',city:'İstanbul',tx:3842,rev:318420,basket:82.88,delta:6.4},
+  {name:'Nişantaşı',city:'İstanbul',tx:3310,rev:301905,basket:91.21,delta:3.1},
+  {name:'Çankaya Tunalı',city:'Ankara',tx:2968,rev:232140,basket:78.21,delta:-1.8},
+  {name:'Karşıyaka',city:'İzmir',tx:2511,rev:188325,basket:75.00,delta:4.9},
+  {name:'Ataşehir',city:'İstanbul',tx:2204,rev:176320,basket:80.00,delta:-0.6}
+];
+
+const MERCHANTS = [
+  {name:'Kahve Durağı Gıda A.Ş.',kind:'Merkez · şirket mağazaları',vkn:'482 019 7731',iban:'TR** **** **** **** **** 4410',stores:[
+    {name:'Kadıköy Moda',city:'İstanbul',rev:11820,terms:[['T-0142','Web POS',1],['T-0143','Android POS SDK',1]]},
+    {name:'Nişantaşı',city:'İstanbul',rev:10940,terms:[['T-0205','Android POS SDK',1],['T-0206','Android POS SDK',1],['T-0207','Web POS',0]]},
+    {name:'Ataşehir',city:'İstanbul',rev:6210,terms:[['T-0418','Web POS',1]]},
+    {name:'Çankaya Tunalı',city:'Ankara',rev:8730,terms:[['T-0311','Android POS SDK',1],['T-0312','Web POS',1]]}
+  ]},
+  {name:'Ege Kahve Franchise Ltd. Şti.',kind:'Franchise · komisyon %2,5',vkn:'731 552 0914',iban:'TR** **** **** **** **** 8823',stores:[
+    {name:'Karşıyaka',city:'İzmir',rev:7015,terms:[['T-0520','Android POS SDK',1],['T-0521','Web POS',1]]},
+    {name:'Alsancak',city:'İzmir',rev:5480,terms:[['T-0530','Web POS',1]]},
+    {name:'Bornova Kampüs',city:'İzmir',rev:3120,terms:[['T-0540','Web POS',0]]}
+  ]}
+];
+
+const CAMPAIGNS = [
+  {name:'Sabah kahvesi %20 bonus',type:'Cashback (bonus bakiye)',period:'01.09 – 30.09',budget:250000,used:171400,part:18420,st:'Yayında',rule:'saat < 09:00 ∧ kanal ∈ {QR, NFC} → %20 bonus, üst limit ₺30/gün'},
+  {name:'₺500 yükle, ₺50 bonus',type:'Yükleme bonusu',period:'15.09 – 15.10',budget:400000,used:96350,part:1927,st:'Yayında',rule:'yükleme ≥ ₺500 → ₺50 bonus, müşteri başına 2 kez'},
+  {name:'3 içecek al, 15 yıldız',type:'Sadakat kuralı',period:'01.10 – 31.10',budget:120000,used:0,part:0,st:'Planlandı',rule:'hafta içi, 7 gün içinde 3 içecek → +15 yıldız'},
+  {name:'Doğum günü içeceği',type:'Kupon',period:'Sürekli',budget:90000,used:61210,part:4410,st:'Yayında',rule:'doğum günü ±3 gün → ücretsiz içecek kuponu (tek kullanımlık)'},
+  {name:'Yaz serinliği Soğuk Brew',type:'İndirim',period:'01.07 – 31.08',budget:180000,used:177940,part:22350,st:'Tamamlandı',rule:'ürün ∈ Soğuk içecekler → %15 indirim'}
+];
+
+const REPORTS = [
+  {ic:'chart',name:'Günlük Özet',desc:'Yükleme, harcama, iade, bonus ve açılış/kapanış bakiyeleri; kanal ve mağaza kırılımı.',freq:'Günlük 06:00',fmts:['PDF','XLSX'],tag:'Operasyon'},
+  {ic:'wallet',name:'Yükümlülük (Float) Raporu',desc:'Müşteri fonları yükümlülüğü, teminat/emanet hesabı karşılığı ve gün sonu mutabakatı.',freq:'Günlük',fmts:['PDF','XLSX','CSV'],tag:'Finans · 6493'},
+  {ic:'refresh',name:'PSP / Banka Mutabakatı',desc:'PSP takas dosyası ile defter kayıtlarının eşleşmesi; istisna ve açık kalem listesi.',freq:'Günlük 04:00',fmts:['XLSX','CSV'],tag:'Mutabakat'},
+  {ic:'store',name:'İşyeri Takas Raporu',desc:'İşyeri/mağaza bazında brüt ciro, komisyon, net ödeme ve valör tarihleri.',freq:'Haftalık',fmts:['PDF','XLSX'],tag:'Takas'},
+  {ic:'clock',name:'Breakage & Ertelenmiş Gelir',desc:'Hareketsiz bakiye yaşlandırma, tahmini breakage oranı ve gelir tanıma (TFRS 15).',freq:'Aylık',fmts:['XLSX','PDF'],tag:'Muhasebe'},
+  {ic:'lock',name:'KVKK Veri Talepleri',desc:'İlgili kişi başvuruları, silme/anonimleştirme kayıtları, açık rıza değişimleri.',freq:'Aylık',fmts:['PDF'],tag:'KVKK'},
+  {ic:'shield',name:'MASAK Şüpheli İşlem (STR)',desc:'Şüpheli işlem bildirim taslakları, gönderim durumu ve eşik aşımı özetleri.',freq:'Talep üzerine',fmts:['XML','PDF'],tag:'MASAK'},
+  {ic:'alert',name:'Limit Aşım & Red Raporu',desc:'KYC seviyesine göre limit aşımı nedeniyle reddedilen işlemler ve müşteri dağılımı.',freq:'Haftalık',fmts:['XLSX','CSV'],tag:'Uyum'}
+];
+
+const GL_MAP = [
+  {ev:'Kartla yükleme (PSP)',dr:'108.01 PSP Alacakları',cr:'340.01 Müşteri Fonları Yükümlülüğü',note:'PSP komisyonu ayrı satır'},
+  {ev:'Harcama (capture)',dr:'340.01 Müşteri Fonları Yükümlülüğü',cr:'600.01 Yurtiçi Satışlar / 391 KDV',note:'Mağaza boyutu ile'},
+  {ev:'İade (refund)',dr:'610.01 Satıştan İadeler',cr:'340.01 Müşteri Fonları Yükümlülüğü',note:'Orijinal işleme bağlı'},
+  {ev:'Bonus tanımlama',dr:'760.01 Pazarlama Gideri',cr:'340.02 Bonus Bakiye Yükümlülüğü',note:'Kampanya kodu boyutu'},
+  {ev:'Breakage tanıma',dr:'340.01 Müşteri Fonları Yükümlülüğü',cr:'649.01 Breakage Geliri',note:'Aylık, oran bazlı'},
+  {ev:'PSP takası',dr:'102.03 Emanet Banka Hesabı',cr:'108.01 PSP Alacakları',note:'Valör T+1'},
+  {ev:'Franchise komisyonu',dr:'120.05 Franchise Alacakları',cr:'602.01 Komisyon Gelirleri',note:'%2,5'}
+];
+
+const JOURNAL = [
+  {no:'YV-2026-0925-00412',acc:'108.01 PSP Alacakları',dr:250.00,cr:0},
+  {no:'',acc:'653.01 PSP Komisyon Gideri',dr:0,cr:0,skip:true},
+  {no:'',acc:'340.01 Müşteri Fonları Yükümlülüğü',dr:0,cr:250.00},
+  {no:'YV-2026-0925-00413',acc:'340.01 Müşteri Fonları Yükümlülüğü',dr:142.50,cr:0},
+  {no:'',acc:'600.01 Yurtiçi Satışlar',dr:0,cr:131.94},
+  {no:'',acc:'391.01 Hesaplanan KDV (%8)',dr:0,cr:10.56}
+].filter(j => !j.skip);
+
+const ALERTS = [
+  {id:'ALR-5521',score:91,rule:'AML-07 · Parçalı yükleme (structuring): 24 saatte 9 × ₺950',cust:'Emre Çelik',amt:8550,time:'08:02',st:'Yeni'},
+  {id:'ALR-5519',score:78,rule:'VEL-03 · 10 dakikada 5+ yükleme denemesi',cust:'Ayşe Kaya',amt:5000,time:'06:34',st:'İnceleniyor'},
+  {id:'ALR-5514',score:66,rule:'DEV-02 · Yeni cihaz + yüksek tutarlı yükleme',cust:'Hakan Yılmaz',amt:2500,time:'05:50',st:'Yeni'},
+  {id:'ALR-5508',score:54,rule:'CARD-04 · 24 saatte 3 farklı kartla yükleme',cust:'Burak Şahin',amt:900,time:'Dün 23:12',st:'İnceleniyor'},
+  {id:'ALR-5497',score:38,rule:'GEO-01 · Yurt dışı IP ile oturum açma',cust:'Selin Koç',amt:0,time:'Dün 17:40',st:'Kapatıldı'}
+];
+const AML = [
+  {cust:'Hakan Yılmaz',list:'PEP (yerel)',match:82,res:'Olası eşleşme',time:'25.09 05:49'},
+  {cust:'Emre Çelik',list:'MASAK iç liste',match:0,res:'Temiz',time:'25.09 08:01'},
+  {cust:'Ayşe Kaya',list:'BM · AB · OFAC yaptırım',match:61,res:'Yanlış pozitif',time:'24.09 11:20'},
+  {cust:'Burak Şahin',list:'BM · AB · OFAC yaptırım',match:0,res:'Temiz',time:'24.09 21:10'}
+];
+
+const r0 = rng(99);
+const AUDIT = [
+  {time:'25.09.2026 08:21:04',user:'zeynep.kaya',role:'Finans Yön.',act:'Limit güncelleme talebi',ent:'tenant.limits.dailySpend',old:'₺10.000',nw:'₺12.500'},
+  {time:'25.09.2026 08:03:47',user:'mert.aydin',role:'Operasyon',act:'Müşteri bloke',ent:'customer/CUS-100812',old:'Aktif',nw:'Bloke'},
+  {time:'25.09.2026 07:55:12',user:'system/risk',role:'Servis',act:'Alarm oluşturuldu',ent:'alert/ALR-5521',old:'—',nw:'Yeni (skor 91)'},
+  {time:'24.09.2026 18:32:09',user:'selin.ozturk',role:'Pazarlama',act:'Kampanya yayına alındı',ent:'campaign/₺500 yükle ₺50 bonus',old:'Taslak',nw:'Yayında'},
+  {time:'24.09.2026 17:10:55',user:'ali.demirtas',role:'Uyum',act:'AML sonucu işaretlendi',ent:'screening/Ayşe Kaya',old:'Olası eşleşme',nw:'Yanlış pozitif'},
+  {time:'24.09.2026 15:44:30',user:'zeynep.kaya',role:'Finans Yön.',act:'Yevmiye export',ent:'accounting/export 23.09',old:'—',nw:'Logo Tiger · 1.842 satır'},
+  {time:'24.09.2026 11:02:18',user:'mert.aydin',role:'Operasyon',act:'Terminal devre dışı',ent:'terminal/T-0207',old:'Çevrimiçi',nw:'Pasif'},
+  {time:'23.09.2026 09:15:41',user:'burcu.tan',role:'Yönetici',act:'Rol ataması',ent:'user/selin.ozturk',old:'Görüntüleyici',nw:'Pazarlama'}
+].map(a => ({...a, hash:hex(r0, 64)}));
+
+const APPROVALS = [
+  {id:'APR-2291',title:'Günlük harcama limiti artışı (Seviye 2)',maker:'Zeynep Kaya',when:'Bugün 08:21',kind:'Ayar',old:'₺10.000',nw:'₺12.500',note:'Pik saat şikayetleri; risk ekibi görüşü olumlu.'},
+  {id:'APR-2290',title:'Manuel bakiye düzeltme — CUS-100623',maker:'Mert Aydın',when:'Bugün 07:40',kind:'Finansal',old:'₺3.120,40',nw:'₺3.194,40',note:'Çift iade hatası telafisi · Talep #CS-44120'},
+  {id:'APR-2288',title:'Yeni kampanya: "3 içecek al, 15 yıldız"',maker:'Selin Öztürk',when:'Dün 18:05',kind:'Kampanya',old:'Taslak',nw:'Planlandı (01.10)',note:'Bütçe ₺120.000'},
+  {id:'APR-2285',title:'İşyeri IBAN değişikliği — Ege Kahve Franchise',maker:'Mert Aydın',when:'Dün 14:30',kind:'Takas',old:'TR…8823',nw:'TR…1907',note:'Banka yazısı ekte (PDF, SHA-256 kayıtlı)'}
+];
+
+const SETTINGS = {
+  currency:'TRY', lang:'tr-TR', tz:'Europe/Istanbul',
+  limits:[{k:'Seviye 0 maks. bakiye',v:750},{k:'Seviye 1 maks. bakiye',v:5000},{k:'Seviye 2 maks. bakiye',v:25000},{k:'Günlük harcama (Seviye 2)',v:10000}],
+  fees:[{k:'Kartla yükleme ücreti (müşteriye)',v:'%0'},{k:'Franchise takas komisyonu',v:'%2,5'},{k:'Hareketsizlik ücreti (12 ay)',v:'Yok'},{k:'Bakiye son kullanma',v:'Yok (breakage 36 ay)'}],
+  brand:'#7B4B2A',
+  flags:[
+    {k:'autoTopup',n:'Otomatik yükleme',d:'Eşik altına düşünce kayıtlı karttan yükleme',on:true},
+    {k:'family',n:'Aile alt cüzdanları',d:'Ebeveyn kontrollü alt cüzdan ve limitler',on:false},
+    {k:'gift',n:'Hediye kartı',d:'Dijital hediye kartı satışı ve aktivasyonu',on:true},
+    {k:'nfc',n:'NFC / HCE ile ödeme',d:'Android HCE token ile temassız ödeme',on:true},
+    {k:'openbank',n:'Açık bankacılık ile yükleme',d:'Hesaptan hesaba anında yükleme (PSD2 benzeri)',on:false},
+    {k:'p2p',n:'Kullanıcılar arası transfer',d:'Regülasyon değerlendirmesi bekleniyor',on:false}
+  ]
+};
+
+/* =========================================================
+   DATA — Platform
+   ========================================================= */
+const TENANTS = [
+  {name:'Kahve Durağı',letter:'K',color:'#7B4B2A',sector:'Kahve zinciri',plan:'Enterprise',st:'Aktif',vol:18.24,wallets:128412,since:'2024'},
+  {name:'VoltGo Şarj',letter:'V',color:'#0B7A55',sector:'EV şarj',plan:'Growth',st:'Aktif',vol:9.87,wallets:41208,since:'2025'},
+  {name:'ParkPlus',letter:'P',color:'#2356B8',sector:'Otopark',plan:'Growth',st:'Aktif',vol:6.15,wallets:58930,since:'2025'},
+  {name:'FunLand',letter:'F',color:'#B8336A',sector:'Eğlence parkı',plan:'Growth',st:'Aktif',vol:4.42,wallets:22175,since:'2025'},
+  {name:'Kuzey Kampüs Kart',letter:'Q',color:'#46607A',sector:'Kampüs',plan:'Starter',st:'Aktif',vol:1.96,wallets:14820,since:'2026'},
+  {name:'Arena Stadyum Pass',letter:'A',color:'#9A6A00',sector:'Stadyum',plan:'Growth',st:'Pilot',vol:0.84,wallets:6310,since:'2026'},
+  {name:'Lezzet Yemekhane',letter:'L',color:'#5E6B2E',sector:'Yemekhane',plan:'Starter',st:'Kurulum',vol:0,wallets:0,since:'2026'},
+  {name:'Demlik Çay Evi',letter:'D',color:'#6D4C41',sector:'Kahve zinciri',plan:'Starter',st:'Askıda',vol:0.21,wallets:3120,since:'2025'}
+];
+const SERVICES = ['api-gateway','identity-service','tenant-service','customer-service','wallet-service','ledger-service','payment-service','funding-service','merchant-service','loyalty-service','voucher-service','risk-service','compliance-service','settlement-service','accounting-service','reporting-service','audit-service','notification-service']
+  .map((n, i) => ({n, p99:[38,92,24,31,44,58,142,188,27,36,29,61,120,640,75,210,22,95][i], rps:[4210,610,85,340,2890,2760,1420,260,120,980,40,1410,380,12,30,90,2200,510][i], pods:[6,3,2,3,6,6,6,3,2,3,2,4,3,2,2,3,3,3][i], warn:n === 'settlement-service'}));
+const KAFKA = [
+  {g:'ledger-projector',topic:'wallet.transactions.v1',lag:12},
+  {g:'reporting-cdc',topic:'ledger.journal.v1 (Debezium)',lag:842},
+  {g:'risk-scorer',topic:'payment.authorized.v1',lag:3},
+  {g:'settlement-batch',topic:'payment.captured.v1',lag:4210},
+  {g:'notification-dispatch',topic:'notification.requested.v1',lag:57},
+  {g:'audit-chain',topic:'audit.events.v1',lag:0}
+];
+const PRESETS = [
+  {k:'coffee',n:'Kahve zinciri',d:'Yıldız sadakati, QR/NFC ödeme, otomatik yükleme'},
+  {k:'ev',n:'EV şarj',d:'Pre-auth ₺400, kWh bazlı capture, gece tarifesi'},
+  {k:'parking',n:'Otopark',d:'Plaka + QR giriş, provizyon ₺250, süre tarifesi'},
+  {k:'park',n:'Eğlence parkı',d:'Aile alt cüzdanları, bileklik/NFC, jeton'},
+  {k:'campus',n:'Kampüs',d:'Öğrenci kartı, yemekhane, burs yükleme'},
+  {k:'stadium',n:'Stadyum',d:'Etkinlik bazlı cüzdan, son kullanma, iade'}
+];
+
+/* =========================================================
+   Shell: view tabs, theme
+   ========================================================= */
+const VIEWS = [
+  {k:'mobile',n:'Müşteri Mobil',ic:'phone'},
+  {k:'admin',n:'Tenant Admin',ic:'monitor'},
+  {k:'pos',n:'Web POS',ic:'pos'},
+  {k:'platform',n:'Platform Admin',ic:'layers'}
+];
+const app = {view:'mobile', adminPage:'dashboard'};
+
+function renderTabs(){
+  $('#viewTabs').innerHTML = VIEWS.map(v => `<button role="tab" aria-selected="${app.view === v.k}" aria-controls="view-${v.k}" data-act="view" data-arg="${v.k}">${icon(v.ic, 16)}${v.n}</button>`).join('');
+}
+function setView(k){
+  app.view = k;
+  renderTabs();
+  $$('main > section').forEach(s => { s.hidden = s.dataset.view !== k; });
+  if (k === 'mobile') renderMobile();
+  if (k === 'admin') renderAdmin();
+  if (k === 'pos') renderPOS();
+  if (k === 'platform') renderPlatform();
+}
+const THEMES = ['auto','light','dark'];
+let theme = 'auto';
+function applyTheme(){
+  if (theme === 'auto') document.documentElement.removeAttribute('data-theme');
+  else document.documentElement.setAttribute('data-theme', theme);
+  const lbl = {auto:'Otomatik', light:'Açık', dark:'Koyu'}[theme];
+  $('#themeBtn').innerHTML = icon(theme === 'auto' ? 'auto' : theme === 'light' ? 'sun' : 'moon', 16) + `<span class="lbl">${lbl}</span>`;
+  $('#themeBtn').setAttribute('aria-label', 'Tema: ' + lbl + ' (değiştir)');
+  try { localStorage.setItem('clw-theme', theme); } catch(e) {}
+}
+
+const lead = (role, ms) => `<div class="view-lead">${icon('info', 16)}<span><strong>Rol:</strong> ${role}</span>${ms}</div>`;
+
+/* =========================================================
+   VIEW 1 — Customer mobile app
+   ========================================================= */
+function renderMobile(){
+  const root = $('#view-mobile');
+  if (!root.dataset.built){
+    root.innerHTML = lead('Son kullanıcı — tenant markasının müşterisi (white-label React Native uygulaması)',
+      '<span class="ms">MVP · M1–M4</span><span class="ms">Provizyon kartları · MVP M3</span><span class="ms m4">Aile alt cüzdanları · M5</span>') + `
+      <div class="mob-layout">
+        <aside class="card card-b explain">
+          <h2>Bu prototip neyi gösteriyor</h2>
+          <p>AEP-CLW; kahve zinciri, EV şarj, otopark, eğlence parkı ve kampüs gibi markaların kendi müşterilerine <b>kendi markalarıyla</b> kapalı devre cüzdan sunduğu çok kiracılı (multitenant) bir SaaS. Tek kod tabanı, tenant bazında tema, içerik ve özellik bayrakları.</p>
+          <h3 style="font-size:13px;margin-top:16px">Tenant / sektör seç</h3>
+          <div class="sector-pick" id="sectorPick"></div>
+          <h3 style="font-size:13px;margin-top:18px">Deneyin</h3>
+          <ul class="try-list">
+            <li>Alt bardaki <b>Öde</b> ile dinamik QR’ı açın; 30 sn’de bir yenilenir.</li>
+            <li><b>Yükle</b> ekranında tutar seçip yükleyin — bakiye anında artar.</li>
+            <li>EV / Otopark’ta ana sayfadaki provizyon kartını kapatın.</li>
+            <li>Üstten <b>Tenant Admin</b>, <b>Web POS</b> ve <b>Platform</b> görünümlerine geçin.</li>
+          </ul>
+        </aside>
+        <div class="phone-col" id="phoneCol"></div>
+        <aside class="card card-b explain mob-side-r">
+          <h2 style="font-size:16px">Ekran notları</h2>
+          <div id="screenNotes"></div>
+        </aside>
+      </div>`;
+    root.dataset.built = '1';
+  }
+  $('#sectorPick').innerHTML = Object.entries(SECTORS).map(([k, s]) =>
+    `<button data-act="sector" data-arg="${k}" aria-pressed="${mob.sector === k}"><span class="sw" style="background:${s.color}">${s.letter}</span><span>${s.name}<small>${s.label}</small></span></button>`).join('');
+  renderPhone();
+}
+
+const NOTES = {
+  home:['Ana + bonus bakiye ayrı cüzdanlar olarak defterde tutulur (çift kayıt).','Sadakat ilerlemesi loyalty-service kural motorundan gelir.','Sektöre özel kart: EV’de aktif şarj provizyonu, otoparkta plaka oturumu, eğlence parkında aile alt cüzdanları.'],
+  pay:['Müşteri QR’ı tek kullanımlık, imzalı bir ödeme token’ıdır (30 sn TTL).','Kasiyer okuttuğunda payment-service authorize → capture sagasını yürütür.','“Önce bonus bakiyeyi kullan” tercihi tenant ayarıyla açılıp kapanabilir.'],
+  topup:['Kart verisi tutulmaz; PSP token’ı + 3D Secure.','Otomatik yükleme eşiği ve tutarı KYC limitleri içinde doğrulanır.','Başarılı yükleme: 108 PSP Alacakları / 340 Müşteri Fonları kaydı.'],
+  tx:['İşlemler ledger’dan CQRS okuma modeliyle listelenir.','Filtreler: harcama, yükleme, iade, bonus, provizyon.'],
+  rewards:['Kampanyalar tenant admin portalında tanımlanır, kural motoru uygular.','Kuponlar voucher-service tarafından üretilir.'],
+  profile:['KYC seviyesi limitleri belirler (6493 sayılı Kanun çerçevesi).','Cihaz bağlama: identity-service; KVKK rızaları customer-service’te versiyonlanır.']
+};
+
+function renderPhone(){
+  const s = SECTORS[mob.sector];
+  const tabs = [
+    {k:'home',n:'Ana Sayfa',ic:'home'},
+    {k:'topup',n:'Yükle',ic:'wallet'},
+    {k:'pay',n:'Öde',ic:'qr',center:true},
+    {k:'tx',n:'İşlemler',ic:'list'},
+    {k:'rewards',n:'Ödüller',ic:'gift'}
+  ];
+  $('#phoneCol').innerHTML = `
+  <div class="phone" style="--brand:${s.color}" aria-label="${esc(s.name)} mobil uygulaması">
+    <div class="p-notch"></div>
+    <div class="phone-screen">
+      <div class="p-status"><span class="tnum">09:41</span><span class="r">
+        <svg width="17" height="11" viewBox="0 0 17 11" aria-hidden="true"><rect x="0" y="7" width="3" height="4" rx=".6" fill="currentColor"/><rect x="4.5" y="5" width="3" height="6" rx=".6" fill="currentColor"/><rect x="9" y="2.5" width="3" height="8.5" rx=".6" fill="currentColor"/><rect x="13.5" y="0" width="3" height="11" rx=".6" fill="currentColor"/></svg>
+        <svg width="25" height="12" viewBox="0 0 25 12" aria-hidden="true"><rect x=".5" y=".5" width="21" height="11" rx="3" fill="none" stroke="currentColor" opacity=".45"/><rect x="2" y="2" width="15" height="8" rx="1.8" fill="currentColor"/><rect x="22.5" y="4" width="1.8" height="4" rx=".9" fill="currentColor" opacity=".45"/></svg>
+      </span></div>
+      <div class="p-head">
+        <div class="p-logo"><span class="lt">${s.letter}</span>${esc(s.name)}</div>
+        <button class="p-avatar" data-act="pscreen" data-arg="profile" aria-label="Profil">${initials(USER.name)}</button>
+      </div>
+      <div class="p-body" id="pBody">${phoneScreen()}</div>
+      <nav class="p-tabs" aria-label="Uygulama menüsü">
+        ${tabs.map(t => `<button data-act="pscreen" data-arg="${t.k}" ${mob.screen === t.k ? 'aria-current="page"' : ''} class="${t.center ? 'pay-tab' : ''}">${t.center ? `<span class="ic-wrap">${icon(t.ic, 22)}</span>` : icon(t.ic, 21)}${t.n}</button>`).join('')}
+      </nav>
+    </div>
+  </div>`;
+  $('#screenNotes').innerHTML = `<ul>${(NOTES[mob.screen] || []).map(n => `<li>${n}</li>`).join('')}</ul>
+    <p class="muted" style="margin-top:12px;font-size:12.5px">Aktif tenant: <b style="color:var(--text)">${esc(s.name)}</b> · tema rengi <span class="mono">${s.color}</span></p>`;
+}
+function rerenderBody(){ const b = $('#pBody'); if (b){ b.innerHTML = phoneScreen(); } }
+
+function phoneScreen(){
+  switch (mob.screen){
+    case 'home': return scrHome();
+    case 'pay': return scrPay();
+    case 'topup': return scrTopup();
+    case 'tx': return scrTx();
+    case 'rewards': return scrRewards();
+    case 'profile': return scrProfile();
+  }
+  return '';
+}
+const TX_IC = {spend:'receipt', topup:'up', refund:'refund', bonus:'star', hold:'lock'};
+function txRow(t){
+  const inc = t.amt > 0;
+  return `<div class="tx-item"><div class="tx-ic ${inc ? 'in' : ''}">${icon(TX_IC[t.type], 18)}</div>
+    <div class="tx-main"><b>${esc(t.title)}</b><span>${esc(t.sub)} · ${DAY(t.d)} ${t.t}</span></div>
+    <div class="tx-amt ${inc ? 'in' : ''}">${signed(t.amt)}</div></div>`;
+}
+
+function scrHome(){
+  const s = SECTORS[mob.sector], L = s.loyalty;
+  const pct = Math.min(100, L.cur / L.target * 100);
+  let special = '';
+  if (mob.sector === 'ev' && s.special){
+    const sp = s.special;
+    special = `<div class="special"><div class="t"><span class="live"></span>Aktif şarj oturumu</div>
+      <div style="font-size:22px;font-weight:800;margin-top:6px" class="tnum">${nf(sp.kwh, 1)} kWh — provizyon ${tl0(sp.hold)}</div>
+      <div class="kv"><span>İstasyon</span><b>${sp.station}</b><span>Süre</span><b>${sp.mins} dk</b><span>Tarife</span><b>${tl(sp.rate)} / kWh</b><span>Şu ana kadar</span><b>${tl(sp.kwh * sp.rate)}</b></div>
+      <button class="p-btn" style="margin-top:12px;height:42px;font-size:14px" data-act="evStop">Şarjı bitir ve öde</button></div>`;
+  } else if (mob.sector === 'parking' && s.special){
+    const sp = s.special;
+    special = `<div class="special"><div class="t"><span class="live"></span>Otoparktasınız</div>
+      <div style="font-size:22px;font-weight:800;margin-top:6px" class="tnum">Plaka ${sp.plate} — giriş ${sp.entry}</div>
+      <div class="kv"><span>Otopark</span><b>${sp.lot}</b><span>Geçen süre</span><b>${sp.mins} dk</b><span>Tahmini ücret</span><b>${tl(sp.est)}</b><span>Provizyon</span><b>${tl(sp.hold)}</b></div>
+      <button class="p-btn" style="margin-top:12px;height:42px;font-size:14px" data-act="parkExit">Çıkış yap ve öde</button></div>`;
+  } else if (mob.sector === 'park'){
+    special = `<div class="p-sec-t"><span>Aile alt cüzdanları</span><button data-act="toast" data-arg="Yeni alt cüzdan ekleme — ebeveyn onayı ve KYC gerekli">+ Ekle</button></div>
+      ${s.special.kids.map((k, i) => `<div class="sub-wallet"><span class="av">${k.name[0]}</span><div style="flex:1;min-width:0"><b style="font-size:13px">${k.name} <span class="muted" style="font-weight:500">(${k.age})</span></b>
+        <div class="loy-bar" style="margin:5px 0 2px;height:5px"><i style="width:${k.used / k.limit * 100}%"></i></div><span class="muted" style="font-size:11px">Bugün ${tl0(k.used)} / günlük ${tl0(k.limit)}</span></div>
+        <div style="text-align:right"><b class="tnum" style="font-size:13.5px">${tl(k.bal)}</b><br><button class="fchip" style="padding:3px 10px;margin-top:3px" data-act="kidTopup" data-arg="${i}">+₺50</button></div></div>`).join('')}`;
+  }
+  const recent = s.txs.slice(0, 4);
+  return `
+    <div style="font-size:13px;color:var(--muted);margin:2px 2px 10px">Günaydın, <b style="color:var(--text)">${USER.name.split(' ')[0]}</b></div>
+    <div class="bal-card">
+      <div class="lbl">Toplam bakiye</div>
+      <div class="amt">${tl(s.main + s.bonus)}</div>
+      <div class="sub"><div>Ana bakiye<b>${tl(s.main)}</b></div><div>Bonus bakiye<b>${tl(s.bonus)}</b></div></div>
+      <div class="bal-actions"><button class="b1" data-act="pscreen" data-arg="topup">${icon('plus', 17, 2.2)}Yükle</button><button class="b2" data-act="pscreen" data-arg="pay">${icon('qr', 17)}Öde</button></div>
+    </div>
+    ${special}
+    <div class="p-card" style="margin-top:12px">
+      <div class="between" style="font-size:13px"><b>${L.tier}</b><span class="muted tnum">${nf(L.cur)} / ${nf(L.target)} ${L.unit}</span></div>
+      <div class="loy-bar" role="progressbar" aria-valuenow="${L.cur}" aria-valuemin="0" aria-valuemax="${L.target}" aria-label="Sadakat ilerlemesi"><i style="width:${pct}%"></i></div>
+      <div style="font-size:11.5px;color:var(--muted)">${L.next} seviyesine <b style="color:var(--text)">${nf(L.target - L.cur)} ${L.unit}</b> kaldı</div>
+    </div>
+    <div class="p-sec-t"><span>Son işlemler</span><button data-act="pscreen" data-arg="tx">Tümü</button></div>
+    <div class="p-card" style="padding:4px 12px">${recent.map(txRow).join('')}</div>`;
+}
+
+function qrSVG(seed){
+  const N = 25, r = rng(seed * 7919 + 13);
+  const m = Array.from({length:N}, () => Array(N).fill(0));
+  const finder = (x, y) => { for (let i = 0; i < 7; i++) for (let j = 0; j < 7; j++){ const e = i === 0 || i === 6 || j === 0 || j === 6, c = i >= 2 && i <= 4 && j >= 2 && j <= 4; m[y + i][x + j] = (e || c) ? 1 : 2; } };
+  finder(0, 0); finder(N - 7, 0); finder(0, N - 7);
+  for (let i = 0; i < 8; i++){ [[7,i],[i,7],[N-8,i],[N-8+ (i<1?0:0), i],[i,N-8],[7,N-1-i],[N-1-i,7]].forEach(([x,y]) => { if (x>=0&&y>=0&&x<N&&y<N && m[y][x] === 0) m[y][x] = 2; }); }
+  for (let i = 8; i < N - 8; i++){ m[6][i] = i % 2 ? 2 : 1; m[i][6] = i % 2 ? 2 : 1; }
+  // alignment pattern
+  for (let i = -2; i <= 2; i++) for (let j = -2; j <= 2; j++){ const a = Math.max(Math.abs(i), Math.abs(j)); m[18 + i][18 + j] = a === 1 ? 2 : 1; }
+  let d = '';
+  for (let y = 0; y < N; y++) for (let x = 0; x < N; x++){
+    if (m[y][x] === 0) m[y][x] = r() > 0.52 ? 1 : 2;
+    const inLogo = x >= 10 && x <= 14 && y >= 10 && y <= 14;
+    if (m[y][x] === 1 && !inLogo) d += `M${x} ${y}h1v1h-1z`;
+  }
+  return `<svg viewBox="-1 -1 ${N + 2} ${N + 2}" shape-rendering="crispEdges" role="img" aria-label="Dinamik ödeme QR kodu"><rect x="-1" y="-1" width="${N + 2}" height="${N + 2}" fill="#fff"/><path d="${d}" fill="#111"/></svg>`;
+}
+const qrToken = seed => { const r = rng(seed * 31 + 5); return 'CLW-' + hex(r, 4).toUpperCase() + '-' + hex(r, 4).toUpperCase() + '-' + hex(r, 4).toUpperCase(); };
+
+function scrPay(){
+  const s = SECTORS[mob.sector];
+  if (mob.payState === 'processing') return `<div class="success"><div class="spinner"></div><h3 style="margin-top:18px">Ödeme onaylanıyor…</h3><p class="muted" style="font-size:12.5px;margin-top:6px">Provizyon → capture · idempotency anahtarı ile</p></div>`;
+  if (mob.payState === 'done'){
+    const p = mob.lastPay;
+    return `<div class="success"><div class="ok-ic">${icon('check', 36, 2.4)}</div><h3>Ödeme başarılı</h3><div class="big">${tl(p.amount)}</div><p class="muted" style="font-size:12.5px">${esc(s.payStore)}</p>
+      <div class="receipt-lines"><div class="kv" style="margin:0"><span>Ürün</span><b>${esc(s.payDesc)}</b><span>Bonus bakiyeden</span><b>${tl(p.fromBonus)}</b><span>Ana bakiyeden</span><b>${tl(p.fromMain)}</b><span>Kazanılan</span><b>${s.earn}</b><span>Kalan bakiye</span><b>${tl(s.main + s.bonus)}</b><span>İşlem no</span><b class="mono">${p.ref}</b></div></div>
+      <button class="p-btn" data-act="payAgain">Tamam</button></div>`;
+  }
+  const circ = 2 * Math.PI * 20;
+  return `<div class="p-title">Öde</div><div class="p-desc">Kodu kasiyere okutun. Güvenliğiniz için kod ${30} saniyede bir yenilenir.</div>
+    <div class="qr-box" id="qrBox">${qrSVG(mob.qrSeed)}<span class="qr-logo">${s.letter}</span></div>
+    <div class="qr-meta">
+      <div><div class="muted" style="font-size:11px">Tek kullanımlık token</div><div class="mono" id="qrTok" style="font-size:12.5px;font-weight:500">${qrToken(mob.qrSeed)}</div></div>
+      <div class="ring" aria-live="off"><svg width="48" height="48" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="none" stroke="var(--brand-soft)" stroke-width="4"/><circle id="qrRing" cx="24" cy="24" r="20" fill="none" stroke="var(--brand)" stroke-width="4" stroke-linecap="round" stroke-dasharray="${circ}" stroke-dashoffset="${circ * (1 - mob.qrLeft / 30)}" style="transition:stroke-dashoffset 1s linear"/></svg><b id="qrLeft">${mob.qrLeft}</b></div>
+    </div>
+    <div class="setting-row" style="margin-top:12px"><div><b style="font-size:13px">Önce bonus bakiyeyi kullan</b><small>Bonus: ${tl(s.bonus)} · Ana: ${tl(s.main)}</small></div><button class="switch" role="switch" aria-checked="${mob.bonusFirst}" aria-label="Önce bonus bakiyeyi kullan" data-act="bonusFirst"></button></div>
+    <button class="p-btn ghost" style="margin-top:12px" data-act="qrRefresh">${icon('refresh', 18)}Kodu şimdi yenile</button>
+    <button class="p-btn" style="margin-top:8px" data-act="paySim">${icon('scan', 18)}Kasada okutmayı simüle et (${tl(s.payAmount)})</button>`;
+}
+
+function scrTopup(){
+  const s = SECTORS[mob.sector];
+  if (mob.topState === 'processing') return `<div class="success"><div class="spinner"></div><h3 style="margin-top:18px">3D Secure doğrulanıyor…</h3><p class="muted" style="font-size:12.5px;margin-top:6px">Bankanızın doğrulama ekranı açıldı (simülasyon)</p></div>`;
+  if (mob.topState === 'done'){
+    const t = mob.lastTop;
+    return `<div class="success"><div class="ok-ic">${icon('check', 36, 2.4)}</div><h3>Yükleme başarılı</h3><div class="big">+${tl(t.amount)}</div>
+      <p class="muted" style="font-size:12.5px">${t.bonus ? `+${tl(t.bonus)} kampanya bonusu tanımlandı` : 'Bakiyeniz anında güncellendi'}</p>
+      <div class="receipt-lines"><div class="kv" style="margin:0"><span>Yeni ana bakiye</span><b>${tl(s.main)}</b><span>Bonus bakiye</span><b>${tl(s.bonus)}</b><span>Ödeme aracı</span><b>•••• 4821</b><span>3D Secure</span><b>Doğrulandı</b><span>İşlem no</span><b class="mono">${t.ref}</b></div></div>
+      <button class="p-btn" data-act="pscreen" data-arg="home">Ana sayfaya dön</button>
+      <button class="p-btn ghost" style="margin-top:8px" data-act="topAgain">Tekrar yükle</button></div>`;
+  }
+  const amts = [100, 250, 500, 1000];
+  return `<div class="p-title">Bakiye yükle</div><div class="p-desc">Ana bakiye: <b style="color:var(--text)">${tl(s.main)}</b> · KYC Seviye 2 limiti ${tl0(25000)}</div>
+    <div class="amt-big">${tl(mob.topAmt)}</div>
+    <div class="amt-chips">${amts.map(a => `<button data-act="topAmt" data-arg="${a}" aria-pressed="${mob.topAmt === a}">₺${nf(a)}</button>`).join('')}</div>
+    ${mob.sector === 'coffee' && mob.topAmt >= 500 ? `<div class="special" style="padding:10px 12px;font-size:12.5px;display:flex;gap:8px;align-items:center">${icon('gift', 16)}<span><b>₺50 bonus</b> kazanacaksınız — “₺500 yükle, ₺50 bonus”</span></div>` : ''}
+    <div class="p-sec-t"><span>Ödeme aracı</span><button data-act="toast" data-arg="Yeni kart ekleme PSP’nin güvenli sayfasında açılır (kart verisi AEP-CLW’de saklanmaz)">+ Kart ekle</button></div>
+    <div class="pm"><span class="cardic">TROY</span><div style="flex:1"><b style="font-size:13px">Kayıtlı kart •••• 4821</b><div class="muted" style="font-size:11.5px">Son kullanma 08/29 · PSP token</div></div>${icon('checkc', 20)}</div>
+    <div class="setting-row" style="margin-top:10px"><div><b style="font-size:13px">Otomatik yükleme</b><small>Bakiye ${tl0(mob.autoThr)} altına düşünce ${tl0(250)} yükle</small></div><button class="switch" role="switch" aria-checked="${mob.autoTop}" aria-label="Otomatik yükleme" data-act="autoTop"></button></div>
+    <button class="p-btn" style="margin-top:16px" data-act="doTopup">${icon('lock', 17)}${tl(mob.topAmt)} Yükle</button>
+    <p class="muted" style="font-size:11px;text-align:center;margin-top:8px">Ödeme 3D Secure ile korunur. Kart bilgileriniz saklanmaz.</p>`;
+}
+
+function scrTx(){
+  const s = SECTORS[mob.sector];
+  const F = [['all','Tümü'],['spend','Harcama'],['topup','Yükleme'],['refund','İade'],['bonus','Bonus'],['hold','Provizyon']];
+  const list = s.txs.filter(t => mob.txFilter === 'all' || t.type === mob.txFilter);
+  const groups = {};
+  list.forEach(t => { (groups[t.d] = groups[t.d] || []).push(t); });
+  const inSum = list.filter(t => t.amt > 0).reduce((a, t) => a + t.amt, 0), outSum = list.filter(t => t.amt < 0).reduce((a, t) => a + t.amt, 0);
+  return `<div class="p-title">İşlemler</div>
+    <div class="p-fchips" role="group" aria-label="İşlem filtresi">${F.map(([k, n]) => `<button data-act="txFilter" data-arg="${k}" aria-pressed="${mob.txFilter === k}">${n}</button>`).join('')}</div>
+    <div class="p-card" style="margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px"><div><span class="muted">Giren</span><br><b class="tnum" style="color:var(--ok);font-size:15px">${signed(inSum)}</b></div><div><span class="muted">Çıkan</span><br><b class="tnum" style="font-size:15px">${signed(outSum)}</b></div></div>
+    ${list.length ? Object.keys(groups).sort((a, b) => a - b).map(d => `<div class="day-h">${DAY(+d)}</div><div class="p-card" style="padding:4px 12px">${groups[d].map(txRow).join('')}</div>`).join('') : `<div class="success" style="padding-top:30px"><p class="muted">Bu filtrede işlem yok.</p></div>`}`;
+}
+
+function scrRewards(){
+  const s = SECTORS[mob.sector], L = s.loyalty;
+  return `<div class="p-title">Kampanyalar & Ödüller</div>
+    <div class="tier"><div style="font-size:12px;opacity:.85;font-weight:600">Üyelik seviyesi</div><div style="font-size:22px;font-weight:800">${L.tier}</div>
+      <div class="loy-bar" style="background:rgba(255,255,255,.25)"><i style="width:${L.cur / L.target * 100}%;background:#fff"></i></div>
+      <div style="font-size:12px" class="tnum">${nf(L.cur)} ${L.unit} · ${L.next} için ${nf(L.target - L.cur)} ${L.unit}</div></div>
+    <div class="p-sec-t"><span>Aktif kampanyalar</span></div>
+    ${s.campaigns.map((c, i) => `<div class="camp"><div class="top"><span class="tag">${c.tag}</span><h4>${esc(c.title)}</h4><p>${esc(c.desc)}</p></div>
+      <div class="bot"><span>Son gün: ${c.until}</span><button data-act="joinCamp" data-arg="${i}" aria-pressed="${c.joined}">${c.joined ? 'Katıldın ✓' : 'Katıl'}</button></div></div>`).join('')}
+    <div class="p-sec-t"><span>Kuponlarım</span></div>
+    ${s.coupons.map(c => `<div class="coupon" style="margin-bottom:8px">${icon('ticket', 22)}<div style="flex:1"><b style="font-size:13px">${esc(c.title)}</b><div class="mono muted" style="font-size:11px">${c.code} · ${c.until}’e kadar</div></div></div>`).join('')}`;
+}
+
+function scrProfile(){
+  const s = SECTORS[mob.sector];
+  const limits = [{n:'Günlük harcama',u:2450,m:10000},{n:'Aylık yükleme',u:3750,m:30000},{n:'Maksimum bakiye',u:s.main + s.bonus,m:25000}];
+  const devs = [{n:'iPhone 15',d:'Bu cihaz · İstanbul · bugün 08:14',cur:true},{n:'iPad Air',d:'İstanbul · 3 gün önce'},{n:'Samsung Galaxy A54',d:'Ankara · 42 gün önce · pasif'}];
+  const cons = [['mkt','Kampanya bildirimleri (ticari ileti)'],['loc','Konuma göre teklifler'],['kvkk','KVKK aydınlatma metni onayı']];
+  return `<button class="back" data-act="pscreen" data-arg="home">${icon('chevL', 18)}Geri</button>
+    <div class="row" style="gap:12px"><div class="p-avatar" style="width:52px;height:52px;display:grid;place-items:center;font-size:17px">${initials(USER.name)}</div><div><div style="font-size:18px;font-weight:800">${USER.name}</div><div class="muted" style="font-size:12px">${USER.phone} · ${USER.email}</div></div></div>
+    <div class="p-card" style="margin-top:14px"><div class="between"><b style="font-size:13.5px">KYC seviyesi</b><span class="chip ok">Seviye 2 · Doğrulanmış</span></div>
+      <div class="kyc-steps"><span class="on"></span><span class="on"></span><span class="on"></span></div>
+      <div class="muted" style="font-size:11.5px;margin-top:6px">Telefon OTP ✓ · NFC kimlik okuma ✓ · Canlılık testi ✓</div></div>
+    <div class="p-sec-t"><span>Limitlerim</span></div>
+    <div class="p-card">${limits.map(l => `<div class="limit"><div class="between"><span>${l.n}</span><b class="tnum">${tl0(l.u)} / ${tl0(l.m)}</b></div><div class="loy-bar" style="height:6px"><i style="width:${Math.min(100, l.u / l.m * 100)}%"></i></div></div>`).join('')}</div>
+    <div class="p-sec-t"><span>Cihazlar</span></div>
+    <div class="p-card" style="padding:4px 12px">${devs.map((d, i) => `<div class="device">${icon('phone', 20)}<div style="flex:1"><b style="font-size:13px">${d.n}</b><div class="muted" style="font-size:11.5px">${d.d}</div></div>${d.cur ? '<span class="chip ok plain">Aktif</span>' : `<button class="fchip" data-act="toast" data-arg="${d.n} oturumu sonlandırıldı, cihaz bağı kaldırıldı">Çıkış</button>`}</div>`).join('')}</div>
+    <div class="p-sec-t"><span>İzinler (KVKK)</span></div>
+    ${cons.map(([k, n]) => `<div class="setting-row" style="margin-bottom:8px"><div><b style="font-size:13px">${n}</b></div><button class="switch" role="switch" aria-checked="${mob.consent[k]}" aria-label="${n}" data-act="consent" data-arg="${k}"></button></div>`).join('')}`;
+}
+
+function pushTx(s, tx){ s.txs.unshift({d:0, t:'09:41', ...tx}); }
+const ref = () => 'TX-' + Math.random().toString(16).slice(2, 8).toUpperCase();
+
+/* =========================================================
+   VIEW 2 — Tenant admin portal
+   ========================================================= */
+const ADMIN_NAV = [
+  {g:'Genel'},
+  {k:'dashboard',n:'Dashboard',ic:'chart',ms:'MVP · M4'},
+  {k:'customers',n:'Müşteriler',ic:'users',ms:'MVP · M4'},
+  {k:'transactions',n:'İşlemler',ic:'receipt',ms:'MVP · M4'},
+  {k:'merchants',n:'İşyerleri & Terminaller',ic:'store',ms:'MVP · M4'},
+  {k:'campaigns',n:'Kampanyalar',ic:'megaphone',ms:'M5'},
+  {g:'Finans'},
+  {k:'reports',n:'Raporlar',ic:'file',ms:'MVP · M4'},
+  {k:'accounting',n:'Muhasebe',ic:'book',ms:'M7'},
+  {g:'Kontrol'},
+  {k:'risk',n:'Risk & Uyum',ic:'shield',ms:'M6'},
+  {k:'audit',n:'Denetim / Teftiş',ic:'audit',ms:'MVP · M4'},
+  {k:'approvals',n:'Onay Bekleyenler',ic:'inbox',ms:'MVP · M4'},
+  {k:'settings',n:'Ayarlar',ic:'sliders',ms:'MVP · M4'}
+];
+const adm = {cust:null, custQ:'', txSt:'Tümü', txType:'Tümü', txQ:'', chainState:'ok', settingsBrand:SETTINGS.brand};
+const msBadge = ms => `<span class="ms ${/^M[56]/.test(ms) ? 'm4' : /^M[78]/.test(ms) ? 'm5' : ''}">${ms}</span>`;
+
+function renderAdmin(){
+  const root = $('#view-admin');
+  if (!root.dataset.built){
+    root.innerHTML = lead('Tenant yöneticisi, finans, operasyon, pazarlama, risk/uyum ve iç denetim ekipleri (RBAC ile)',
+      '<span class="ms">Çekirdek, Rapor, Teftiş · MVP M4</span><span class="ms m4">Kampanya · M5 · Risk & AML · M6</span><span class="ms m5">Muhasebe & Takas · M7</span>') +
+      `<div class="admin"><nav class="side" id="adminSide" aria-label="Admin menüsü"></nav><div class="adm-main" id="adminMain"></div></div>`;
+    root.dataset.built = '1';
+  }
+  const pend = APPROVALS.length;
+  $('#adminSide').innerHTML = `<div class="tenant-sw"><span class="lt">K</span><div class="txt"><b>Kahve Durağı A.Ş.</b><small>${ME.name} · ${ME.role}</small></div></div>` +
+    ADMIN_NAV.map(n => n.g ? `<div class="side-g">${n.g}</div>` :
+      `<button data-act="apage" data-arg="${n.k}" ${app.adminPage === n.k ? 'aria-current="page"' : ''}>${icon(n.ic, 17)}${n.n}${n.k === 'approvals' && pend ? `<span class="cnt">${pend}</span>` : ''}${n.k === 'risk' ? `<span class="cnt">${ALERTS.filter(a => a.st === 'Yeni').length}</span>` : ''}</button>`).join('');
+  const page = ADMIN_NAV.find(n => n.k === app.adminPage);
+  $('#adminMain').innerHTML = ADMIN_PAGES[app.adminPage](page);
+  if (app.adminPage === 'dashboard') bindChart();
+  if (app.adminPage === 'customers') renderCustRows();
+  if (app.adminPage === 'transactions') renderTxRows();
+}
+const aTop = (page, desc, right = '') => `<div class="adm-top"><div><div class="row" style="gap:8px;flex-wrap:wrap"><h2>${page.n}</h2>${msBadge(page.ms)}</div><p>${desc}</p></div><div class="row" style="flex-wrap:wrap">${right}</div></div>`;
+
+/* ---- chart data ---- */
+const CHART = (() => {
+  const r = rng(2026), top = [], sp = [], dates = [];
+  const M = ['Oca','Şub','Mar','Nis','May','Haz','Tem','Ağu','Eyl','Eki','Kas','Ara'];
+  for (let i = 0; i < 30; i++){
+    const dt = new Date(2026, 7, 27 + i);
+    const wd = dt.getDay(), wk = wd === 0 || wd === 6;
+    dates.push(`${dt.getDate()} ${M[dt.getMonth()]}`);
+    const trend = 520000 + i * 3200;
+    top.push(Math.round(trend + (wk ? 70000 : 0) + (r() - .5) * 60000 + (dt.getDate() === 1 || dt.getDate() === 15 ? 90000 : 0)));
+    sp.push(Math.round(trend - 25000 + (wk ? 95000 : 0) + (r() - .5) * 50000));
+  }
+  top[29] = 642180; sp[29] = 598940;
+  return {top, sp, dates};
+})();
+
+function chartSVG(){
+  const W = 760, H = 280, P = {l:64, r:16, t:14, b:32};
+  const iw = W - P.l - P.r, ih = H - P.t - P.b, max = 800000;
+  const x = i => P.l + i * iw / 29, y = v => P.t + ih - v / max * ih;
+  const path = arr => arr.map((v, i) => `${i ? 'L' : 'M'}${x(i).toFixed(1)} ${y(v).toFixed(1)}`).join('');
+  let g = '';
+  for (let v = 0; v <= max; v += 200000){
+    g += `<line x1="${P.l}" x2="${W - P.r}" y1="${y(v)}" y2="${y(v)}" stroke="var(--grid)" stroke-width="1"/>`;
+    g += `<text x="${P.l - 10}" y="${y(v) + 4}" text-anchor="end" font-size="11" fill="var(--muted)" style="font-variant-numeric:tabular-nums">${v ? '₺' + nf(v / 1000) + ' bin' : '₺0'}</text>`;
+  }
+  let xl = '';
+  for (let i = 0; i < 30; i += 5) xl += `<text x="${x(i)}" y="${H - 10}" text-anchor="middle" font-size="11" fill="var(--muted)">${CHART.dates[i]}</text>`;
+  xl += `<text x="${x(29)}" y="${H - 10}" text-anchor="end" font-size="11" fill="var(--muted)">${CHART.dates[29]}</text>`;
+  const area = path(CHART.top) + `L${x(29)} ${y(0)}L${x(0)} ${y(0)}Z`;
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Son 30 gün günlük yükleme ve harcama tutarları grafiği">
+    ${g}${xl}
+    <path d="${area}" fill="var(--series-1)" opacity=".08"/>
+    <path d="${path(CHART.top)}" fill="none" stroke="var(--series-1)" stroke-width="2.25" stroke-linejoin="round"/>
+    <path d="${path(CHART.sp)}" fill="none" stroke="var(--series-2)" stroke-width="2.25" stroke-linejoin="round"/>
+    <circle cx="${x(29)}" cy="${y(CHART.top[29])}" r="4" fill="var(--series-1)" stroke="var(--surface)" stroke-width="2"/>
+    <circle cx="${x(29)}" cy="${y(CHART.sp[29])}" r="4" fill="var(--series-2)" stroke="var(--surface)" stroke-width="2"/>
+    <g id="chHover" visibility="hidden"><line id="chLine" y1="${P.t}" y2="${P.t + ih}" stroke="var(--border-strong)" stroke-dasharray="3 3"/><circle id="chD1" r="4.5" fill="var(--series-1)" stroke="var(--surface)" stroke-width="2"/><circle id="chD2" r="4.5" fill="var(--series-2)" stroke="var(--surface)" stroke-width="2"/></g>
+    <rect id="chOverlay" x="${P.l}" y="${P.t}" width="${iw}" height="${ih}" fill="transparent"/>
+  </svg>`;
+}
+function bindChart(){
+  const box = $('#chartBox'); if (!box) return;
+  const svg = $('svg', box), tip = $('#chartTip');
+  const W = 760, P = {l:64, r:16, t:14, b:32}, iw = W - P.l - P.r, ih = 280 - P.t - P.b, max = 800000;
+  const move = e => {
+    const rect = svg.getBoundingClientRect();
+    const sx = (e.clientX - rect.left) / rect.width * W;
+    const i = Math.max(0, Math.min(29, Math.round((sx - P.l) / iw * 29)));
+    const cx = P.l + i * iw / 29, y = v => P.t + ih - v / max * ih;
+    $('#chHover').setAttribute('visibility', 'visible');
+    $('#chLine').setAttribute('x1', cx); $('#chLine').setAttribute('x2', cx);
+    $('#chD1').setAttribute('cx', cx); $('#chD1').setAttribute('cy', y(CHART.top[i]));
+    $('#chD2').setAttribute('cx', cx); $('#chD2').setAttribute('cy', y(CHART.sp[i]));
+    tip.hidden = false;
+    tip.innerHTML = `<div style="font-weight:700;margin-bottom:4px">${CHART.dates[i]} 2026</div><div class="between"><span><i style="display:inline-block;width:10px;height:3px;background:var(--series-1);margin-right:6px;vertical-align:middle"></i>Yükleme</span><b>${tl0(CHART.top[i])}</b></div><div class="between"><span><i style="display:inline-block;width:10px;height:3px;background:var(--series-2);margin-right:6px;vertical-align:middle"></i>Harcama</span><b>${tl0(CHART.sp[i])}</b></div><div class="between muted"><span>Net akış</span><b>${signed(CHART.top[i] - CHART.sp[i]).replace(',00', '')}</b></div>`;
+    const px = cx / W * rect.width, bw = box.clientWidth;
+    tip.style.left = Math.min(bw - 180, Math.max(0, px + 12 > bw - 190 ? px - 190 : px + 12)) + 'px';
+    tip.style.top = '10px';
+  };
+  const leave = () => { $('#chHover').setAttribute('visibility', 'hidden'); tip.hidden = true; };
+  const ov = $('#chOverlay');
+  ov.addEventListener('pointermove', move); ov.addEventListener('pointerleave', leave);
+}
+
+const statusChip = st => {
+  const m = {'Başarılı':'ok','Aktif':'ok','Yayında':'ok','Temiz':'ok','Kapatıldı':'','Tamamlandı':'','Beklemede':'warn','İncelemede':'warn','İnceleniyor':'info','Planlandı':'info','Pilot':'info','Kurulum':'info','Başarısız':'danger','Bloke':'danger','Yeni':'danger','Askıda':'danger','İade':'accent','Olası eşleşme':'warn','Yanlış pozitif':'','STR taslağı':'accent'};
+  return `<span class="chip ${m[st] ?? ''}">${st}</span>`;
+};
+
+const ADMIN_PAGES = {
+  dashboard(p){
+    const liab = 18426310.45;
+    const kpis = [
+      {l:'Toplam cüzdan bakiyesi',s:'yükümlülük',v:tl(liab),d:'+2,1%',up:true,c:'dün kapanışa göre'},
+      {l:'Günlük yükleme',v:tl0(642180),d:'+4,8%',up:true,c:'dün'},
+      {l:'Günlük harcama',v:tl0(598940),d:'−1,2%',up:false,c:'dün'},
+      {l:'Aktif cüzdan',s:'30 gün',v:nf(128412),d:'+1.904',up:true,c:'bu ay'},
+      {l:'İşlem başarı oranı',v:'%99,62',d:'+0,08 puan',up:true,c:'7 gün ort.'}
+    ];
+    return aTop(p, '25 Eylül 2026, Perşembe · veriler 09:41 itibarıyla (CQRS okuma modeli, ~5 sn gecikme)', `<select class="select" aria-label="Dönem"><option>Son 30 gün</option><option>Son 7 gün</option><option>Bu çeyrek</option></select><button class="btn" data-act="toast" data-arg="Dashboard PDF olarak hazırlanıyor">${icon('download', 16)}Dışa aktar</button>`) + `
+    <div class="kpis">${kpis.map(k => `<div class="card kpi"><div class="l">${k.l}${k.s ? `<span class="muted" style="font-weight:500">· ${k.s}</span>` : ''}</div><div class="v">${k.v}</div><div class="d ${k.up ? 'up' : 'down'}">${k.d} <span>${k.c}</span></div></div>`).join('')}</div>
+    <div class="card" style="margin-top:16px">
+      <div class="card-h"><h3>Günlük yükleme ve harcama · son 30 gün</h3><div class="legend"><span><i style="background:var(--series-1)"></i>Yükleme</span><span><i style="background:var(--series-2)"></i>Harcama</span></div></div>
+      <div class="card-b"><div class="chart-box" id="chartBox">${chartSVG()}<div class="chart-tip" id="chartTip" hidden></div></div>
+      <p class="muted" style="font-size:12px;margin-top:6px">Ayın 1’i ve 15’inde maaş günü kaynaklı yükleme artışı; hafta sonları harcama yükleme ile başa baş.</p></div>
+    </div>
+    <div class="card" style="margin-top:16px">
+      <div class="card-h"><h3>Mağaza bazlı top 5 · bu ay</h3><button class="btn btn-sm btn-ghost" data-act="apage" data-arg="merchants">Tüm mağazalar ${icon('chevR', 14)}</button></div>
+      <div class="tbl-wrap"><table class="tbl mid"><thead><tr><th>#</th><th>Mağaza</th><th class="num">İşlem</th><th class="num">Ciro</th><th class="num">Ort. sepet</th><th class="num">Değişim</th></tr></thead><tbody>
+      ${TOP_STORES.map((s, i) => `<tr><td class="tnum muted">${i + 1}</td><td><b>${s.name}</b><span class="sub">${s.city}</span></td><td class="num">${nf(s.tx)}</td><td class="num">${tl0(s.rev)}</td><td class="num">${tl(s.basket)}</td><td class="num" style="color:var(--${s.delta >= 0 ? 'ok' : 'danger'});font-weight:700">${s.delta >= 0 ? '+' : '−'}%${nf(Math.abs(s.delta), 1)}</td></tr>`).join('')}
+      </tbody></table></div>
+    </div>`;
+  },
+
+  customers(p){
+    return aTop(p, `${nf(128412)} aktif cüzdan · KYC dağılımı: Seviye 0 %22 · Seviye 1 %41 · Seviye 2 %37`, `<div class="search">${icon('search', 16)}<input class="input" id="custQ" placeholder="Ad, telefon veya müşteri no" value="${esc(adm.custQ)}" aria-label="Müşteri ara"></div>`) + `
+    <div class="two">
+      <div class="card"><div class="tbl-wrap"><table class="tbl wide"><thead><tr><th>Müşteri</th><th>Telefon</th><th>KYC</th><th class="num">Bakiye</th><th>Durum</th><th>Son işlem</th></tr></thead><tbody id="custRows"></tbody></table></div></div>
+      <div class="card detail" id="custDetail"></div>
+    </div>`;
+  },
+
+  transactions(p){
+    const sts = ['Tümü','Başarılı','Beklemede','Başarısız','İade'];
+    return aTop(p, 'Gerçek zamanlı işlem akışı · ledger journal referanslı', `<button class="btn" data-act="toast" data-arg="Filtrelenmiş işlemler CSV olarak dışa aktarılıyor (maskeleme uygulanır)">${icon('download', 16)}CSV</button>`) + `
+    <div class="card"><div class="card-h" style="gap:10px">
+      <div class="filters" role="group" aria-label="Durum filtresi">${sts.map(s => `<button class="fchip" data-act="txSt" data-arg="${s}" aria-pressed="${adm.txSt === s}">${s}</button>`).join('')}</div>
+      <div class="filters"><select class="select" id="txType" aria-label="İşlem tipi">${['Tümü','Harcama','Yükleme','İade','Bonus'].map(t => `<option ${adm.txType === t ? 'selected' : ''}>${t}</option>`).join('')}</select>
+      <div class="search">${icon('search', 16)}<input class="input" id="txQ" placeholder="İşlem no, müşteri, mağaza" value="${esc(adm.txQ)}" aria-label="İşlem ara"></div></div>
+    </div>
+    <div class="tbl-wrap"><table class="tbl wide"><thead><tr><th>İşlem no</th><th>Zaman</th><th>Müşteri</th><th>Mağaza / Terminal</th><th>Tip</th><th>Kanal</th><th class="num">Tutar</th><th>Durum</th></tr></thead><tbody id="txRows"></tbody></table></div>
+    <div class="card-b muted" style="font-size:12px;border-top:1px solid var(--border)" id="txFoot"></div></div>`;
+  },
+
+  merchants(p){
+    const stores = MERCHANTS.reduce((a, m) => a + m.stores.length, 0);
+    const terms = MERCHANTS.flatMap(m => m.stores.flatMap(s => s.terms));
+    return aTop(p, `İşyeri → mağaza → terminal hiyerarşisi · ${MERCHANTS.length} işyeri · ${stores} mağaza · ${terms.length} terminal (${terms.filter(t => t[2]).length} çevrimiçi)`, `<button class="btn" data-act="toast" data-arg="POS API anahtarı oluşturma — maker-checker onayı gerekir">${icon('lock', 16)}API anahtarı</button><button class="btn btn-primary" data-act="toast" data-arg="Yeni mağaza sihirbazı (taslak) açıldı">${icon('plus', 16)}Mağaza ekle</button>`) + `
+    <div class="merchant-tree">${MERCHANTS.map(m => `<div class="card">
+      <div class="card-h"><div class="row"><div class="av-lg" style="width:38px;height:38px;border-radius:10px">${icon('building', 18)}</div><div><h3>${m.name}</h3><div class="muted" style="font-size:12px">${m.kind} · VKN <span class="mono">${m.vkn}</span> · IBAN <span class="mono">${m.iban}</span></div></div></div><span class="chip ok">Takas aktif · T+1</span></div>
+      <div class="tbl-wrap"><table class="tbl mid"><thead><tr><th>Mağaza</th><th>Şehir</th><th>Terminaller</th><th class="num">Bugünkü ciro</th></tr></thead><tbody>
+      ${m.stores.map(s => `<tr><td><b>${s.name}</b></td><td>${s.city}</td><td style="white-space:normal">${s.terms.map(t => `<span class="term ${t[2] ? '' : 'off'}" title="${t[1]} · ${t[2] ? 'çevrimiçi' : 'çevrimdışı'}"><i></i>${t[0]}</span>`).join('')}</td><td class="num">${tl0(s.rev)}</td></tr>`).join('')}
+      </tbody></table></div></div>`).join('')}</div>`;
+  },
+
+  campaigns(p){
+    return aTop(p, 'Kural motoru tabanlı kampanyalar · bütçe ve katılım takibi', `<button class="btn btn-primary" data-act="toast" data-arg="Kampanya taslağı oluşturuldu — yayına alma maker-checker onayına tabidir">${icon('plus', 16)}Yeni kampanya</button>`) + `
+    <div class="camp-grid">${CAMPAIGNS.map(c => { const pct = c.used / c.budget * 100; return `<div class="card rep-card">
+      <div class="between"><span class="muted" style="font-size:12px;font-weight:600">${c.type}</span>${statusChip(c.st)}</div>
+      <h3 style="font-size:15px">${c.name}</h3>
+      <div class="mono" style="font-size:11.5px;background:var(--surface-2);border:1px solid var(--border);border-radius:6px;padding:6px 8px;color:var(--text-2)">${esc(c.rule)}</div>
+      <div><div class="between" style="font-size:12px"><span class="muted">Bütçe kullanımı</span><b class="tnum">${tl0(c.used)} / ${tl0(c.budget)}</b></div><div class="bar" style="margin-top:6px"><i style="width:${pct}%;${pct > 90 ? 'background:var(--warn)' : ''}"></i></div></div>
+      <div class="between" style="font-size:12px"><span class="muted">${c.period}</span><span class="tnum"><b>${nf(c.part)}</b> katılımcı</span></div>
+    </div>`; }).join('')}</div>`;
+  },
+
+  reports(p){
+    return aTop(p, 'Rapor kataloğu · planlı ve talep üzerine · tüm çıktılar hash’lenip denetim loguna yazılır', `<span class="chip info plain">3 planlı rapor bu gece çalışacak</span>`) + `
+    <div class="rep-grid">${REPORTS.map((r, i) => `<div class="card rep-card">
+      <div class="between"><div class="ri">${icon(r.ic, 18)}</div><span class="chip plain">${r.tag}</span></div>
+      <h3 style="font-size:15px">${r.name}</h3><p>${r.desc}</p>
+      <div class="between" style="font-size:12px"><span class="muted">${icon('clock', 14)}</span><span class="muted" style="flex:1">${r.freq}</span><span class="row" style="gap:4px">${r.fmts.map(f => `<span class="fmt">${f}</span>`).join('')}</span></div>
+      <div class="row"><button class="btn btn-primary btn-sm" data-act="report" data-arg="${i}">Oluştur</button><button class="btn btn-sm" data-act="toast" data-arg="“${r.name}” için plan düzenleme açıldı">Planla</button></div>
+    </div>`).join('')}</div>`;
+  },
+
+  accounting(p){
+    return aTop(p, 'Çift kayıtlı defterden hesap planı eşlemeli yevmiye üretimi · ERP entegrasyonu') + `
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+      <div class="card"><div class="card-h"><h3>Yevmiye export</h3><span class="chip ok">Dün: dengeli</span></div>
+        <div class="card-b"><div class="form-grid">
+          <div class="field"><label for="jFrom">Başlangıç</label><input class="input" id="jFrom" type="date" value="2026-09-24"></div>
+          <div class="field"><label for="jTo">Bitiş</label><input class="input" id="jTo" type="date" value="2026-09-24"></div>
+          <div class="field"><label for="jFmt">Hedef</label><select class="select" id="jFmt"><option>Logo Tiger (XML)</option><option>SAP S/4HANA (IDoc)</option><option>Netsis (CSV)</option><option>Genel CSV</option></select></div>
+          <div class="field"><label for="jDim">Boyut</label><select class="select" id="jDim"><option>Mağaza + kampanya</option><option>Yalnız mağaza</option><option>Özet (hesap bazlı)</option></select></div>
+        </div>
+        <div class="dl" style="margin-top:14px"><dt>Kayıt sayısı</dt><dd>1.842 satır · 614 fiş</dd><dt>Toplam borç</dt><dd>${tl(1284402.35)}</dd><dt>Toplam alacak</dt><dd>${tl(1284402.35)}</dd><dt>Fark</dt><dd style="color:var(--ok);font-weight:700">${tl(0)}</dd></div>
+        <button class="btn btn-primary" style="margin-top:14px;width:100%" data-act="journalExport">${icon('download', 16)}Yevmiyeyi dışa aktar</button></div></div>
+      <div class="card"><div class="card-h"><h3>Örnek yevmiye fişleri · bugün</h3></div>
+        <div class="tbl-wrap"><table class="tbl journal mid"><thead><tr><th>Fiş</th><th>Hesap</th><th class="num">Borç</th><th class="num">Alacak</th></tr></thead><tbody>
+        ${JOURNAL.map(j => `<tr><td class="mono" style="font-size:11.5px">${j.no}</td><td>${j.acc}</td><td class="num">${j.dr ? tl(j.dr) : ''}</td><td class="num">${j.cr ? tl(j.cr) : ''}</td></tr>`).join('')}
+        </tbody></table></div></div>
+    </div>
+    <div class="card" style="margin-top:16px"><div class="card-h"><h3>GL eşleme tablosu (Tekdüzen Hesap Planı)</h3><button class="btn btn-sm" data-act="toast" data-arg="Eşleme değişikliği maker-checker onayına gönderilir">Düzenle</button></div>
+      <div class="tbl-wrap"><table class="tbl wide"><thead><tr><th>Olay (ledger event)</th><th>Borç hesabı</th><th>Alacak hesabı</th><th>Not</th></tr></thead><tbody>
+      ${GL_MAP.map(g => `<tr><td><b>${g.ev}</b></td><td class="mono" style="font-size:12px">${g.dr}</td><td class="mono" style="font-size:12px">${g.cr}</td><td class="muted">${g.note}</td></tr>`).join('')}
+      </tbody></table></div></div>`;
+  },
+
+  risk(p){
+    return aTop(p, 'Gerçek zamanlı kural motoru alarmları ve AML / yaptırım / PEP tarama sonuçları', `<span class="chip danger">${ALERTS.filter(a => a.st === 'Yeni').length} yeni alarm</span>`) + `
+    <div class="card"><div class="card-h"><h3>Alarm kuyruğu</h3><span class="muted" style="font-size:12px">Skor ≥ 80 → otomatik işlem durdurma</span></div>
+      <div class="tbl-wrap"><table class="tbl wide"><thead><tr><th>Alarm</th><th class="num">Skor</th><th>Kural</th><th>Müşteri</th><th class="num">Tutar</th><th>Durum</th><th>İşlem</th></tr></thead><tbody>
+      ${ALERTS.map((a, i) => `<tr><td><span class="mono">${a.id}</span><span class="sub">${a.time}</span></td><td class="num"><span class="score ${a.score >= 75 ? 'h' : a.score >= 50 ? 'm' : 'l'}">${a.score}</span></td><td style="white-space:normal;min-width:240px">${a.rule}</td><td>${a.cust}</td><td class="num">${a.amt ? tl0(a.amt) : '—'}</td><td>${statusChip(a.st)}</td>
+        <td><div class="row" style="gap:6px">${a.st === 'Yeni' ? `<button class="btn btn-sm" data-act="alert" data-arg="${i}:review">İncele</button>` : ''}${a.st !== 'Kapatıldı' && a.st !== 'STR taslağı' ? `<button class="btn btn-sm" data-act="alert" data-arg="${i}:close">Kapat</button>` : ''}${a.score >= 75 && a.st !== 'STR taslağı' ? `<button class="btn btn-sm btn-danger" data-act="alert" data-arg="${i}:str">STR</button>` : ''}</div></td></tr>`).join('')}
+      </tbody></table></div></div>
+    <div class="card" style="margin-top:16px"><div class="card-h"><h3>AML / yaptırım tarama sonuçları</h3><span class="muted" style="font-size:12px">Liste güncelleme: bugün 04:00 · BM, AB, OFAC, MASAK, PEP</span></div>
+      <div class="tbl-wrap"><table class="tbl mid"><thead><tr><th>Müşteri</th><th>Liste</th><th class="num">Eşleşme</th><th>Sonuç</th><th>Zaman</th></tr></thead><tbody>
+      ${AML.map(a => `<tr><td>${a.cust}</td><td>${a.list}</td><td class="num">%${a.match}</td><td>${statusChip(a.res)}</td><td class="tnum muted">${a.time}</td></tr>`).join('')}
+      </tbody></table></div></div>`;
+  },
+
+  audit(p){
+    const busy = adm.chainState === 'busy';
+    return aTop(p, 'Değiştirilemez, hash-zincirli denetim kaydı · her kayıt bir öncekinin SHA-256 özetini içerir', `<span class="chain ${busy ? 'busy' : ''}" id="chainBadge">${busy ? icon('refresh', 15) + 'Doğrulanıyor…' : icon('shield', 15) + 'Zincir doğrulandı ✓'}</span><button class="btn" data-act="verifyChain" ${busy ? 'disabled' : ''}>${icon('link', 16)}Yeniden doğrula</button><button class="btn" data-act="toast" data-arg="Delil paketi (ZIP + imzalı manifest) hazırlanıyor">${icon('download', 16)}Delil paketi</button>`) + `
+    <div class="card"><div class="card-h"><div class="filters"><select class="select" aria-label="Kullanıcı"><option>Tüm kullanıcılar</option><option>zeynep.kaya</option><option>mert.aydin</option></select><select class="select" aria-label="Eylem"><option>Tüm eylemler</option><option>Finansal</option><option>Yetki</option><option>Ayar</option></select><input class="input" type="date" value="2026-09-25" aria-label="Tarih"></div><span class="muted tnum" style="font-size:12px">Toplam 1.284.332 kayıt · son blok #1.284.332</span></div>
+      <div class="tbl-wrap"><table class="tbl wide"><thead><tr><th>Zaman</th><th>Kullanıcı</th><th>Eylem</th><th>Varlık</th><th>Önceki → Yeni</th><th>Hash</th></tr></thead><tbody>
+      ${AUDIT.map(a => `<tr><td class="tnum">${a.time}</td><td><b>${a.user}</b><span class="sub">${a.role}</span></td><td>${a.act}</td><td class="mono" style="font-size:11.5px">${esc(a.ent)}</td><td><span class="diff-old">${a.old}</span> → <span class="diff-new">${a.nw}</span></td><td class="hash" title="${a.hash}">${a.hash.slice(0, 8)}…${a.hash.slice(-6)}</td></tr>`).join('')}
+      </tbody></table></div></div>`;
+  },
+
+  approvals(p){
+    return aTop(p, 'Maker-checker (4 göz) kuyruğu · talebi oluşturan kişi onaylayamaz', `<span class="chip warn">${APPROVALS.length} bekleyen</span>`) + `
+    <div class="card">${APPROVALS.length ? APPROVALS.map((a, i) => `<div class="appr"><div><div class="row" style="gap:8px;flex-wrap:wrap"><span class="mono muted" style="font-size:12px">${a.id}</span><span class="chip plain">${a.kind}</span></div><h4 style="margin-top:4px">${a.title}</h4>
+      <div class="meta">Talep eden: <b style="color:var(--text)">${a.maker}</b>${a.maker === ME.name ? ' (siz)' : ''} · ${a.when} · ${a.note}</div>
+      <div class="diffbox"><span class="diff-old">${a.old}</span> → <span class="diff-new">${a.nw}</span></div></div>
+      <div class="row"><button class="btn btn-danger" data-act="approve" data-arg="${i}:reject">Reddet</button><button class="btn btn-primary" data-act="approve" data-arg="${i}:ok">${icon('check', 16)}Onayla</button></div></div>`).join('')
+      : `<div class="card-b" style="text-align:center;padding:40px"><div class="av-lg" style="margin:0 auto 10px">${icon('check', 22)}</div><b>Bekleyen onay yok</b><p class="muted">Tüm talepler işlendi.</p></div>`}</div>`;
+  },
+
+  settings(p){
+    const colors = ['#7B4B2A','#0B6B6B','#2356B8','#0B7A55','#B8336A','#46607A'];
+    return aTop(p, 'Tenant konfigürasyonu · değişiklikler maker-checker onayından sonra yürürlüğe girer', `<button class="btn btn-primary" data-act="saveSettings">${icon('check', 16)}Onaya gönder</button>`) + `
+    <div class="set-grid">
+      <div class="card"><div class="card-h"><h3>Genel</h3></div><div class="card-b form-grid">
+        <div class="field"><label for="sCur">Para birimi</label><select class="select" id="sCur"><option selected>TRY — Türk lirası (₺)</option><option>EUR — Euro</option><option>USD — ABD doları</option></select></div>
+        <div class="field"><label for="sLang">Varsayılan dil</label><select class="select" id="sLang"><option>Türkçe</option><option>English</option></select></div>
+        <div class="field"><label for="sTz">Saat dilimi</label><select class="select" id="sTz"><option>Europe/Istanbul (UTC+3)</option></select></div>
+        <div class="field"><label for="sDay">Gün sonu kesim saati</label><input class="input" id="sDay" value="23:59:59"></div>
+      </div></div>
+      <div class="card"><div class="card-h"><h3>Limitler (KYC)</h3></div><div class="card-b form-grid">
+        ${SETTINGS.limits.map((l, i) => `<div class="field"><label for="lim${i}">${l.k}</label><input class="input tnum" id="lim${i}" value="${tl0(l.v)}"></div>`).join('')}
+      </div></div>
+      <div class="card"><div class="card-h"><h3>Ücretler & bakiye kuralları</h3></div><div class="card-b form-grid">
+        ${SETTINGS.fees.map((f, i) => `<div class="field"><label for="fee${i}">${f.k}</label><input class="input" id="fee${i}" value="${f.v}"></div>`).join('')}
+      </div></div>
+      <div class="card"><div class="card-h"><h3>Marka</h3></div><div class="card-b">
+        <div class="field"><label>Marka rengi</label><div class="swatches">${colors.map(c => `<button style="background:${c}" data-act="brand" data-arg="${c}" aria-pressed="${adm.settingsBrand === c}" aria-label="Renk ${c}"></button>`).join('')}</div></div>
+        <div class="mini-prev" style="background:linear-gradient(135deg,${adm.settingsBrand},color-mix(in srgb,${adm.settingsBrand} 75%,#000))"><span class="lt">K</span><div><b>Kahve Durağı</b><div style="font-size:12px;opacity:.85">Uygulama önizleme · ${adm.settingsBrand}</div></div></div>
+      </div></div>
+      <div class="card" style="grid-column:1 / -1"><div class="card-h"><h3>Özellik bayrakları</h3><span class="muted" style="font-size:12px">tenant-service · anında yayılır (Kafka)</span></div><div class="card-b" style="padding-top:4px;padding-bottom:4px">
+        ${SETTINGS.flags.map((f, i) => `<div class="flag"><div><b>${f.n}</b><small>${f.d}</small></div><button class="switch" role="switch" aria-checked="${f.on}" aria-label="${f.n}" data-act="flag" data-arg="${i}"></button></div>`).join('')}
+      </div></div>
+    </div>`;
+  }
+};
+
+function renderCustRows(){
+  const q = adm.custQ.toLocaleLowerCase('tr-TR');
+  const rows = CUSTOMERS.filter(c => !q || (c.name + c.id + c.phone).toLocaleLowerCase('tr-TR').includes(q));
+  if (!adm.cust || !CUSTOMERS.find(c => c.id === adm.cust)) adm.cust = CUSTOMERS[0].id;
+  $('#custRows').innerHTML = rows.map(c => `<tr class="clickable" tabindex="0" data-act="cust" data-arg="${c.id}" aria-selected="${adm.cust === c.id}"><td><b>${c.name}</b><span class="sub mono">${c.id}</span></td><td class="tnum">${c.phone}</td><td>${KYC[c.kyc]}</td><td class="num">${tl(c.bal + c.bonus + c.gift)}</td><td>${statusChip(c.status)}</td><td class="muted">${c.last}</td></tr>`).join('') || `<tr><td colspan="6" class="muted" style="text-align:center;padding:24px">Eşleşen müşteri yok</td></tr>`;
+  renderCustDetail();
+}
+function renderCustDetail(){
+  const c = CUSTOMERS.find(x => x.id === adm.cust);
+  const blocked = c.status === 'Bloke';
+  const txs = ADMIN_TX.filter(t => t.cust === c.name).slice(0, 3);
+  $('#custDetail').innerHTML = `
+    <div class="sect"><div class="row"><div class="av-lg">${initials(c.name)}</div><div style="flex:1"><b style="font-size:15px">${c.name}</b><div class="muted mono" style="font-size:11.5px">${c.id}</div></div>${statusChip(c.status)}</div>
+      <dl class="dl" style="margin-top:12px"><dt>Telefon</dt><dd>${c.phone}</dd><dt>Şehir</dt><dd>${c.city}</dd><dt>Üyelik</dt><dd>${c.since}</dd><dt>30 gün işlem</dt><dd>${c.tx30}</dd><dt>Risk skoru</dt><dd><span class="score ${c.risk >= 75 ? 'h' : c.risk >= 50 ? 'm' : 'l'}">${c.risk}</span></dd></dl></div>
+    <div class="sect"><h4>KYC</h4><div class="between"><b>${KYC[c.kyc]}</b><span class="muted tnum" style="font-size:12px">Maks. bakiye ${tl0(KYC_LIMIT[c.kyc])}</span></div>
+      <div class="kyc-steps" style="--brand:var(--accent);--brand-soft:var(--surface-3)">${[0,1,2].map(i => `<span class="${i <= c.kyc ? 'on' : ''}"></span>`).join('')}</div>
+      <div class="muted" style="font-size:12px;margin-top:6px">${['Yalnızca telefon doğrulaması','Telefon + TCKN doğrulama','Telefon + NFC kimlik + canlılık testi'][c.kyc]}</div></div>
+    <div class="sect"><h4>Cüzdanlar</h4><dl class="dl"><dt>Ana bakiye</dt><dd>${tl(c.bal)}</dd><dt>Bonus bakiye</dt><dd>${tl(c.bonus)}</dd><dt>Hediye kartı</dt><dd>${tl(c.gift)}</dd><dt><b style="color:var(--text)">Toplam</b></dt><dd><b>${tl(c.bal + c.bonus + c.gift)}</b></dd></dl></div>
+    ${txs.length ? `<div class="sect"><h4>Son işlemler</h4>${txs.map(t => `<div class="between" style="font-size:12.5px;padding:3px 0"><span>${t.type} · <span class="muted">${t.time}</span></span><b class="tnum">${signed(t.amt)}</b></div>`).join('')}</div>` : ''}
+    <div class="sect row" style="flex-wrap:wrap">
+      ${blocked ? `<button class="btn btn-ok" data-act="blockCust" data-arg="${c.id}">${icon('unlock', 16)}Blokeyi kaldır</button>` : `<button class="btn btn-danger" data-act="blockCust" data-arg="${c.id}">${icon('lock', 16)}Bloke et</button>`}
+      <button class="btn" data-act="adjustBal" data-arg="${c.id}">Bakiye düzeltme</button>
+    </div>`;
+}
+function renderTxRows(){
+  const q = adm.txQ.toLocaleLowerCase('tr-TR');
+  const rows = ADMIN_TX.filter(t => (adm.txSt === 'Tümü' || t.st === adm.txSt) && (adm.txType === 'Tümü' || t.type === adm.txType) && (!q || (t.id + t.cust + t.store).toLocaleLowerCase('tr-TR').includes(q)));
+  $('#txRows').innerHTML = rows.map(t => `<tr><td class="mono">${t.id}</td><td class="tnum">${t.time}</td><td>${t.cust}</td><td>${t.store}${t.term !== '—' ? `<span class="sub mono">${t.term}</span>` : ''}</td><td>${t.type}</td><td class="muted">${t.ch}</td><td class="num" style="font-weight:700;${t.amt > 0 ? 'color:var(--ok)' : ''}">${signed(t.amt)}</td><td>${statusChip(t.st)}</td></tr>`).join('') || `<tr><td colspan="8" class="muted" style="text-align:center;padding:24px">Filtreye uyan işlem yok</td></tr>`;
+  const sum = rows.filter(r => r.st === 'Başarılı').reduce((a, r) => a + r.amt, 0);
+  $('#txFoot').innerHTML = `<span class="tnum">${rows.length} işlem gösteriliyor · başarılı net akış ${signed(sum)}</span>`;
+}
+
+/* =========================================================
+   VIEW 3 — Web POS
+   ========================================================= */
+const POS_RECENT = [
+  {id:'TX-8F21A7',time:'08:14',cust:'Elif Yıldırım',amt:142.50,desc:'Latte + Kruvasan'},
+  {id:'TX-8F215B',time:'07:49',cust:'Burak Şahin',amt:54.00,desc:'Filtre Kahve'},
+  {id:'TX-8F20F1',time:'07:31',cust:'Selin Koç',amt:96.00,desc:'Americano × 2'},
+  {id:'TX-8F20C8',time:'07:12',cust:'Can Öztürk',amt:61.50,desc:'Çay + Simit'}
+];
+const pos = {mode:'sale', cents:8750, step:'input', refSel:null, holdSector:'ev', hold:{kwh:0, mins:0, amount:0}, last:null};
+const posAmt = () => pos.cents / 100;
+
+function renderPOS(){
+  const root = $('#view-pos');
+  if (!root.dataset.built){
+    root.innerHTML = lead('Kasiyer / mağaza personeli — tarayıcıda çalışan Web POS (tablet)', '<span class="ms">Satış & iade · MVP M3</span><span class="ms">Provizyon (EV / otopark) · MVP M3</span>') + `<div class="tablet"><div class="tablet-screen" id="posScreen"></div></div>`;
+    root.dataset.built = '1';
+  }
+  const storeName = pos.mode === 'hold' ? (pos.holdSector === 'ev' ? 'VoltGo Şarj — Maslak DC-04' : 'ParkPlus — Levent Kapalı · Çıkış 2') : 'Kahve Durağı — Kadıköy Moda';
+  const modes = [['sale','Satış','receipt'],['refund','İade','refund'],['hold','Provizyon (EV / Otopark)','lock']];
+  $('#posScreen').innerHTML = `
+    <div class="pos-bar"><div><b>${storeName}</b><br><small>Terminal ${pos.mode === 'hold' ? (pos.holdSector === 'ev' ? 'T-EV-0412' : 'T-PK-0207') : 'T-0142'} · Kasiyer: Burak T.</small></div>
+      <div class="row" style="flex-wrap:wrap"><span class="chip ok">Çevrimiçi</span><span class="muted tnum" style="font-size:12px">09:41 · 25.09.2026</span></div></div>
+    <div class="pos-modes" role="group" aria-label="POS modu">${modes.map(([k, n, ic]) => `<button data-act="posMode" data-arg="${k}" aria-pressed="${pos.mode === k}">${icon(ic, 16)}${n}</button>`).join('')}</div>
+    <div class="pos-body">
+      <div>
+        <div class="pos-amount"><small>${pos.mode === 'refund' ? 'İade tutarı' : pos.mode === 'hold' ? 'Provizyon tutarı' : 'Tahsil edilecek tutar'}</small><div class="v" id="posAmt">${tl(posAmt())}</div></div>
+        <div class="keypad" aria-label="Tuş takımı">${['1','2','3','4','5','6','7','8','9','00','0','⌫'].map(k => `<button data-act="key" data-arg="${k}" ${pos.step !== 'input' && pos.step !== 'select' ? 'disabled' : ''} aria-label="${k === '⌫' ? 'Sil' : k}">${k}</button>`).join('')}</div>
+        <div class="row" style="margin-top:10px"><button class="btn" style="flex:1" data-act="key" data-arg="C" ${pos.step !== 'input' && pos.step !== 'select' ? 'disabled' : ''}>Temizle</button>${pos.mode === 'sale' ? [45, 87.5, 120].map(v => `<button class="btn" style="flex:1" data-act="posQuick" data-arg="${v}">${tl0(v)}</button>`).join('') : ''}</div>
+      </div>
+      <div class="pos-panel" id="posPanel">${posPanel()}</div>
+    </div>`;
+}
+function posPanel(){
+  const a = posAmt();
+  if (pos.mode === 'sale'){
+    if (pos.step === 'input') return `<h3>Yeni satış</h3><p class="muted">Tutarı girin, ardından müşterinin uygulamasındaki QR kodu okutun.</p>
+      <div class="check-row">${icon('info', 18)}<span>Kabul edilen: Müşteri QR · NFC/HCE · Barkod</span></div><div style="flex:1"></div>
+      <button class="big-btn" data-act="posScan" ${a <= 0 ? 'disabled' : ''}>${icon('scan', 22)}QR okut · ${tl(a)}</button>`;
+    if (pos.step === 'scanning') return scanUI('Müşteri QR kodu okunuyor…');
+    if (pos.step === 'confirm') return `<h3>Ödeme onayı</h3>
+      <div class="check-row" style="background:var(--surface-3)">${icon('user', 18)}<span>Müşteri: <b>${maskName('Elif Yıldırım')}</b> · KYC Seviye 2</span></div>
+      <div class="check-row">${icon('checkc', 18)}<span>Bakiye yeterli ✓ <span class="muted">(ana + bonus)</span></span></div>
+      <div class="check-row">${icon('checkc', 18)}<span>Token geçerli · risk skoru 12 (düşük)</span></div>
+      <div class="check-row">${icon('star', 18)}<span>Kampanya: Sabah kahvesi %20 bonus → +${tl(Math.min(30, a * .2))}</span></div>
+      <div style="flex:1"></div>
+      <div class="between" style="font-size:18px;font-weight:800"><span>Toplam</span><span class="tnum">${tl(a)}</span></div>
+      <div class="row"><button class="big-btn sec" data-act="posCancel">Vazgeç</button><button class="big-btn" data-act="posConfirm">${icon('check', 20)}Onayla</button></div>`;
+    if (pos.step === 'receipt') return receiptUI();
+  }
+  if (pos.mode === 'refund'){
+    if (pos.step === 'select' || pos.step === 'input') return `<h3>İade — işlem seçin</h3><p class="muted" style="font-size:13px">Bugünkü işlemlerden seçin. Kısmi iade için tutarı tuş takımından düzenleyin.</p>
+      <div class="refund-list">${POS_RECENT.map((t, i) => `<button data-act="posRef" data-arg="${i}" aria-pressed="${pos.refSel === i}"><span><b>${t.desc}</b><br><span class="muted mono" style="font-size:11.5px">${t.id} · ${t.time} · ${maskName(t.cust)}</span></span><b class="tnum">${tl(t.amt)}</b></button>`).join('')}</div>
+      <div style="flex:1"></div>
+      <button class="big-btn danger" data-act="posRefund" ${pos.refSel === null || a <= 0 || a > POS_RECENT[pos.refSel].amt ? 'disabled' : ''}>${icon('refund', 20)}${pos.refSel !== null && a < POS_RECENT[pos.refSel].amt ? 'Kısmi iade' : 'İade et'} · ${tl(a)}</button>
+      ${pos.refSel !== null && a > POS_RECENT[pos.refSel].amt ? '<p style="color:var(--danger);font-size:12.5px;margin:0">İade tutarı orijinal işlemi aşamaz.</p>' : ''}`;
+    if (pos.step === 'scanning') return scanUI('İade onayı işleniyor (reversal saga)…', true);
+    if (pos.step === 'receipt') return receiptUI();
+  }
+  if (pos.mode === 'hold'){
+    const ev = pos.holdSector === 'ev';
+    if (pos.step === 'input') return `<h3>Provizyon (pre-auth)</h3>
+      <div class="filters" role="group" aria-label="Sektör">${[['ev','EV şarj','bolt'],['parking','Otopark','car']].map(([k, n, ic]) => `<button class="fchip" data-act="holdSector" data-arg="${k}" aria-pressed="${pos.holdSector === k}">${n}</button>`).join('')}</div>
+      <p class="muted" style="font-size:13px">${ev ? 'Şarj başlamadan tahmini tutar kadar bakiye bloke edilir; oturum sonunda gerçek kWh tutarı tahsil edilir, fark iade edilir.' : 'Girişte plaka/QR ile provizyon alınır; çıkışta süreye göre ücret tahsil edilir, kalan serbest bırakılır.'}</p>
+      <div class="check-row">${icon(ev ? 'bolt' : 'car', 18)}<span>${ev ? 'İstasyon DC-04 · 120 kW · ₺8,90/kWh' : 'Plaka 34 ABC 123 · Tarife: 0–1 sa ₺60, 1–3 sa ₺110, 3+ sa ₺160'}</span></div>
+      <div style="flex:1"></div>
+      <button class="big-btn" data-act="holdStart" ${a <= 0 ? 'disabled' : ''}>${icon('scan', 22)}QR okut ve provizyon al · ${tl(a)}</button>`;
+    if (pos.step === 'scanning') return scanUI('Provizyon alınıyor…');
+    if (pos.step === 'active'){
+      const cost = holdCost();
+      return `<div class="between"><h3>${ev ? 'Şarj oturumu aktif' : 'Araç otoparkta'}</h3><span class="chip ok"><span class="sr-only">Durum:</span>Canlı</span></div>
+        <div class="check-row" style="background:var(--surface-3)">${icon('user', 18)}<span>${maskName('Elif Yıldırım')} · Provizyon <b class="tnum">${tl(pos.hold.amount)}</b> bloke</span></div>
+        <div style="text-align:center;padding:12px 0"><div class="muted" style="font-size:12px;font-weight:600">${ev ? 'Aktarılan enerji' : 'Geçen süre'}</div>
+        <div class="meter" id="holdMeter">${ev ? nf(pos.hold.kwh, 1) + ' kWh' : fmtMins(pos.hold.mins)}</div>
+        <div class="muted" style="font-size:13px">Anlık tutar: <b class="tnum" id="holdCost" style="color:var(--text)">${tl(cost)}</b></div></div>
+        <div class="bar"><i id="holdBar" style="width:${Math.min(100, cost / pos.hold.amount * 100)}%"></i></div>
+        <div style="flex:1"></div>
+        <button class="big-btn" data-act="holdClose">${icon('check', 20)}Kapat ve tahsil et</button>`;
+    }
+    if (pos.step === 'receipt') return receiptUI();
+  }
+  return '';
+}
+const fmtMins = m => `${Math.floor(m / 60)} sa ${String(m % 60).padStart(2, '0')} dk`;
+function holdCost(){
+  if (pos.holdSector === 'ev') return Math.round(pos.hold.kwh * 8.9 * 100) / 100;
+  const m = pos.hold.mins; return m <= 60 ? 60 : m <= 180 ? 110 : 160;
+}
+const scanUI = (msg, noCam) => `<h3>${msg}</h3>${noCam ? '<div style="padding:40px 0"><div class="spinner" style="--brand:var(--accent);--brand-soft:var(--surface-3)"></div></div>' : '<div class="scan-area"><div class="frame"><div class="line"></div></div></div>'}<p class="muted" style="text-align:center">Lütfen bekleyin</p>`;
+function receiptUI(){
+  const r = pos.last;
+  return `<div class="between"><h3>${r.title}</h3><span class="chip ok">Başarılı</span></div>
+    <div class="fis"><div class="c"><b>${r.store}</b><br>Terminal ${r.term} · 25.09.2026 09:41</div><hr>
+      ${r.lines.map(([k, v]) => `<div class="ln"><span>${k}</span><span>${v}</span></div>`).join('')}<hr>
+      <div class="ln" style="font-weight:700;font-size:14px"><span>${r.totalLbl}</span><span>${r.total}</span></div><hr>
+      <div class="c" style="font-size:11px">İşlem no ${r.ref}<br>Müşteri ${maskName('Elif Yıldırım')}<br>AEP-CLW kapalı devre cüzdan</div></div>
+    <div style="flex:1"></div>
+    <div class="row"><button class="big-btn sec" data-act="toast" data-arg="Fiş müşteriye e-posta ve uygulama bildirimi ile gönderildi">Fiş gönder</button><button class="big-btn" data-act="posNew">Yeni işlem</button></div>`;
+}
+function posRerender(){ renderPOS(); }
+
+/* =========================================================
+   VIEW 4 — Platform admin
+   ========================================================= */
+const plat = {wizStep:1, wiz:{name:'', vkn:'', email:'', plan:'Growth', preset:'coffee', color:'#0B6B6B', app:''}};
+function renderPlatform(){
+  const root = $('#view-platform');
+  if (!root.dataset.built){
+    root.innerHTML = lead('Platform operatörü (SaaS sahibi) — tenant yönetimi, NOC / SRE', '<span class="ms">Tenant onboarding · MVP M1</span><span class="ms">Sistem sağlığı panosu · MVP M4</span>') + `<div id="platMain"></div>`;
+    root.dataset.built = '1';
+  }
+  const active = TENANTS.filter(t => t.st === 'Aktif').length;
+  const vol = TENANTS.reduce((a, t) => a + t.vol, 0);
+  $('#platMain').innerHTML = `
+  <div class="plat-kpis">
+    ${[['Aktif tenant', `${active} / ${TENANTS.length}`, '2 onboarding sürecinde'], ['Aylık işlem hacmi', '₺' + nf(vol, 1) + ' mn', 'Eylül, ay sonu tahmini ₺50,1 mn'], ['Toplam cüzdan', nf(TENANTS.reduce((a, t) => a + t.wallets, 0)), 'tüm tenantlar'], ['Platform uptime (30g)', '%99,982', 'SLO %99,95 ✓']].map(([l, v, s]) => `<div class="card kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="d" style="color:var(--muted);font-weight:500">${s}</div></div>`).join('')}
+  </div>
+  <div class="card" style="margin-top:16px"><div class="card-h"><h3>Tenantlar</h3><button class="btn btn-primary" data-act="wizOpen">${icon('plus', 16)}Yeni tenant oluştur</button></div>
+    <div class="tbl-wrap"><table class="tbl wide"><thead><tr><th>Tenant</th><th>Sektör</th><th>Plan</th><th>Durum</th><th class="num">Aylık hacim</th><th class="num">Cüzdan</th><th>İzolasyon</th></tr></thead><tbody>
+    ${TENANTS.map(t => `<tr><td><div class="row"><span style="width:28px;height:28px;border-radius:8px;background:${t.color};color:#fff;display:grid;place-items:center;font-weight:800;font-size:12px">${t.letter}</span><div><b>${t.name}</b><span class="sub">Müşteri ${t.since}’ten beri</span></div></div></td><td>${t.sector}</td><td><span class="chip plain">${t.plan}</span></td><td>${statusChip(t.st)}</td><td class="num">${t.vol ? '₺' + nf(t.vol, 2) + ' mn' : '—'}</td><td class="num">${t.wallets ? nf(t.wallets) : '—'}</td><td class="muted">${t.plan === 'Enterprise' ? 'Dedicated DB' : 'Paylaşımlı · RLS'}</td></tr>`).join('')}
+    </tbody></table></div></div>
+  <div class="health-grid" id="healthGrid">
+    <div class="card"><div class="card-h"><h3>Sistem sağlığı · 18 mikroservis</h3><div class="row" style="flex-wrap:wrap"><span class="chip ok">17 sağlıklı</span><span class="chip warn">1 yavaş</span></div></div>
+      <div class="card-b"><div class="svc-grid" id="svcGrid">${svcTiles()}</div>
+      <p class="muted" style="font-size:12px;margin-top:10px">p99 = son 5 dk 99. yüzdelik gecikme · OpenShift prod-ist-1 · değerler 3 sn’de bir yenilenir</p></div></div>
+    <div class="card"><div class="card-h"><h3>Kafka consumer lag</h3><span class="muted" style="font-size:12px">mesaj</span></div>
+      <div class="card-b stack" id="kafkaBox">${kafkaRows()}</div></div>
+  </div>`;
+}
+const svcTiles = () => SERVICES.map(s => `<div class="svc ${s.warn ? 'warn' : ''}"><div class="n"><span class="dot"></span>${s.n}</div><div class="m"><span>p99 <b>${s.p99} ms</b></span><span>${nf(s.rps)} rps</span><span>${s.pods}/${s.pods}</span></div></div>`).join('');
+const kafkaRows = () => KAFKA.map(k => `<div><div class="between" style="font-size:12.5px"><span><b class="mono" style="font-weight:500">${k.g}</b><span class="sub muted" style="display:block;font-size:11px">${k.topic}</span></span><b class="tnum" style="color:var(--${k.lag > 2000 ? 'warn' : 'text'})">${nf(k.lag)}</b></div><div class="bar" style="margin-top:5px"><i style="width:${Math.min(100, Math.max(2, k.lag / 5000 * 100))}%;${k.lag > 2000 ? 'background:var(--warn)' : ''}"></i></div></div>`).join('');
+
+function wizBody(){
+  const w = plat.wiz, s = plat.wizStep;
+  const steps = ['Bilgiler','Sektör preset','Marka'];
+  let body = `<div class="stepper">${steps.map((n, i) => `<div class="${i + 1 === s ? 'on' : i + 1 < s ? 'done' : ''}"><i>${i + 1 < s ? '✓' : i + 1}</i>${n}</div>`).join('')}</div>`;
+  if (s === 1) body += `<div class="form-grid">
+    <div class="field" style="grid-column:1/-1"><label for="wName">Ticari unvan / marka adı</label><input class="input" id="wName" value="${esc(w.name)}" placeholder="örn. Lezzet Yemekhane Hizmetleri A.Ş."></div>
+    <div class="field"><label for="wVkn">Vergi no (VKN)</label><input class="input" id="wVkn" value="${esc(w.vkn)}" placeholder="10 hane" inputmode="numeric"></div>
+    <div class="field"><label for="wPlan">Plan</label><select class="select" id="wPlan">${['Starter','Growth','Enterprise'].map(p => `<option ${w.plan === p ? 'selected' : ''}>${p}</option>`).join('')}</select></div>
+    <div class="field" style="grid-column:1/-1"><label for="wEmail">Yetkili e-posta (ilk admin daveti)</label><input class="input" id="wEmail" value="${esc(w.email)}" placeholder="yetkili@firma.com.tr"></div>
+    <p class="muted" style="grid-column:1/-1;font-size:12px" id="wErr"></p></div>`;
+  if (s === 2) body += `<p class="muted" style="margin-bottom:10px;font-size:13px">Preset; limitler, ödeme akışları (pre-auth), sadakat birimi ve özellik bayraklarını önceden doldurur. Sonradan değiştirilebilir.</p>
+    <div class="preset-grid">${PRESETS.map(p => `<button data-act="wizPreset" data-arg="${p.k}" aria-pressed="${w.preset === p.k}"><b>${p.n}</b><small>${p.d}</small></button>`).join('')}</div>`;
+  if (s === 3){
+    const colors = ['#0B6B6B','#2356B8','#0B7A55','#B8336A','#7B4B2A','#5E6B2E','#46607A','#9A6A00'];
+    const nm = w.app || w.name || 'Yeni Marka';
+    body += `<div class="field"><label for="wApp">Uygulama adı</label><input class="input" id="wApp" value="${esc(w.app || w.name)}" placeholder="Uygulamada görünecek ad"></div>
+      <div class="field" style="margin-top:12px"><label>Marka rengi</label><div class="swatches">${colors.map(c => `<button style="background:${c}" data-act="wizColor" data-arg="${c}" aria-pressed="${w.color === c}" aria-label="Renk ${c}"></button>`).join('')}</div></div>
+      <div class="mini-prev" id="wizPrev" style="background:linear-gradient(135deg,${w.color},color-mix(in srgb,${w.color} 75%,#000))"><span class="lt">${esc(nm[0].toLocaleUpperCase('tr-TR'))}</span><div><b>${esc(nm)}</b><div style="font-size:12px;opacity:.85">${PRESETS.find(p => p.k === w.preset).n} · ${w.plan} · white-label önizleme</div></div></div>`;
+  }
+  return body;
+}
+function wizRender(){
+  const s = plat.wizStep;
+  openModal({title:'Yeni tenant oluştur', body:wizBody(), actions:[
+    s > 1 ? {label:'Geri', act:'wizBack'} : {label:'İptal', act:'closeModal'},
+    s < 3 ? {label:'Devam', act:'wizNext', cls:'btn-primary'} : {label:'Tenant oluştur', act:'wizFinish', cls:'btn-primary'}
+  ]});
+}
+function wizCapture(){
+  const w = plat.wiz, v = id => { const el = $('#' + id); return el ? el.value.trim() : null; };
+  if (plat.wizStep === 1){ w.name = v('wName') ?? w.name; w.vkn = v('wVkn') ?? w.vkn; w.email = v('wEmail') ?? w.email; w.plan = v('wPlan') ?? w.plan; }
+  if (plat.wizStep === 3){ const a = v('wApp'); if (a !== null) w.app = a; }
+}
+
+/* =========================================================
+   Actions (event delegation)
+   ========================================================= */
+const A = {
+  view:(a) => { setView(a); window.scrollTo({top:0}); },
+  theme:() => { theme = THEMES[(THEMES.indexOf(theme) + 1) % 3]; applyTheme(); },
+  toast:(a) => toast(a, 'info'),
+  closeModal,
+
+  /* mobile */
+  sector:(a) => { mob.sector = a; mob.payState = 'qr'; mob.topState = 'form'; mob.txFilter = 'all'; renderMobile(); },
+  pscreen:(a) => { mob.screen = a; if (a === 'pay'){ mob.payState = 'qr'; } if (a === 'topup' && mob.topState !== 'form') mob.topState = 'form'; renderPhone(); },
+  topAmt:(a) => { mob.topAmt = +a; rerenderBody(); },
+  autoTop:() => { mob.autoTop = !mob.autoTop; rerenderBody(); toast(mob.autoTop ? 'Otomatik yükleme açıldı' : 'Otomatik yükleme kapatıldı', 'info'); },
+  bonusFirst:() => { mob.bonusFirst = !mob.bonusFirst; rerenderBody(); },
+  consent:(a) => { mob.consent[a] = !mob.consent[a]; rerenderBody(); toast('Rıza tercihiniz güncellendi ve versiyonlandı', 'info'); },
+  txFilter:(a) => { mob.txFilter = a; rerenderBody(); },
+  doTopup:() => {
+    const s = SECTORS[mob.sector];
+    mob.topState = 'processing'; rerenderBody();
+    setTimeout(() => {
+      const bonus = mob.sector === 'coffee' && mob.topAmt >= 500 ? 50 : 0;
+      s.main += mob.topAmt; s.bonus += bonus;
+      const r = ref();
+      pushTx(s, {title:'Kart ile yükleme', sub:'Kayıtlı kart •••• 4821', type:'topup', amt:mob.topAmt});
+      if (bonus) pushTx(s, {title:'Kampanya bonusu', sub:'₺500 yükle, ₺50 bonus', type:'bonus', amt:bonus});
+      mob.lastTop = {amount:mob.topAmt, bonus, ref:r}; mob.topState = 'done';
+      if (mob.screen === 'topup') rerenderBody();
+    }, 1300);
+  },
+  topAgain:() => { mob.topState = 'form'; rerenderBody(); },
+  qrRefresh:() => { mob.qrSeed++; mob.qrLeft = 30; rerenderBody(); },
+  paySim:() => {
+    const s = SECTORS[mob.sector], amt = s.payAmount;
+    if (s.main + s.bonus < amt){ toast('Yetersiz bakiye — lütfen yükleme yapın', 'err'); return; }
+    mob.payState = 'processing'; rerenderBody();
+    setTimeout(() => {
+      const fromBonus = mob.bonusFirst ? Math.min(s.bonus, amt) : 0, fromMain = Math.round((amt - fromBonus) * 100) / 100;
+      s.bonus = Math.round((s.bonus - fromBonus) * 100) / 100; s.main = Math.round((s.main - fromMain) * 100) / 100;
+      s.loyalty.cur = Math.min(s.loyalty.target, s.loyalty.cur + parseInt(s.earn.replace(/\D/g, ''), 10));
+      pushTx(s, {title:s.payDesc, sub:s.payStore.split('— ')[1] || s.payStore, type:'spend', amt:-amt});
+      mob.lastPay = {amount:amt, fromBonus, fromMain, ref:ref()}; mob.payState = 'done';
+      if (mob.screen === 'pay') rerenderBody();
+    }, 1200);
+  },
+  payAgain:() => { mob.payState = 'qr'; mob.qrSeed++; mob.qrLeft = 30; mob.screen = 'home'; renderPhone(); },
+  evStop:() => {
+    const s = SECTORS.ev, sp = s.special, amt = Math.round(sp.kwh * sp.rate * 100) / 100, rel = sp.hold - amt;
+    s.main -= amt;
+    s.txs = s.txs.filter(t => t.type !== 'hold' || t.d !== 0);
+    pushTx(s, {title:`DC Hızlı Şarj · ${nf(sp.kwh, 1)} kWh`, sub:'Maslak DC-04', type:'spend', amt:-amt});
+    s.special = null; renderPhone();
+    toast(`Şarj tamamlandı: ${tl(amt)} tahsil edildi, ${tl(rel)} provizyon serbest bırakıldı`);
+  },
+  parkExit:() => {
+    const s = SECTORS.parking, sp = s.special;
+    s.main -= sp.est;
+    s.txs = s.txs.filter(t => t.type !== 'hold' || t.d !== 0);
+    pushTx(s, {title:`Otopark · ${sp.mins} dk`, sub:'Levent Kapalı', type:'spend', amt:-sp.est});
+    s.special = null; renderPhone();
+    toast(`Çıkış onaylandı: ${tl(sp.est)} tahsil edildi, bariyer açıldı. ${tl(sp.hold - sp.est)} serbest bırakıldı`);
+  },
+  kidTopup:(a) => {
+    const s = SECTORS.park, k = s.special.kids[+a];
+    if (s.main < 50){ toast('Ana bakiye yetersiz', 'err'); return; }
+    s.main -= 50; k.bal += 50;
+    pushTx(s, {title:`Alt cüzdana aktarım — ${k.name}`, sub:'Aile cüzdanı', type:'spend', amt:-50});
+    rerenderBody(); toast(`${k.name} cüzdanına ₺50 aktarıldı`);
+  },
+  joinCamp:(a) => { const c = SECTORS[mob.sector].campaigns[+a]; c.joined = !c.joined; rerenderBody(); if (c.joined) toast(`“${c.title}” kampanyasına katıldınız`); },
+
+  /* admin */
+  apage:(a) => { app.adminPage = a; renderAdmin(); $('#adminMain').scrollIntoView({block:'nearest'}); },
+  cust:(a) => { adm.cust = a; $$('#custRows tr').forEach(r => r.setAttribute('aria-selected', r.dataset.arg === a)); renderCustDetail(); },
+  blockCust:(a) => {
+    const c = CUSTOMERS.find(x => x.id === a), blocked = c.status === 'Bloke';
+    openModal({title: blocked ? 'Blokeyi kaldır' : 'Müşteriyi bloke et', ctx:{id:a},
+      body:`<p style="margin-bottom:12px"><b>${c.name}</b> (<span class="mono">${c.id}</span>) ${blocked ? 'için bloke kaldırılacak. Müşteri tekrar ödeme ve yükleme yapabilecek.' : 'bloke edilecek. Tüm ödeme, yükleme ve transfer işlemleri durdurulur; bakiye korunur.'}</p>
+        <div class="field"><label for="blkReason">Gerekçe (denetim loguna yazılır)</label><select class="select" id="blkReason">${blocked ? '<option>İnceleme tamamlandı — risk yok</option><option>Müşteri talebi</option>' : '<option>Şüpheli işlem / fraud şüphesi</option><option>AML inceleme</option><option>Müşteri talebi (kayıp cihaz)</option><option>Mahkeme / resmi kurum talebi</option>'}</select></div>`,
+      actions:[{label:'Vazgeç', act:'closeModal'}, {label: blocked ? 'Blokeyi kaldır' : 'Bloke et', act:'confirmBlock', cls: blocked ? 'btn-primary' : 'btn-danger'}]});
+  },
+  confirmBlock:() => {
+    const c = CUSTOMERS.find(x => x.id === modalCtx.id), reason = $('#blkReason').value, old = c.status;
+    c.status = old === 'Bloke' ? 'Aktif' : 'Bloke';
+    AUDIT.unshift({time:'25.09.2026 09:41:' + String(new Date().getSeconds()).padStart(2, '0'), user:'zeynep.kaya', role:'Finans Yön.', act: c.status === 'Bloke' ? 'Müşteri bloke' : 'Bloke kaldırıldı', ent:'customer/' + c.id, old, nw:c.status + ' · ' + reason, hash:hex(rng(Date.now() & 0xffff), 64)});
+    closeModal(); renderCustRows();
+    toast(`${c.name}: ${c.status === 'Bloke' ? 'bloke edildi' : 'bloke kaldırıldı'} · denetim kaydı oluşturuldu`);
+  },
+  adjustBal:(a) => {
+    const c = CUSTOMERS.find(x => x.id === a);
+    APPROVALS.unshift({id:'APR-' + (2292 + APPROVALS.length), title:`Manuel bakiye düzeltme — ${c.id}`, maker:ME.name, when:'Şimdi', kind:'Finansal', old:tl(c.bal), nw:tl(c.bal + 25), note:'Müşteri hizmetleri talebi'});
+    renderAdmin(); toast('Bakiye düzeltme talebi onay kuyruğuna gönderildi (maker-checker)', 'info');
+  },
+  txSt:(a) => { adm.txSt = a; $$('[data-act="txSt"]').forEach(b => b.setAttribute('aria-pressed', b.dataset.arg === a)); renderTxRows(); },
+  report:(a) => { const r = REPORTS[+a]; toast(`“${r.name}” kuyruğa alındı · hazır olunca Raporlar > Geçmiş altında (${r.fmts[0]})`); },
+  journalExport:() => toast(`Yevmiye dosyası oluşturuldu: ${$('#jFmt').value} · 1.842 satır · SHA-256 denetim loguna yazıldı`),
+  alert:(a) => {
+    const [i, op] = a.split(':'), al = ALERTS[+i];
+    if (op === 'review'){ al.st = 'İnceleniyor'; toast(`${al.id} size atandı`, 'info'); }
+    if (op === 'close'){ al.st = 'Kapatıldı'; toast(`${al.id} kapatıldı (gerekçe: yanlış pozitif)`); }
+    if (op === 'str'){ al.st = 'STR taslağı'; toast(`${al.id} için MASAK STR taslağı oluşturuldu — uyum görevlisi onayına gönderildi`); }
+    renderAdmin();
+  },
+  verifyChain:() => {
+    adm.chainState = 'busy'; renderAdmin();
+    setTimeout(() => { adm.chainState = 'ok'; if (app.view === 'admin' && app.adminPage === 'audit') renderAdmin(); toast('1.284.332 kaydın hash zinciri doğrulandı · kırılma yok'); }, 1500);
+  },
+  approve:(a) => {
+    const [i, op] = a.split(':'), ap = APPROVALS[+i];
+    if (op === 'ok' && ap.maker === ME.name){ toast('Kendi oluşturduğunuz talebi onaylayamazsınız (4 göz ilkesi)', 'err'); return; }
+    APPROVALS.splice(+i, 1);
+    AUDIT.unshift({time:'25.09.2026 09:41:' + String(new Date().getSeconds()).padStart(2, '0'), user:'zeynep.kaya', role:'Finans Yön.', act: op === 'ok' ? 'Talep onaylandı' : 'Talep reddedildi', ent:'approval/' + ap.id, old:'Beklemede', nw: op === 'ok' ? 'Onaylandı' : 'Reddedildi', hash:hex(rng(Date.now() & 0xffff), 64)});
+    renderAdmin(); toast(`${ap.id} ${op === 'ok' ? 'onaylandı ve uygulandı' : 'reddedildi'}`, op === 'ok' ? 'ok' : 'info');
+  },
+  brand:(a) => { adm.settingsBrand = a; renderAdmin(); },
+  flag:(a) => { const f = SETTINGS.flags[+a]; f.on = !f.on; renderAdmin(); toast(`“${f.n}” ${f.on ? 'açık' : 'kapalı'} olarak işaretlendi — kaydedince onaya gider`, 'info'); },
+  saveSettings:() => {
+    APPROVALS.unshift({id:'APR-' + (2292 + APPROVALS.length), title:'Tenant ayar değişikliği', maker:ME.name, when:'Şimdi', kind:'Ayar', old:'Sürüm v41', nw:'Sürüm v42', note:'Marka rengi / özellik bayrakları'});
+    renderAdmin(); toast('Ayar değişiklikleri onaya gönderildi — ikinci yetkili onayladığında yürürlüğe girer', 'info');
+  },
+
+  /* POS */
+  posMode:(a) => { pos.mode = a; pos.step = a === 'refund' ? 'select' : 'input'; pos.refSel = null; pos.cents = a === 'hold' ? (pos.holdSector === 'ev' ? 40000 : 25000) : a === 'sale' ? 8750 : 0; posRerender(); },
+  key:(k) => {
+    if (k === 'C') pos.cents = 0;
+    else if (k === '⌫') pos.cents = Math.floor(pos.cents / 10);
+    else { const n = pos.cents * (k === '00' ? 100 : 10) + (k === '00' ? 0 : +k); if (n < 10000000) pos.cents = n; }
+    posRerender();
+  },
+  posQuick:(a) => { if (pos.step !== 'input') return; pos.cents = Math.round(+a * 100); posRerender(); },
+  posScan:() => { pos.step = 'scanning'; posRerender(); setTimeout(() => { pos.step = 'confirm'; if (app.view === 'pos') posRerender(); }, 1400); },
+  posCancel:() => { pos.step = 'input'; posRerender(); },
+  posConfirm:() => {
+    const a = posAmt();
+    pos.last = {title:'Satış onaylandı', store:'KAHVE DURAĞI — KADIKÖY MODA', term:'T-0142', ref:ref(), totalLbl:'TOPLAM', total:tl(a),
+      lines:[['Ödeme yöntemi','CLW Cüzdan (QR)'],['Tutar',tl(a)],['KDV (%8) dahil',tl(a - a / 1.08)],['Kazanılan bonus',tl(Math.min(30, a * .2))],['Kazanılan yıldız','+3']]};
+    pos.step = 'receipt'; posRerender(); toast(`${tl(a)} tahsil edildi`);
+  },
+  posRef:(a) => { pos.refSel = +a; pos.cents = Math.round(POS_RECENT[+a].amt * 100); posRerender(); },
+  posRefund:() => {
+    const t = POS_RECENT[pos.refSel], a = posAmt();
+    pos.step = 'scanning'; posRerender();
+    setTimeout(() => {
+      pos.last = {title: a < t.amt ? 'Kısmi iade tamamlandı' : 'İade tamamlandı', store:'KAHVE DURAĞI — KADIKÖY MODA', term:'T-0142', ref:ref(), totalLbl:'İADE', total:tl(a),
+        lines:[['Orijinal işlem',t.id],['Orijinal tutar',tl(t.amt)],['İade tutarı',tl(a)],['İade hedefi','Müşteri ana bakiye'],['Yöntem','Reversal (anında)']]};
+      pos.step = 'receipt'; if (app.view === 'pos') posRerender(); toast(`${tl(a)} müşteri cüzdanına iade edildi`);
+    }, 1200);
+  },
+  holdSector:(a) => { pos.holdSector = a; pos.cents = a === 'ev' ? 40000 : 25000; posRerender(); },
+  holdStart:() => {
+    pos.step = 'scanning'; posRerender();
+    setTimeout(() => { pos.hold = {kwh: pos.holdSector === 'ev' ? 12.4 : 0, mins: pos.holdSector === 'ev' ? 0 : 47, amount: posAmt()}; pos.step = 'active'; if (app.view === 'pos') posRerender(); }, 1300);
+  },
+  holdClose:() => {
+    const cost = Math.min(holdCost(), pos.hold.amount), ev = pos.holdSector === 'ev';
+    pos.last = {title: ev ? 'Şarj oturumu kapatıldı' : 'Otopark çıkışı onaylandı', store: ev ? 'VOLTGO ŞARJ — MASLAK DC-04' : 'PARKPLUS — LEVENT KAPALI', term: ev ? 'T-EV-0412' : 'T-PK-0207', ref:ref(), totalLbl:'TAHSİL EDİLEN', total:tl(cost),
+      lines:[[ev ? 'Enerji' : 'Plaka', ev ? nf(pos.hold.kwh, 1) + ' kWh' : '34 ABC 123'], [ev ? 'Birim fiyat' : 'Süre', ev ? '₺8,90 / kWh' : fmtMins(pos.hold.mins)], ['Provizyon', tl(pos.hold.amount)], ['Tahsil (capture)', tl(cost)], ['Serbest bırakılan', tl(pos.hold.amount - cost)]]};
+    pos.step = 'receipt'; posRerender(); toast(`Provizyon kapatıldı: ${tl(cost)} tahsil, ${tl(pos.hold.amount - cost)} serbest`);
+  },
+  posNew:() => { pos.step = pos.mode === 'refund' ? 'select' : 'input'; pos.refSel = null; pos.cents = pos.mode === 'hold' ? (pos.holdSector === 'ev' ? 40000 : 25000) : pos.mode === 'sale' ? 8750 : 0; posRerender(); },
+
+  /* platform */
+  wizOpen:() => { plat.wizStep = 1; plat.wiz = {name:'', vkn:'', email:'', plan:'Growth', preset:'coffee', color:'#0B6B6B', app:''}; wizRender(); },
+  wizNext:() => {
+    wizCapture();
+    if (plat.wizStep === 1){
+      const w = plat.wiz, err = [];
+      if (w.name.length < 3) err.push('unvan');
+      if (!/^\d{10}$/.test(w.vkn.replace(/\s/g, ''))) err.push('10 haneli VKN');
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(w.email)) err.push('geçerli e-posta');
+      if (err.length){ const e = $('#wErr'); e.textContent = 'Lütfen kontrol edin: ' + err.join(', ') + '.'; e.style.color = 'var(--danger)'; return; }
+    }
+    plat.wizStep++; wizRender();
+  },
+  wizBack:() => { wizCapture(); plat.wizStep--; wizRender(); },
+  wizPreset:(a) => { plat.wiz.preset = a; $('#modalBody').innerHTML = wizBody(); },
+  wizColor:(a) => { wizCapture(); plat.wiz.color = a; $('#modalBody').innerHTML = wizBody(); },
+  wizFinish:() => {
+    wizCapture();
+    const w = plat.wiz, nm = w.app || w.name;
+    TENANTS.unshift({name:nm, letter:nm[0].toLocaleUpperCase('tr-TR'), color:w.color, sector:PRESETS.find(p => p.k === w.preset).n, plan:w.plan, st:'Kurulum', vol:0, wallets:0, since:'2026'});
+    closeModal(); renderPlatform();
+    toast(`“${esc(nm)}” oluşturuldu · Keycloak organizasyonu, şema ve varsayılan hesap planı hazırlanıyor. Davet: ${esc(w.email)}`);
+  }
+};
+
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-act]');
+  if (!t || t.disabled) return;
+  const fn = A[t.dataset.act];
+  if (fn){ e.preventDefault(); fn(t.dataset.arg, t); }
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && !$('#modalBg').hidden) closeModal();
+  if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('tr[data-act]')){ e.preventDefault(); A[e.target.dataset.act](e.target.dataset.arg); }
+});
+$('#modalBg').addEventListener('click', e => { if (e.target.id === 'modalBg') closeModal(); });
+document.addEventListener('input', e => {
+  if (e.target.id === 'custQ'){ adm.custQ = e.target.value; renderCustRows(); }
+  if (e.target.id === 'txQ'){ adm.txQ = e.target.value; renderTxRows(); }
+  if (e.target.id === 'wApp'){ plat.wiz.app = e.target.value; const nm = e.target.value || plat.wiz.name || 'Yeni Marka'; const p = $('#wizPrev'); if (p){ $('.lt', p).textContent = nm[0].toLocaleUpperCase('tr-TR'); $('b', p).textContent = nm; } }
+});
+document.addEventListener('change', e => { if (e.target.id === 'txType'){ adm.txType = e.target.value; renderTxRows(); } });
+
+/* =========================================================
+   Global ticker (QR countdown, POS meters, platform health)
+   ========================================================= */
+let tick = 0;
+setInterval(() => {
+  tick++;
+  if (app.view === 'mobile' && mob.screen === 'pay' && mob.payState === 'qr'){
+    mob.qrLeft--;
+    if (mob.qrLeft <= 0){ mob.qrSeed++; mob.qrLeft = 30; rerenderBody(); }
+    else {
+      const l = $('#qrLeft'), ring = $('#qrRing');
+      if (l) l.textContent = mob.qrLeft;
+      if (ring){ const c = 2 * Math.PI * 20; ring.setAttribute('stroke-dashoffset', c * (1 - mob.qrLeft / 30)); }
+    }
+  }
+  if (app.view === 'pos' && pos.mode === 'hold' && pos.step === 'active'){
+    if (pos.holdSector === 'ev') pos.hold.kwh = Math.round((pos.hold.kwh + 0.3) * 10) / 10; else pos.hold.mins += 3;
+    const m = $('#holdMeter'), c = $('#holdCost'), b = $('#holdBar'), cost = holdCost();
+    if (m) m.textContent = pos.holdSector === 'ev' ? nf(pos.hold.kwh, 1) + ' kWh' : fmtMins(pos.hold.mins);
+    if (c) c.textContent = tl(cost);
+    if (b) b.style.width = Math.min(100, cost / pos.hold.amount * 100) + '%';
+  }
+  if (app.view === 'platform' && tick % 3 === 0){
+    const r = Math.random;
+    SERVICES.forEach(s => { s.p99 = Math.max(8, Math.round(s.p99 * (0.94 + r() * 0.12))); if (s.warn && s.p99 < 450) s.p99 = 450 + Math.round(r() * 250); if (!s.warn && s.p99 > 260) s.p99 = 240; s.rps = Math.max(1, Math.round(s.rps * (0.95 + r() * 0.1))); });
+    KAFKA.forEach(k => { k.lag = Math.max(0, Math.round(k.lag * (0.85 + r() * 0.3) + (r() < .3 ? 5 : 0))); if (k.g === 'settlement-batch') k.lag = Math.max(2400, Math.min(4800, k.lag)); });
+    const g = $('#svcGrid'), kb = $('#kafkaBox');
+    if (g) g.innerHTML = svcTiles();
+    if (kb) kb.innerHTML = kafkaRows();
+  }
+}, 1000);
+
+/* =========================================================
+   Boot
+   ========================================================= */
+try { const t = localStorage.getItem('clw-theme'); if (THEMES.includes(t)) theme = t; } catch(e) {}
+$('#modalX').innerHTML = icon('x', 18);
+applyTheme();
+setView('mobile');
+})();
+</script>

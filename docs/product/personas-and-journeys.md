@@ -363,18 +363,18 @@ flowchart TD
 
 | Yolculuk | İlgili FR (örnek) | Milestone |
 |---|---|---|
-| J-01 | FR-011, FR-012, FR-019, FR-020, FR-045, FR-046, FR-055, FR-154 | M1–M4 |
-| J-02 | FR-055, FR-058, FR-060, FR-061, FR-067, FR-071, FR-072 | M3 |
-| J-03 | FR-062, FR-063, FR-064, FR-065 | M3 |
-| J-04 | FR-062, FR-066, FR-075, FR-034 | M3 (pre-auth), M5 (LPR tam entegrasyon) |
-| J-05 | FR-031, FR-032, FR-035, FR-159 | M5 |
-| J-06 | FR-033, FR-053, FR-143 | M5 |
-| J-07 | FR-001–FR-010, FR-148 | M1 |
-| J-08 | FR-108–FR-114, FR-115–FR-121 | M7 (temel rapor M4) |
-| J-09 | FR-058, FR-059, FR-144, FR-145 | M3–M4 |
-| J-10 | FR-129–FR-135 | M4 |
-| J-11 | FR-073, FR-074, FR-163–FR-168 | M3 |
-| J-12 | FR-092–FR-099, FR-100–FR-107 | M6 |
+| J-01 | FR-011, FR-020, FR-021, FR-045, FR-056, FR-143, FR-166, FR-167 | M1–M4 |
+| J-02 | FR-056, FR-057, FR-058, FR-059, FR-060, FR-075, FR-076 | M3 |
+| J-03 | FR-062, FR-063, FR-064, FR-065, FR-172 | M3 (FR-064: M5) |
+| J-04 | FR-062, FR-063, FR-066, FR-079, FR-176 | M3 (pre-auth), M5 (LPR adaptörü, abonelik) |
+| J-05 | FR-031, FR-032, FR-068, FR-174 | M5 |
+| J-06 | FR-025, FR-033, FR-053, FR-156 | M5 |
+| J-07 | FR-001–FR-010, FR-158 | M1, M4 |
+| J-08 | FR-114–FR-127 (temel raporlar FR-129–FR-131) | M7 (M4) |
+| J-09 | FR-060, FR-137, FR-150, FR-155 | M3–M4 |
+| J-10 | FR-136–FR-141 | M4 |
+| J-11 | FR-077, FR-078, FR-178–FR-183 | M3 |
+| J-12 | FR-097–FR-110 | M6 |
 
 ---
 

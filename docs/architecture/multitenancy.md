@@ -29,7 +29,7 @@
 flowchart TD
     A[İstek api-gateway'e gelir] --> B{Kimlik doğrulanmış mı?}
     B -- Evet --> C[JWT claim: tenant_id<br/>Keycloak organization]
-    B -- Hayır: public/onboarding --> D{Host subdomain?<br/>kahvex.clw.app}
+    B -- "Hayır (public/onboarding)" --> D{Host subdomain?<br/>kahvex.clw.app}
     C --> E{Subdomain / X-Tenant-Id<br/>mevcut mu?}
     E -- Evet --> F{JWT tenant_id ile<br/>eşleşiyor mu?}
     F -- Hayır --> X[403 TENANT_MISMATCH<br/>+ güvenlik olayı]

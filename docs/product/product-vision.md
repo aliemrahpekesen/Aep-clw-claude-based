@@ -258,7 +258,7 @@ azalan kart maliyeti), hem de platform gelirini (işlem hacmi) tek ölçüde bir
 cüzdan sayısı "boş kayıtları", yalnızca hacim ise "birkaç büyük müşteriyi" ödüllendirir.
 
 - Hesaplamadan hariç: iadeler, iptal edilen yüklemeler, bonus/promosyon yüklemeleri (yalnızca **ana cüzdana gerçek para yüklemesi**).
-- Tenant, sektör ve kohort bazında raporlanır (FR-124).
+- Tenant, sektör ve kohort bazında raporlanır (FR-132).
 
 ### 7.2 Destekleyici KPI Ağacı
 

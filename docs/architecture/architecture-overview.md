@@ -155,11 +155,11 @@ flowchart TB
     PBFF --> PS & MS & WS & LOY & VOU
     ABFF --> TS & MS & CS & LOY & REP & AUD & SET & ACC & RS & CMS
 
-    PS -- sync: risk score --> RS
-    PS -- sync: hold/limits --> WS
-    PS -- sync: post --> LS
-    FS -- sync: post --> LS
-    WS -- sync: balance --> LS
+    PS -- "sync: risk score" --> RS
+    PS -- "sync: hold/limits" --> WS
+    PS -- "sync: post" --> LS
+    FS -- "sync: post" --> LS
+    WS -- "sync: balance" --> LS
 
     Core & Engagement & RiskCompliance & Finance --> PG
     PG --> DBZ --> KAF
@@ -168,7 +168,7 @@ flowchart TB
     REP --> CH
     Core --> RED
     GW --> RED
-    Core -.secrets.-> VAULT
+    Core -. secrets .-> VAULT
     AUD --> OBJ
 ```
 

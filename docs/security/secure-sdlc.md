@@ -100,7 +100,7 @@ Keycloak realm export'ları, Helm `networkpolicy`/`authorizationpolicy` şablonl
 
 | Test | Kapsam | Zamanlama | Yapan | Standart |
 |---|---|---|---|---|
-| Web/API pentest | Gateway, BFF'ler, Public API, admin portal | MVP öncesi (M3) + yılda 1 + major release | Bağımsız CREST/OSCP sertifikalı firma | OWASP WSTG, ASVS L2 |
+| Web/API pentest | Gateway, BFF'ler, Public API, admin portal | MVP öncesi (S8 / M4) + yılda 1 + major release | Bağımsız CREST/OSCP sertifikalı firma | OWASP WSTG, ASVS L2 |
 | Mobil pentest | White-label app (iOS/Android) | MVP öncesi + yılda 1 | Bağımsız firma | MASTG, MASVS L2+R |
 | Multi-tenant izolasyon testi | Cross-tenant senaryoları | MVP öncesi + tenant tier değişikliği | Bağımsız firma + iç ekip | Özel senaryo seti |
 | İş mantığı / finansal test | Çifte harcama, replay, yarış koşulu, kampanya istismarı | MVP öncesi + yılda 1 | Ödeme sistemleri uzmanı firma | Özel |
