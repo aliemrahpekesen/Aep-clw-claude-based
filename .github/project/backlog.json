@@ -1,0 +1,3555 @@
+{
+ "version": 1,
+ "labels": [
+  {
+   "name": "type:epic",
+   "color": "5319e7",
+   "description": "Epic (sub-issue'lar içerir)"
+  },
+  {
+   "name": "type:story",
+   "color": "1d76db",
+   "description": "Kullanıcı hikayesi / iş kalemi"
+  },
+  {
+   "name": "type:bug",
+   "color": "d73a4a",
+   "description": "Hata"
+  },
+  {
+   "name": "type:spike",
+   "color": "c5def5",
+   "description": "Araştırma"
+  },
+  {
+   "name": "mvp",
+   "color": "0e8a16",
+   "description": "MVP kapsamında (M0–M4)"
+  },
+  {
+   "name": "sprint-review",
+   "color": "fbca04",
+   "description": "Sprint review paketi ve onay kaydı"
+  },
+  {
+   "name": "status:blocked",
+   "color": "b60205",
+   "description": "Bloke"
+  },
+  {
+   "name": "needs-approval",
+   "color": "e99695",
+   "description": "Kullanıcı onayı bekliyor"
+  },
+  {
+   "name": "priority:P0",
+   "color": "b60205",
+   "description": "Öncelik P0"
+  },
+  {
+   "name": "priority:P1",
+   "color": "d93f0b",
+   "description": "Öncelik P1"
+  },
+  {
+   "name": "priority:P2",
+   "color": "fbca04",
+   "description": "Öncelik P2"
+  },
+  {
+   "name": "ms:M0",
+   "color": "bfdadc",
+   "description": "Inception & Architecture"
+  },
+  {
+   "name": "ms:M1",
+   "color": "bfdadc",
+   "description": "Platform Foundation"
+  },
+  {
+   "name": "ms:M2",
+   "color": "bfdadc",
+   "description": "Core Wallet & Ledger"
+  },
+  {
+   "name": "ms:M3",
+   "color": "bfdadc",
+   "description": "Funding & Payments"
+  },
+  {
+   "name": "ms:M4",
+   "color": "bfdadc",
+   "description": "Admin, Reporting & Audit - MVP v1.0"
+  },
+  {
+   "name": "ms:M5",
+   "color": "bfdadc",
+   "description": "Loyalty, Campaigns & Gift Cards"
+  },
+  {
+   "name": "ms:M6",
+   "color": "bfdadc",
+   "description": "Risk, AML & Compliance"
+  },
+  {
+   "name": "ms:M7",
+   "color": "bfdadc",
+   "description": "Settlement, Accounting & Banking"
+  },
+  {
+   "name": "ms:M8",
+   "color": "bfdadc",
+   "description": "Production Hardening & GA v2.0"
+  },
+  {
+   "name": "sprint:S00",
+   "color": "ededed",
+   "description": "Sprint 0"
+  },
+  {
+   "name": "sprint:S01",
+   "color": "ededed",
+   "description": "Sprint 1"
+  },
+  {
+   "name": "sprint:S02",
+   "color": "ededed",
+   "description": "Sprint 2"
+  },
+  {
+   "name": "sprint:S03",
+   "color": "ededed",
+   "description": "Sprint 3"
+  },
+  {
+   "name": "sprint:S04",
+   "color": "ededed",
+   "description": "Sprint 4"
+  },
+  {
+   "name": "sprint:S05",
+   "color": "ededed",
+   "description": "Sprint 5"
+  },
+  {
+   "name": "sprint:S06",
+   "color": "ededed",
+   "description": "Sprint 6"
+  },
+  {
+   "name": "sprint:S07",
+   "color": "ededed",
+   "description": "Sprint 7"
+  },
+  {
+   "name": "sprint:S08",
+   "color": "ededed",
+   "description": "Sprint 8"
+  },
+  {
+   "name": "sprint:S09",
+   "color": "ededed",
+   "description": "Sprint 9"
+  },
+  {
+   "name": "sprint:S10",
+   "color": "ededed",
+   "description": "Sprint 10"
+  },
+  {
+   "name": "sprint:S11",
+   "color": "ededed",
+   "description": "Sprint 11"
+  },
+  {
+   "name": "sprint:S12",
+   "color": "ededed",
+   "description": "Sprint 12"
+  },
+  {
+   "name": "sprint:S13",
+   "color": "ededed",
+   "description": "Sprint 13"
+  },
+  {
+   "name": "sprint:S14",
+   "color": "ededed",
+   "description": "Sprint 14"
+  },
+  {
+   "name": "sprint:S15",
+   "color": "ededed",
+   "description": "Sprint 15"
+  },
+  {
+   "name": "sprint:S16",
+   "color": "ededed",
+   "description": "Sprint 16"
+  },
+  {
+   "name": "area:analysis",
+   "color": "c2e0c6",
+   "description": "Alan: analysis"
+  },
+  {
+   "name": "area:architecture",
+   "color": "c2e0c6",
+   "description": "Alan: architecture"
+  },
+  {
+   "name": "area:backend",
+   "color": "c2e0c6",
+   "description": "Alan: backend"
+  },
+  {
+   "name": "area:compliance",
+   "color": "c2e0c6",
+   "description": "Alan: compliance"
+  },
+  {
+   "name": "area:data",
+   "color": "c2e0c6",
+   "description": "Alan: data"
+  },
+  {
+   "name": "area:devops",
+   "color": "c2e0c6",
+   "description": "Alan: devops"
+  },
+  {
+   "name": "area:docs",
+   "color": "c2e0c6",
+   "description": "Alan: docs"
+  },
+  {
+   "name": "area:frontend",
+   "color": "c2e0c6",
+   "description": "Alan: frontend"
+  },
+  {
+   "name": "area:governance",
+   "color": "c2e0c6",
+   "description": "Alan: governance"
+  },
+  {
+   "name": "area:mobile",
+   "color": "c2e0c6",
+   "description": "Alan: mobile"
+  },
+  {
+   "name": "area:perf",
+   "color": "c2e0c6",
+   "description": "Alan: perf"
+  },
+  {
+   "name": "area:qa",
+   "color": "c2e0c6",
+   "description": "Alan: qa"
+  },
+  {
+   "name": "area:security",
+   "color": "c2e0c6",
+   "description": "Alan: security"
+  },
+  {
+   "name": "area:ux",
+   "color": "c2e0c6",
+   "description": "Alan: ux"
+  }
+ ],
+ "milestones": [
+  {
+   "code": "M0",
+   "title": "M0 - Inception & Architecture",
+   "description": "Vizyon, mimari, güvenlik/uyum tasarımı, backlog, prototip ve onay. Sprintler: S0 (2026-10-05 → 2026-10-16)",
+   "due_on": "2026-10-16T23:59:59Z"
+  },
+  {
+   "code": "M1",
+   "title": "M1 - Platform Foundation",
+   "description": "Monorepo, platform-commons, CI/CD, OpenShift dev/test, Keycloak, gateway, tenant servisi. Sprintler: S1, S2 (2026-10-19 → 2026-11-13)",
+   "due_on": "2026-11-13T23:59:59Z"
+  },
+  {
+   "code": "M2",
+   "title": "M2 - Core Wallet & Ledger",
+   "description": "Müşteri & KYC Tier0/1, çift kayıtlı ledger, cüzdan, gözlemlenebilirlik. Sprintler: S3, S4 (2026-11-16 → 2026-12-11)",
+   "due_on": "2026-12-11T23:59:59Z"
+  },
+  {
+   "code": "M3",
+   "title": "M3 - Funding & Payments",
+   "description": "Kartla yükleme, QR ödeme, pre-auth, iade, işyeri/POS, limitler, mobil uygulama, bildirim. Sprintler: S5, S6 (2026-12-14 → 2027-01-08)",
+   "due_on": "2027-01-08T23:59:59Z"
+  },
+  {
+   "code": "M4",
+   "title": "M4 - Admin, Reporting & Audit - MVP v1.0",
+   "description": "Tenant Admin Portalı, Platform Admin, raporlar, audit/teftiş, UAT ve MVP sürümü. Sprintler: S7, S8 (2027-01-11 → 2027-02-05)",
+   "due_on": "2027-02-05T23:59:59Z"
+  },
+  {
+   "code": "M5",
+   "title": "M5 - Loyalty, Campaigns & Gift Cards",
+   "description": "Puan/tier, kampanya kural motoru, cashback, kupon, hediye kartı. Sprintler: S9, S10 (2027-02-08 → 2027-03-05)",
+   "due_on": "2027-03-05T23:59:59Z"
+  },
+  {
+   "code": "M6",
+   "title": "M6 - Risk, AML & Compliance",
+   "description": "Gelişmiş fraud motoru, vaka yönetimi, AML/yaptırım taraması, MASAK raporlama, KYC Tier2/3. Sprintler: S11, S12 (2027-03-08 → 2027-04-02)",
+   "due_on": "2027-04-02T23:59:59Z"
+  },
+  {
+   "code": "M7",
+   "title": "M7 - Settlement, Accounting & Banking",
+   "description": "Takas & mutabakat, muhasebe/GL/e-Fatura/ERP, banka & açık bankacılık, ClickHouse BI. Sprintler: S13, S14 (2027-04-05 → 2027-04-30)",
+   "due_on": "2027-04-30T23:59:59Z"
+  },
+  {
+   "code": "M8",
+   "title": "M8 - Production Hardening & GA v2.0",
+   "description": "Performans, chaos, DR, pentest, PCI/SOC2 hazırlık, çoklu tenant pilot ve GA. Sprintler: S15, S16 (2027-05-03 → 2027-05-28)",
+   "due_on": "2027-05-28T23:59:59Z"
+  }
+ ],
+ "epics": [
+  {
+   "id": "E01",
+   "milestone": "M0",
+   "title": "[E01] Epic: Inception, Governance & Architecture Baseline",
+   "area": "architecture",
+   "summary": "Proje tüzüğü, mimari, güvenlik/uyum tasarımı, backlog ve tıklanabilir prototip; kullanıcı onayı ile kodlamaya geçiş.",
+   "labels": [
+    "type:epic",
+    "ms:M0",
+    "area:architecture",
+    "mvp"
+   ],
+   "stories": [
+    {
+     "id": "S001",
+     "title": "[S001] Proje tüzüğü, ekip ve RACI",
+     "sprint": 0,
+     "area": "governance",
+     "points": 2,
+     "priority": "P0",
+     "description": "Vizyon, kapsam, ekip rolleri, RACI ve çalışma anlaşmasının yazılması.",
+     "acceptance": [
+      "docs/00-project-charter.md ve docs/product/raci.md yayınlandı",
+      "DoR/DoD tanımlı"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M0",
+      "sprint:S00",
+      "area:governance",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-10-05 → 2026-10-16",
+     "body": "<!-- backlog-id: S001 -->\n**Epic:** E01 · **Milestone:** M0 · **Sprint:** S00 (2026-10-05 → 2026-10-16)\n**Alan:** `governance` · **Öncelik:** P0 · **Story point:** 2\n\n### Açıklama\nVizyon, kapsam, ekip rolleri, RACI ve çalışma anlaşmasının yazılması.\n\n### Kabul kriterleri\n- [ ] docs/00-project-charter.md ve docs/product/raci.md yayınlandı\n- [ ] DoR/DoD tanımlı\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S002",
+     "title": "[S002] Mimari dokümantasyon ve ADR seti",
+     "sprint": 0,
+     "area": "architecture",
+     "points": 8,
+     "priority": "P0",
+     "description": "C4 diyagramları, servis kataloğu, ledger tasarımı, akışlar, ADR-001..012.",
+     "acceptance": [
+      "docs/architecture altında tüm dokümanlar mevcut",
+      "ADR'ler Proposed durumunda ve CA onayına hazır"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M0",
+      "sprint:S00",
+      "area:architecture",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-10-05 → 2026-10-16",
+     "body": "<!-- backlog-id: S002 -->\n**Epic:** E01 · **Milestone:** M0 · **Sprint:** S00 (2026-10-05 → 2026-10-16)\n**Alan:** `architecture` · **Öncelik:** P0 · **Story point:** 8\n\n### Açıklama\nC4 diyagramları, servis kataloğu, ledger tasarımı, akışlar, ADR-001..012.\n\n### Kabul kriterleri\n- [ ] docs/architecture altında tüm dokümanlar mevcut\n- [ ] ADR'ler Proposed durumunda ve CA onayına hazır\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S003",
+     "title": "[S003] Güvenlik mimarisi ve tehdit modeli (STRIDE)",
+     "sprint": 0,
+     "area": "security",
+     "points": 5,
+     "priority": "P0",
+     "description": "Zero-trust mimari, STRIDE tehdit modeli, secure SDLC.",
+     "acceptance": [
+      "En az 30 tehdit ve kontrolü tanımlı",
+      "Güvenlik kapıları CI tasarımına eşlendi"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M0",
+      "sprint:S00",
+      "area:security",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-10-05 → 2026-10-16",
+     "body": "<!-- backlog-id: S003 -->\n**Epic:** E01 · **Milestone:** M0 · **Sprint:** S00 (2026-10-05 → 2026-10-16)\n**Alan:** `security` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nZero-trust mimari, STRIDE tehdit modeli, secure SDLC.\n\n### Kabul kriterleri\n- [ ] En az 30 tehdit ve kontrolü tanımlı\n- [ ] Güvenlik kapıları CI tasarımına eşlendi\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S004",
+     "title": "[S004] Regülasyon çerçevesi, AML/KYC politikası ve kontrol matrisi",
+     "sprint": 0,
+     "area": "compliance",
+     "points": 5,
+     "priority": "P0",
+     "description": "6493, MASAK, KVKK, PCI-DSS, PSD2 eşlemesi; Audit (Kontrol) Matrisi v1.",
+     "acceptance": [
+      "docs/compliance/control-matrix.md en az 40 kontrol içerir",
+      "Her kontrol bir milestone'a eşlenmiş"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M0",
+      "sprint:S00",
+      "area:compliance",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-10-05 → 2026-10-16",
+     "body": "<!-- backlog-id: S004 -->\n**Epic:** E01 · **Milestone:** M0 · **Sprint:** S00 (2026-10-05 → 2026-10-16)\n**Alan:** `compliance` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\n6493, MASAK, KVKK, PCI-DSS, PSD2 eşlemesi; Audit (Kontrol) Matrisi v1.\n\n### Kabul kriterleri\n- [ ] docs/compliance/control-matrix.md en az 40 kontrol içerir\n- [ ] Her kontrol bir milestone'a eşlenmiş\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S005",
+     "title": "[S005] Gereksinimler, fonksiyon matrisi ve MVP kapsamı",
+     "sprint": 0,
+     "area": "analysis",
+     "points": 5,
+     "priority": "P0",
+     "description": "FR/NFR kataloğu, Fonksiyon Matrisi v1, MVP tanımı, yol haritası.",
+     "acceptance": [
+      "FR ≥ 120, NFR ≥ 30, FN ≥ 80",
+      "MVP kapsamı ve başarı kriterleri onaya hazır"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M0",
+      "sprint:S00",
+      "area:analysis",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-10-05 → 2026-10-16",
+     "body": "<!-- backlog-id: S005 -->\n**Epic:** E01 · **Milestone:** M0 · **Sprint:** S00 (2026-10-05 → 2026-10-16)\n**Alan:** `analysis` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nFR/NFR kataloğu, Fonksiyon Matrisi v1, MVP tanımı, yol haritası.\n\n### Kabul kriterleri\n- [ ] FR ≥ 120, NFR ≥ 30, FN ≥ 80\n- [ ] MVP kapsamı ve başarı kriterleri onaya hazır\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S006",
+     "title": "[S006] Test stratejisi, performans planı ve DevOps tasarımı",
+     "sprint": 0,
+     "area": "qa",
+     "points": 5,
+     "priority": "P0",
+     "description": "Test piramidi, kalite kapıları, CI/CD ve OpenShift platform tasarımı.",
+     "acceptance": [
+      "docs/quality ve docs/devops yayınlandı"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M0",
+      "sprint:S00",
+      "area:qa",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-10-05 → 2026-10-16",
+     "body": "<!-- backlog-id: S006 -->\n**Epic:** E01 · **Milestone:** M0 · **Sprint:** S00 (2026-10-05 → 2026-10-16)\n**Alan:** `qa` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nTest piramidi, kalite kapıları, CI/CD ve OpenShift platform tasarımı.\n\n### Kabul kriterleri\n- [ ] docs/quality ve docs/devops yayınlandı\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S007",
+     "title": "[S007] Tıklanabilir prototip ve proje sunumu",
+     "sprint": 0,
+     "area": "ux",
+     "points": 5,
+     "priority": "P0",
+     "description": "Mobil, Tenant Admin, POS, Platform Admin ekranlarının HTML prototipi ve yönetici sunumu.",
+     "acceptance": [
+      "Prototip ve sunum paylaşıldı",
+      "Kullanıcı geri bildirimi toplandı"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M0",
+      "sprint:S00",
+      "area:ux",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-10-05 → 2026-10-16",
+     "body": "<!-- backlog-id: S007 -->\n**Epic:** E01 · **Milestone:** M0 · **Sprint:** S00 (2026-10-05 → 2026-10-16)\n**Alan:** `ux` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nMobil, Tenant Admin, POS, Platform Admin ekranlarının HTML prototipi ve yönetici sunumu.\n\n### Kabul kriterleri\n- [ ] Prototip ve sunum paylaşıldı\n- [ ] Kullanıcı geri bildirimi toplandı\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S008",
+     "title": "[S008] Backlog-as-code ve GitHub proje otomasyonu",
+     "sprint": 0,
+     "area": "devops",
+     "points": 3,
+     "priority": "P0",
+     "description": "Label, milestone, epic/story issue'larının JSON kaynaktan otomatik oluşturulması.",
+     "acceptance": [
+      "backlog-sync workflow'u idempotent çalışır",
+      "Tüm epic/story'ler milestone ve label'larıyla GitHub'da"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M0",
+      "sprint:S00",
+      "area:devops",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-10-05 → 2026-10-16",
+     "body": "<!-- backlog-id: S008 -->\n**Epic:** E01 · **Milestone:** M0 · **Sprint:** S00 (2026-10-05 → 2026-10-16)\n**Alan:** `devops` · **Öncelik:** P0 · **Story point:** 3\n\n### Açıklama\nLabel, milestone, epic/story issue'larının JSON kaynaktan otomatik oluşturulması.\n\n### Kabul kriterleri\n- [ ] backlog-sync workflow'u idempotent çalışır\n- [ ] Tüm epic/story'ler milestone ve label'larıyla GitHub'da\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S009",
+     "title": "[S009] Sprint 0 review ve kodlama onayı",
+     "sprint": 0,
+     "area": "governance",
+     "points": 1,
+     "priority": "P0",
+     "description": "Plan, prototip ve sunumun kullanıcıya sunulup onay alınması.",
+     "acceptance": [
+      "Kullanıcı onayı kayıt altına alındı (issue yorumu)"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M0",
+      "sprint:S00",
+      "area:governance",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-10-05 → 2026-10-16",
+     "body": "<!-- backlog-id: S009 -->\n**Epic:** E01 · **Milestone:** M0 · **Sprint:** S00 (2026-10-05 → 2026-10-16)\n**Alan:** `governance` · **Öncelik:** P0 · **Story point:** 1\n\n### Açıklama\nPlan, prototip ve sunumun kullanıcıya sunulup onay alınması.\n\n### Kabul kriterleri\n- [ ] Kullanıcı onayı kayıt altına alındı (issue yorumu)\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    }
+   ],
+   "body": "<!-- backlog-id: E01 -->\n**Milestone:** M0 · **Alan:** `architecture` · **Toplam SP:** 39\n\n### Amaç\nProje tüzüğü, mimari, güvenlik/uyum tasarımı, backlog ve tıklanabilir prototip; kullanıcı onayı ile kodlamaya geçiş.\n\n### Story'ler\n| ID | Başlık | Sprint | SP | Öncelik |\n|---|---|---|---|---|\n| S001 | Proje tüzüğü, ekip ve RACI | S00 | 2 | P0 |\n| S002 | Mimari dokümantasyon ve ADR seti | S00 | 8 | P0 |\n| S003 | Güvenlik mimarisi ve tehdit modeli (STRIDE) | S00 | 5 | P0 |\n| S004 | Regülasyon çerçevesi, AML/KYC politikası ve kontrol matrisi | S00 | 5 | P0 |\n| S005 | Gereksinimler, fonksiyon matrisi ve MVP kapsamı | S00 | 5 | P0 |\n| S006 | Test stratejisi, performans planı ve DevOps tasarımı | S00 | 5 | P0 |\n| S007 | Tıklanabilir prototip ve proje sunumu | S00 | 5 | P0 |\n| S008 | Backlog-as-code ve GitHub proje otomasyonu | S00 | 3 | P0 |\n| S009 | Sprint 0 review ve kodlama onayı | S00 | 1 | P0 |\n"
+  },
+  {
+   "id": "E02",
+   "milestone": "M1",
+   "title": "[E02] Epic: Engineering Foundation",
+   "area": "backend",
+   "summary": "Monorepo, build sistemi, ortak platform kütüphaneleri ve yerel geliştirme ortamı.",
+   "labels": [
+    "type:epic",
+    "ms:M1",
+    "area:backend",
+    "mvp"
+   ],
+   "stories": [
+    {
+     "id": "S010",
+     "title": "[S010] Monorepo iskeleti (Gradle multi-module + pnpm workspace)",
+     "sprint": 1,
+     "area": "backend",
+     "points": 3,
+     "priority": "P0",
+     "description": "backend/, frontend/, mobile/, deploy/, docs/ yapısı; Gradle version catalog; Java 21 toolchain.",
+     "acceptance": [
+      "./gradlew build yeşil",
+      "pnpm -r build yeşil",
+      "Kod stili (Spotless, ESLint, Prettier) zorunlu"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M1",
+      "sprint:S01",
+      "area:backend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-10-19 → 2026-10-30",
+     "body": "<!-- backlog-id: S010 -->\n**Epic:** E02 · **Milestone:** M1 · **Sprint:** S01 (2026-10-19 → 2026-10-30)\n**Alan:** `backend` · **Öncelik:** P0 · **Story point:** 3\n\n### Açıklama\nbackend/, frontend/, mobile/, deploy/, docs/ yapısı; Gradle version catalog; Java 21 toolchain.\n\n### Kabul kriterleri\n- [ ] ./gradlew build yeşil\n- [ ] pnpm -r build yeşil\n- [ ] Kod stili (Spotless, ESLint, Prettier) zorunlu\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S011",
+     "title": "[S011] platform-commons: tenant context, hata modeli, Money tipi",
+     "sprint": 1,
+     "area": "backend",
+     "points": 5,
+     "priority": "P0",
+     "description": "TenantContext propagation (HTTP/Kafka/async), RFC 7807 hata modeli, Money/Currency value object (minor units).",
+     "acceptance": [
+      "Tenant context thread/reactive/Kafka boyunca taşınır (testli)",
+      "Money aritmetiği property-based test ile doğrulanır"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M1",
+      "sprint:S01",
+      "area:backend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-10-19 → 2026-10-30",
+     "body": "<!-- backlog-id: S011 -->\n**Epic:** E02 · **Milestone:** M1 · **Sprint:** S01 (2026-10-19 → 2026-10-30)\n**Alan:** `backend` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nTenantContext propagation (HTTP/Kafka/async), RFC 7807 hata modeli, Money/Currency value object (minor units).\n\n### Kabul kriterleri\n- [ ] Tenant context thread/reactive/Kafka boyunca taşınır (testli)\n- [ ] Money aritmetiği property-based test ile doğrulanır\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S012",
+     "title": "[S012] platform-commons: idempotency ve transactional outbox",
+     "sprint": 1,
+     "area": "backend",
+     "points": 5,
+     "priority": "P0",
+     "description": "Idempotency-Key filtre + Redis/Postgres store; outbox tablosu ve yayınlayıcı.",
+     "acceptance": [
+      "Aynı Idempotency-Key ile tekrar istek aynı yanıtı döner",
+      "Outbox kaydı iş transaction'ı ile atomik yazılır"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M1",
+      "sprint:S01",
+      "area:backend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-10-19 → 2026-10-30",
+     "body": "<!-- backlog-id: S012 -->\n**Epic:** E02 · **Milestone:** M1 · **Sprint:** S01 (2026-10-19 → 2026-10-30)\n**Alan:** `backend` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nIdempotency-Key filtre + Redis/Postgres store; outbox tablosu ve yayınlayıcı.\n\n### Kabul kriterleri\n- [ ] Aynı Idempotency-Key ile tekrar istek aynı yanıtı döner\n- [ ] Outbox kaydı iş transaction'ı ile atomik yazılır\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S013",
+     "title": "[S013] Servis şablonu (hexagonal) ve ArchUnit kuralları",
+     "sprint": 1,
+     "area": "backend",
+     "points": 3,
+     "priority": "P0",
+     "description": "Yeni servis üretmek için şablon; katman bağımlılık kuralları ArchUnit ile.",
+     "acceptance": [
+      "Domain katmanı Spring'e bağımlı değil (ArchUnit)",
+      "Şablondan servis 5 dk içinde üretilebilir"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M1",
+      "sprint:S01",
+      "area:backend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-10-19 → 2026-10-30",
+     "body": "<!-- backlog-id: S013 -->\n**Epic:** E02 · **Milestone:** M1 · **Sprint:** S01 (2026-10-19 → 2026-10-30)\n**Alan:** `backend` · **Öncelik:** P0 · **Story point:** 3\n\n### Açıklama\nYeni servis üretmek için şablon; katman bağımlılık kuralları ArchUnit ile.\n\n### Kabul kriterleri\n- [ ] Domain katmanı Spring'e bağımlı değil (ArchUnit)\n- [ ] Şablondan servis 5 dk içinde üretilebilir\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S014",
+     "title": "[S014] Yerel geliştirme ortamı (docker-compose)",
+     "sprint": 1,
+     "area": "devops",
+     "points": 3,
+     "priority": "P0",
+     "description": "Postgres, Kafka (KRaft), Schema Registry, Keycloak, Redis, Mailpit, WireMock.",
+     "acceptance": [
+      "make up ile tüm bağımlılıklar ayağa kalkar",
+      "README'de 10 dakikada kurulum"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M1",
+      "sprint:S01",
+      "area:devops",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-10-19 → 2026-10-30",
+     "body": "<!-- backlog-id: S014 -->\n**Epic:** E02 · **Milestone:** M1 · **Sprint:** S01 (2026-10-19 → 2026-10-30)\n**Alan:** `devops` · **Öncelik:** P0 · **Story point:** 3\n\n### Açıklama\nPostgres, Kafka (KRaft), Schema Registry, Keycloak, Redis, Mailpit, WireMock.\n\n### Kabul kriterleri\n- [ ] make up ile tüm bağımlılıklar ayağa kalkar\n- [ ] README'de 10 dakikada kurulum\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S015",
+     "title": "[S015] PostgreSQL standartları: Flyway, RLS, tenant politikaları",
+     "sprint": 2,
+     "area": "data",
+     "points": 5,
+     "priority": "P0",
+     "description": "Flyway konvansiyonları, RLS politikası şablonu, app_user/owner rol ayrımı.",
+     "acceptance": [
+      "RLS olmadan tenant verisine erişim testi başarısız olur",
+      "Migration'lar expand-contract uyumlu"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M1",
+      "sprint:S02",
+      "area:data",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-11-02 → 2026-11-13",
+     "body": "<!-- backlog-id: S015 -->\n**Epic:** E02 · **Milestone:** M1 · **Sprint:** S02 (2026-11-02 → 2026-11-13)\n**Alan:** `data` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nFlyway konvansiyonları, RLS politikası şablonu, app_user/owner rol ayrımı.\n\n### Kabul kriterleri\n- [ ] RLS olmadan tenant verisine erişim testi başarısız olur\n- [ ] Migration'lar expand-contract uyumlu\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S016",
+     "title": "[S016] Kafka event standartları (CloudEvents, Avro, Schema Registry)",
+     "sprint": 2,
+     "area": "backend",
+     "points": 3,
+     "priority": "P1",
+     "description": "Event zarfı, topic isimlendirme, uyumluluk kuralları, DLQ ve retry.",
+     "acceptance": [
+      "Schema uyumluluk kontrolü CI'da",
+      "DLQ akışı entegrasyon testli"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M1",
+      "sprint:S02",
+      "area:backend",
+      "priority:P1",
+      "mvp"
+     ],
+     "sprint_window": "2026-11-02 → 2026-11-13",
+     "body": "<!-- backlog-id: S016 -->\n**Epic:** E02 · **Milestone:** M1 · **Sprint:** S02 (2026-11-02 → 2026-11-13)\n**Alan:** `backend` · **Öncelik:** P1 · **Story point:** 3\n\n### Açıklama\nEvent zarfı, topic isimlendirme, uyumluluk kuralları, DLQ ve retry.\n\n### Kabul kriterleri\n- [ ] Schema uyumluluk kontrolü CI'da\n- [ ] DLQ akışı entegrasyon testli\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    }
+   ],
+   "body": "<!-- backlog-id: E02 -->\n**Milestone:** M1 · **Alan:** `backend` · **Toplam SP:** 27\n\n### Amaç\nMonorepo, build sistemi, ortak platform kütüphaneleri ve yerel geliştirme ortamı.\n\n### Story'ler\n| ID | Başlık | Sprint | SP | Öncelik |\n|---|---|---|---|---|\n| S010 | Monorepo iskeleti (Gradle multi-module + pnpm workspace) | S01 | 3 | P0 |\n| S011 | platform-commons: tenant context, hata modeli, Money tipi | S01 | 5 | P0 |\n| S012 | platform-commons: idempotency ve transactional outbox | S01 | 5 | P0 |\n| S013 | Servis şablonu (hexagonal) ve ArchUnit kuralları | S01 | 3 | P0 |\n| S014 | Yerel geliştirme ortamı (docker-compose) | S01 | 3 | P0 |\n| S015 | PostgreSQL standartları: Flyway, RLS, tenant politikaları | S02 | 5 | P0 |\n| S016 | Kafka event standartları (CloudEvents, Avro, Schema Registry) | S02 | 3 | P1 |\n"
+  },
+  {
+   "id": "E03",
+   "milestone": "M1",
+   "title": "[E03] Epic: CI/CD & DevSecOps Pipeline",
+   "area": "devops",
+   "summary": "PR ve main pipeline'ları, güvenlik taramaları, imaj üretimi, SBOM ve imzalama.",
+   "labels": [
+    "type:epic",
+    "ms:M1",
+    "area:devops",
+    "mvp"
+   ],
+   "stories": [
+    {
+     "id": "S017",
+     "title": "[S017] PR pipeline: build, test, lint, ArchUnit",
+     "sprint": 1,
+     "area": "devops",
+     "points": 3,
+     "priority": "P0",
+     "description": "GitHub Actions ile her PR'da derleme ve testler.",
+     "acceptance": [
+      "PR'da zorunlu status check",
+      "Ortalama süre < 10 dk"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M1",
+      "sprint:S01",
+      "area:devops",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-10-19 → 2026-10-30",
+     "body": "<!-- backlog-id: S017 -->\n**Epic:** E03 · **Milestone:** M1 · **Sprint:** S01 (2026-10-19 → 2026-10-30)\n**Alan:** `devops` · **Öncelik:** P0 · **Story point:** 3\n\n### Açıklama\nGitHub Actions ile her PR'da derleme ve testler.\n\n### Kabul kriterleri\n- [ ] PR'da zorunlu status check\n- [ ] Ortalama süre < 10 dk\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S018",
+     "title": "[S018] Güvenlik kapıları: SAST, SCA, secret scan, IaC scan",
+     "sprint": 1,
+     "area": "security",
+     "points": 5,
+     "priority": "P0",
+     "description": "Semgrep/CodeQL, OWASP Dependency-Check, Gitleaks, Checkov.",
+     "acceptance": [
+      "Critical bulgu PR'ı bloklar",
+      "Raporlar artifact olarak saklanır"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M1",
+      "sprint:S01",
+      "area:security",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-10-19 → 2026-10-30",
+     "body": "<!-- backlog-id: S018 -->\n**Epic:** E03 · **Milestone:** M1 · **Sprint:** S01 (2026-10-19 → 2026-10-30)\n**Alan:** `security` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nSemgrep/CodeQL, OWASP Dependency-Check, Gitleaks, Checkov.\n\n### Kabul kriterleri\n- [ ] Critical bulgu PR'ı bloklar\n- [ ] Raporlar artifact olarak saklanır\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S019",
+     "title": "[S019] Kalite kapısı: coverage ve SonarQube",
+     "sprint": 2,
+     "area": "qa",
+     "points": 3,
+     "priority": "P1",
+     "description": "JaCoCo, Sonar quality gate.",
+     "acceptance": [
+      "Domain coverage ≥ %80",
+      "0 blocker/critical"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M1",
+      "sprint:S02",
+      "area:qa",
+      "priority:P1",
+      "mvp"
+     ],
+     "sprint_window": "2026-11-02 → 2026-11-13",
+     "body": "<!-- backlog-id: S019 -->\n**Epic:** E03 · **Milestone:** M1 · **Sprint:** S02 (2026-11-02 → 2026-11-13)\n**Alan:** `qa` · **Öncelik:** P1 · **Story point:** 3\n\n### Açıklama\nJaCoCo, Sonar quality gate.\n\n### Kabul kriterleri\n- [ ] Domain coverage ≥ %80\n- [ ] 0 blocker/critical\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S020",
+     "title": "[S020] Konteyner imajı, Trivy, SBOM (CycloneDX), Cosign imza",
+     "sprint": 2,
+     "area": "devops",
+     "points": 5,
+     "priority": "P0",
+     "description": "Jib ile distroless imaj, zafiyet taraması, SBOM ve imzalama.",
+     "acceptance": [
+      "Imzasız imaj cluster'a deploy edilemez",
+      "SBOM her release'e eklenir"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M1",
+      "sprint:S02",
+      "area:devops",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-11-02 → 2026-11-13",
+     "body": "<!-- backlog-id: S020 -->\n**Epic:** E03 · **Milestone:** M1 · **Sprint:** S02 (2026-11-02 → 2026-11-13)\n**Alan:** `devops` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nJib ile distroless imaj, zafiyet taraması, SBOM ve imzalama.\n\n### Kabul kriterleri\n- [ ] Imzasız imaj cluster'a deploy edilemez\n- [ ] SBOM her release'e eklenir\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S021",
+     "title": "[S021] Release otomasyonu (SemVer, Conventional Commits, changelog)",
+     "sprint": 2,
+     "area": "devops",
+     "points": 2,
+     "priority": "P2",
+     "description": "release-please ile sürüm ve changelog.",
+     "acceptance": [
+      "Tag'ten otomatik release notları"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M1",
+      "sprint:S02",
+      "area:devops",
+      "priority:P2",
+      "mvp"
+     ],
+     "sprint_window": "2026-11-02 → 2026-11-13",
+     "body": "<!-- backlog-id: S021 -->\n**Epic:** E03 · **Milestone:** M1 · **Sprint:** S02 (2026-11-02 → 2026-11-13)\n**Alan:** `devops` · **Öncelik:** P2 · **Story point:** 2\n\n### Açıklama\nrelease-please ile sürüm ve changelog.\n\n### Kabul kriterleri\n- [ ] Tag'ten otomatik release notları\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    }
+   ],
+   "body": "<!-- backlog-id: E03 -->\n**Milestone:** M1 · **Alan:** `devops` · **Toplam SP:** 18\n\n### Amaç\nPR ve main pipeline'ları, güvenlik taramaları, imaj üretimi, SBOM ve imzalama.\n\n### Story'ler\n| ID | Başlık | Sprint | SP | Öncelik |\n|---|---|---|---|---|\n| S017 | PR pipeline: build, test, lint, ArchUnit | S01 | 3 | P0 |\n| S018 | Güvenlik kapıları: SAST, SCA, secret scan, IaC scan | S01 | 5 | P0 |\n| S019 | Kalite kapısı: coverage ve SonarQube | S02 | 3 | P1 |\n| S020 | Konteyner imajı, Trivy, SBOM (CycloneDX), Cosign imza | S02 | 5 | P0 |\n| S021 | Release otomasyonu (SemVer, Conventional Commits, changelog) | S02 | 2 | P2 |\n"
+  },
+  {
+   "id": "E04",
+   "milestone": "M1",
+   "title": "[E04] Epic: OpenShift Platform & GitOps",
+   "area": "devops",
+   "summary": "Dev/test ortamları, Helm library chart, ArgoCD, veri servisleri operatörleri.",
+   "labels": [
+    "type:epic",
+    "ms:M1",
+    "area:devops",
+    "mvp"
+   ],
+   "stories": [
+    {
+     "id": "S022",
+     "title": "[S022] Helm library chart ve servis chart standardı",
+     "sprint": 1,
+     "area": "devops",
+     "points": 5,
+     "priority": "P0",
+     "description": "Deployment, Service, Route, HPA, PDB, NetworkPolicy, ServiceMonitor şablonları.",
+     "acceptance": [
+      "Tüm servisler aynı library chart'ı kullanır",
+      "helm lint + kubeconform CI'da"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M1",
+      "sprint:S01",
+      "area:devops",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-10-19 → 2026-10-30",
+     "body": "<!-- backlog-id: S022 -->\n**Epic:** E04 · **Milestone:** M1 · **Sprint:** S01 (2026-10-19 → 2026-10-30)\n**Alan:** `devops` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nDeployment, Service, Route, HPA, PDB, NetworkPolicy, ServiceMonitor şablonları.\n\n### Kabul kriterleri\n- [ ] Tüm servisler aynı library chart'ı kullanır\n- [ ] helm lint + kubeconform CI'da\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S023",
+     "title": "[S023] ArgoCD app-of-apps ve ortam promotion",
+     "sprint": 2,
+     "area": "devops",
+     "points": 5,
+     "priority": "P0",
+     "description": "deploy/ gitops repo yapısı; dev→test otomatik, üst ortamlar PR ile.",
+     "acceptance": [
+      "main merge sonrası dev'e otomatik deploy",
+      "Rollback tek commit revert ile"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M1",
+      "sprint:S02",
+      "area:devops",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-11-02 → 2026-11-13",
+     "body": "<!-- backlog-id: S023 -->\n**Epic:** E04 · **Milestone:** M1 · **Sprint:** S02 (2026-11-02 → 2026-11-13)\n**Alan:** `devops` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\ndeploy/ gitops repo yapısı; dev→test otomatik, üst ortamlar PR ile.\n\n### Kabul kriterleri\n- [ ] main merge sonrası dev'e otomatik deploy\n- [ ] Rollback tek commit revert ile\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S024",
+     "title": "[S024] Veri platformu: CloudNativePG, Strimzi Kafka, Redis, Vault",
+     "sprint": 2,
+     "area": "devops",
+     "points": 8,
+     "priority": "P0",
+     "description": "Operatörlerle yönetilen veri servisleri; Vault dinamik DB kimlikleri.",
+     "acceptance": [
+      "PITR yedekleme aktif",
+      "Servisler statik parola kullanmaz"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M1",
+      "sprint:S02",
+      "area:devops",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-11-02 → 2026-11-13",
+     "body": "<!-- backlog-id: S024 -->\n**Epic:** E04 · **Milestone:** M1 · **Sprint:** S02 (2026-11-02 → 2026-11-13)\n**Alan:** `devops` · **Öncelik:** P0 · **Story point:** 8\n\n### Açıklama\nOperatörlerle yönetilen veri servisleri; Vault dinamik DB kimlikleri.\n\n### Kabul kriterleri\n- [ ] PITR yedekleme aktif\n- [ ] Servisler statik parola kullanmaz\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S025",
+     "title": "[S025] NetworkPolicy default-deny ve service mesh mTLS",
+     "sprint": 2,
+     "area": "security",
+     "points": 3,
+     "priority": "P0",
+     "description": "Namespace bazlı default deny; mesh ile mTLS STRICT.",
+     "acceptance": [
+      "Yetkisiz pod-pod trafiği engellenir (test)"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M1",
+      "sprint:S02",
+      "area:security",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-11-02 → 2026-11-13",
+     "body": "<!-- backlog-id: S025 -->\n**Epic:** E04 · **Milestone:** M1 · **Sprint:** S02 (2026-11-02 → 2026-11-13)\n**Alan:** `security` · **Öncelik:** P0 · **Story point:** 3\n\n### Açıklama\nNamespace bazlı default deny; mesh ile mTLS STRICT.\n\n### Kabul kriterleri\n- [ ] Yetkisiz pod-pod trafiği engellenir (test)\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    }
+   ],
+   "body": "<!-- backlog-id: E04 -->\n**Milestone:** M1 · **Alan:** `devops` · **Toplam SP:** 21\n\n### Amaç\nDev/test ortamları, Helm library chart, ArgoCD, veri servisleri operatörleri.\n\n### Story'ler\n| ID | Başlık | Sprint | SP | Öncelik |\n|---|---|---|---|---|\n| S022 | Helm library chart ve servis chart standardı | S01 | 5 | P0 |\n| S023 | ArgoCD app-of-apps ve ortam promotion | S02 | 5 | P0 |\n| S024 | Veri platformu: CloudNativePG, Strimzi Kafka, Redis, Vault | S02 | 8 | P0 |\n| S025 | NetworkPolicy default-deny ve service mesh mTLS | S02 | 3 | P0 |\n"
+  },
+  {
+   "id": "E05",
+   "milestone": "M1",
+   "title": "[E05] Epic: Identity & Access Management",
+   "area": "backend",
+   "summary": "Keycloak, API Gateway, OTP, cihaz bağlama, RBAC.",
+   "labels": [
+    "type:epic",
+    "ms:M1",
+    "area:backend",
+    "mvp"
+   ],
+   "stories": [
+    {
+     "id": "S026",
+     "title": "[S026] Keycloak kurulumu: realm, organization-per-tenant, roller",
+     "sprint": 1,
+     "area": "security",
+     "points": 5,
+     "priority": "P0",
+     "description": "Platform realm, tenant organizasyonları, rol modeli (docs/security).",
+     "acceptance": [
+      "Realm konfigürasyonu kod olarak (export/import)",
+      "MFA admin kullanıcılar için zorunlu"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M1",
+      "sprint:S01",
+      "area:security",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-10-19 → 2026-10-30",
+     "body": "<!-- backlog-id: S026 -->\n**Epic:** E05 · **Milestone:** M1 · **Sprint:** S01 (2026-10-19 → 2026-10-30)\n**Alan:** `security` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nPlatform realm, tenant organizasyonları, rol modeli (docs/security).\n\n### Kabul kriterleri\n- [ ] Realm konfigürasyonu kod olarak (export/import)\n- [ ] MFA admin kullanıcılar için zorunlu\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S027",
+     "title": "[S027] api-gateway: JWT doğrulama, tenant çözümleme, rate limit",
+     "sprint": 2,
+     "area": "backend",
+     "points": 5,
+     "priority": "P0",
+     "description": "Spring Cloud Gateway; tenant header/subdomain/claim çözümleme; Redis rate limit.",
+     "acceptance": [
+      "Tenant uyuşmazlığında 403",
+      "Rate limit tenant planına göre"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M1",
+      "sprint:S02",
+      "area:backend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-11-02 → 2026-11-13",
+     "body": "<!-- backlog-id: S027 -->\n**Epic:** E05 · **Milestone:** M1 · **Sprint:** S02 (2026-11-02 → 2026-11-13)\n**Alan:** `backend` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nSpring Cloud Gateway; tenant header/subdomain/claim çözümleme; Redis rate limit.\n\n### Kabul kriterleri\n- [ ] Tenant uyuşmazlığında 403\n- [ ] Rate limit tenant planına göre\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S028",
+     "title": "[S028] identity-service: telefon OTP kayıt/giriş",
+     "sprint": 2,
+     "area": "backend",
+     "points": 5,
+     "priority": "P0",
+     "description": "OTP üretimi/doğrulama, deneme limiti, SMS sağlayıcı portu (mock).",
+     "acceptance": [
+      "OTP 3 hatalı denemede kilitlenir",
+      "OTP loglarda maskelenir"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M1",
+      "sprint:S02",
+      "area:backend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-11-02 → 2026-11-13",
+     "body": "<!-- backlog-id: S028 -->\n**Epic:** E05 · **Milestone:** M1 · **Sprint:** S02 (2026-11-02 → 2026-11-13)\n**Alan:** `backend` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nOTP üretimi/doğrulama, deneme limiti, SMS sağlayıcı portu (mock).\n\n### Kabul kriterleri\n- [ ] OTP 3 hatalı denemede kilitlenir\n- [ ] OTP loglarda maskelenir\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S029",
+     "title": "[S029] Cihaz bağlama ve step-up authentication",
+     "sprint": 2,
+     "area": "security",
+     "points": 5,
+     "priority": "P1",
+     "description": "Cihaz anahtarı kaydı, hassas işlemlerde biyometrik/PIN step-up.",
+     "acceptance": [
+      "Yeni cihazdan yüksek tutarlı işlem step-up ister"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M1",
+      "sprint:S02",
+      "area:security",
+      "priority:P1",
+      "mvp"
+     ],
+     "sprint_window": "2026-11-02 → 2026-11-13",
+     "body": "<!-- backlog-id: S029 -->\n**Epic:** E05 · **Milestone:** M1 · **Sprint:** S02 (2026-11-02 → 2026-11-13)\n**Alan:** `security` · **Öncelik:** P1 · **Story point:** 5\n\n### Açıklama\nCihaz anahtarı kaydı, hassas işlemlerde biyometrik/PIN step-up.\n\n### Kabul kriterleri\n- [ ] Yeni cihazdan yüksek tutarlı işlem step-up ister\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    }
+   ],
+   "body": "<!-- backlog-id: E05 -->\n**Milestone:** M1 · **Alan:** `backend` · **Toplam SP:** 20\n\n### Amaç\nKeycloak, API Gateway, OTP, cihaz bağlama, RBAC.\n\n### Story'ler\n| ID | Başlık | Sprint | SP | Öncelik |\n|---|---|---|---|---|\n| S026 | Keycloak kurulumu: realm, organization-per-tenant, roller | S01 | 5 | P0 |\n| S027 | api-gateway: JWT doğrulama, tenant çözümleme, rate limit | S02 | 5 | P0 |\n| S028 | identity-service: telefon OTP kayıt/giriş | S02 | 5 | P0 |\n| S029 | Cihaz bağlama ve step-up authentication | S02 | 5 | P1 |\n"
+  },
+  {
+   "id": "E06",
+   "milestone": "M1",
+   "title": "[E06] Epic: Tenant Management & Configuration",
+   "area": "backend",
+   "summary": "Tenant onboarding, konfigürasyon, sektör presetleri, feature flag, marka.",
+   "labels": [
+    "type:epic",
+    "ms:M1",
+    "area:backend",
+    "mvp"
+   ],
+   "stories": [
+    {
+     "id": "S030",
+     "title": "[S030] tenant-service: tenant CRUD ve yaşam döngüsü",
+     "sprint": 1,
+     "area": "backend",
+     "points": 5,
+     "priority": "P0",
+     "description": "Tenant oluşturma, askıya alma, kapatma; plan bilgisi.",
+     "acceptance": [
+      "Yaşam döngüsü event'leri yayınlanır",
+      "Tüm değişiklikler audit'e düşer"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M1",
+      "sprint:S01",
+      "area:backend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-10-19 → 2026-10-30",
+     "body": "<!-- backlog-id: S030 -->\n**Epic:** E06 · **Milestone:** M1 · **Sprint:** S01 (2026-10-19 → 2026-10-30)\n**Alan:** `backend` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nTenant oluşturma, askıya alma, kapatma; plan bilgisi.\n\n### Kabul kriterleri\n- [ ] Yaşam döngüsü event'leri yayınlanır\n- [ ] Tüm değişiklikler audit'e düşer\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S031",
+     "title": "[S031] Tenant konfigürasyon şeması ve versiyonlama",
+     "sprint": 2,
+     "area": "backend",
+     "points": 5,
+     "priority": "P0",
+     "description": "JSON Schema ile doğrulanan, versiyonlu konfigürasyon (limit, ücret, cüzdan tipleri, KYC tier).",
+     "acceptance": [
+      "Geçersiz konfigürasyon reddedilir",
+      "Konfigürasyon değişikliği maker-checker gerektirir"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M1",
+      "sprint:S02",
+      "area:backend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-11-02 → 2026-11-13",
+     "body": "<!-- backlog-id: S031 -->\n**Epic:** E06 · **Milestone:** M1 · **Sprint:** S02 (2026-11-02 → 2026-11-13)\n**Alan:** `backend` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nJSON Schema ile doğrulanan, versiyonlu konfigürasyon (limit, ücret, cüzdan tipleri, KYC tier).\n\n### Kabul kriterleri\n- [ ] Geçersiz konfigürasyon reddedilir\n- [ ] Konfigürasyon değişikliği maker-checker gerektirir\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S032",
+     "title": "[S032] Sektör presetleri (Kahve, EV, Otopark, Eğlence, Kampüs)",
+     "sprint": 2,
+     "area": "backend",
+     "points": 3,
+     "priority": "P1",
+     "description": "Onboarding'de preset seçimi ile hazır konfigürasyon.",
+     "acceptance": [
+      "5 preset şema ile doğrulanır"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M1",
+      "sprint:S02",
+      "area:backend",
+      "priority:P1",
+      "mvp"
+     ],
+     "sprint_window": "2026-11-02 → 2026-11-13",
+     "body": "<!-- backlog-id: S032 -->\n**Epic:** E06 · **Milestone:** M1 · **Sprint:** S02 (2026-11-02 → 2026-11-13)\n**Alan:** `backend` · **Öncelik:** P1 · **Story point:** 3\n\n### Açıklama\nOnboarding'de preset seçimi ile hazır konfigürasyon.\n\n### Kabul kriterleri\n- [ ] 5 preset şema ile doğrulanır\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S033",
+     "title": "[S033] Feature flag ve marka/tema servisi",
+     "sprint": 2,
+     "area": "backend",
+     "points": 3,
+     "priority": "P1",
+     "description": "Tenant bazlı feature flag; logo, renk, dil ayarları.",
+     "acceptance": [
+      "Mobil ve portal temayı çalışma zamanında çeker"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M1",
+      "sprint:S02",
+      "area:backend",
+      "priority:P1",
+      "mvp"
+     ],
+     "sprint_window": "2026-11-02 → 2026-11-13",
+     "body": "<!-- backlog-id: S033 -->\n**Epic:** E06 · **Milestone:** M1 · **Sprint:** S02 (2026-11-02 → 2026-11-13)\n**Alan:** `backend` · **Öncelik:** P1 · **Story point:** 3\n\n### Açıklama\nTenant bazlı feature flag; logo, renk, dil ayarları.\n\n### Kabul kriterleri\n- [ ] Mobil ve portal temayı çalışma zamanında çeker\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S034",
+     "title": "[S034] Otomatik tenant provisioning",
+     "sprint": 2,
+     "area": "devops",
+     "points": 5,
+     "priority": "P1",
+     "description": "Keycloak org, DB şeması/politikalar, Kafka ACL, varsayılan roller otomatik.",
+     "acceptance": [
+      "Yeni tenant < 2 dk'da kullanıma hazır"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M1",
+      "sprint:S02",
+      "area:devops",
+      "priority:P1",
+      "mvp"
+     ],
+     "sprint_window": "2026-11-02 → 2026-11-13",
+     "body": "<!-- backlog-id: S034 -->\n**Epic:** E06 · **Milestone:** M1 · **Sprint:** S02 (2026-11-02 → 2026-11-13)\n**Alan:** `devops` · **Öncelik:** P1 · **Story point:** 5\n\n### Açıklama\nKeycloak org, DB şeması/politikalar, Kafka ACL, varsayılan roller otomatik.\n\n### Kabul kriterleri\n- [ ] Yeni tenant < 2 dk'da kullanıma hazır\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    }
+   ],
+   "body": "<!-- backlog-id: E06 -->\n**Milestone:** M1 · **Alan:** `backend` · **Toplam SP:** 21\n\n### Amaç\nTenant onboarding, konfigürasyon, sektör presetleri, feature flag, marka.\n\n### Story'ler\n| ID | Başlık | Sprint | SP | Öncelik |\n|---|---|---|---|---|\n| S030 | tenant-service: tenant CRUD ve yaşam döngüsü | S01 | 5 | P0 |\n| S031 | Tenant konfigürasyon şeması ve versiyonlama | S02 | 5 | P0 |\n| S032 | Sektör presetleri (Kahve, EV, Otopark, Eğlence, Kampüs) | S02 | 3 | P1 |\n| S033 | Feature flag ve marka/tema servisi | S02 | 3 | P1 |\n| S034 | Otomatik tenant provisioning | S02 | 5 | P1 |\n"
+  },
+  {
+   "id": "E07",
+   "milestone": "M2",
+   "title": "[E07] Epic: Customer & KYC (Tier 0/1)",
+   "area": "backend",
+   "summary": "Müşteri profili, onaylar, KYC seviyeleri.",
+   "labels": [
+    "type:epic",
+    "ms:M2",
+    "area:backend",
+    "mvp"
+   ],
+   "stories": [
+    {
+     "id": "S035",
+     "title": "[S035] customer-service: profil ve yaşam döngüsü",
+     "sprint": 3,
+     "area": "backend",
+     "points": 5,
+     "priority": "P0",
+     "description": "Müşteri oluşturma (OTP sonrası), güncelleme, kapatma, bloke.",
+     "acceptance": [
+      "PII alanları field-level şifreli",
+      "Bloke müşteri işlem yapamaz"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M2",
+      "sprint:S03",
+      "area:backend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-11-16 → 2026-11-27",
+     "body": "<!-- backlog-id: S035 -->\n**Epic:** E07 · **Milestone:** M2 · **Sprint:** S03 (2026-11-16 → 2026-11-27)\n**Alan:** `backend` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nMüşteri oluşturma (OTP sonrası), güncelleme, kapatma, bloke.\n\n### Kabul kriterleri\n- [ ] PII alanları field-level şifreli\n- [ ] Bloke müşteri işlem yapamaz\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S036",
+     "title": "[S036] KVKK/GDPR onay yönetimi",
+     "sprint": 3,
+     "area": "compliance",
+     "points": 3,
+     "priority": "P0",
+     "description": "Aydınlatma metni versiyonları, açık rıza, pazarlama izni.",
+     "acceptance": [
+      "Onay geçmişi değiştirilemez şekilde saklanır"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M2",
+      "sprint:S03",
+      "area:compliance",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-11-16 → 2026-11-27",
+     "body": "<!-- backlog-id: S036 -->\n**Epic:** E07 · **Milestone:** M2 · **Sprint:** S03 (2026-11-16 → 2026-11-27)\n**Alan:** `compliance` · **Öncelik:** P0 · **Story point:** 3\n\n### Açıklama\nAydınlatma metni versiyonları, açık rıza, pazarlama izni.\n\n### Kabul kriterleri\n- [ ] Onay geçmişi değiştirilemez şekilde saklanır\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S037",
+     "title": "[S037] KYC Tier 0/1 ve limit profili bağlama",
+     "sprint": 4,
+     "area": "backend",
+     "points": 3,
+     "priority": "P0",
+     "description": "Tier'a göre limit profili; tier yükseltme event'i.",
+     "acceptance": [
+      "Tier limitleri wallet-service tarafından uygulanır"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M2",
+      "sprint:S04",
+      "area:backend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-11-30 → 2026-12-11",
+     "body": "<!-- backlog-id: S037 -->\n**Epic:** E07 · **Milestone:** M2 · **Sprint:** S04 (2026-11-30 → 2026-12-11)\n**Alan:** `backend` · **Öncelik:** P0 · **Story point:** 3\n\n### Açıklama\nTier'a göre limit profili; tier yükseltme event'i.\n\n### Kabul kriterleri\n- [ ] Tier limitleri wallet-service tarafından uygulanır\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S038",
+     "title": "[S038] Veri sahibi talepleri (erişim/silme) ve crypto-shredding",
+     "sprint": 4,
+     "area": "compliance",
+     "points": 5,
+     "priority": "P1",
+     "description": "KVKK başvuruları; finansal kayıt saklama ile uyumlu anonimleştirme.",
+     "acceptance": [
+      "Silme sonrası PII okunamaz, ledger bütünlüğü korunur"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M2",
+      "sprint:S04",
+      "area:compliance",
+      "priority:P1",
+      "mvp"
+     ],
+     "sprint_window": "2026-11-30 → 2026-12-11",
+     "body": "<!-- backlog-id: S038 -->\n**Epic:** E07 · **Milestone:** M2 · **Sprint:** S04 (2026-11-30 → 2026-12-11)\n**Alan:** `compliance` · **Öncelik:** P1 · **Story point:** 5\n\n### Açıklama\nKVKK başvuruları; finansal kayıt saklama ile uyumlu anonimleştirme.\n\n### Kabul kriterleri\n- [ ] Silme sonrası PII okunamaz, ledger bütünlüğü korunur\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    }
+   ],
+   "body": "<!-- backlog-id: E07 -->\n**Milestone:** M2 · **Alan:** `backend` · **Toplam SP:** 16\n\n### Amaç\nMüşteri profili, onaylar, KYC seviyeleri.\n\n### Story'ler\n| ID | Başlık | Sprint | SP | Öncelik |\n|---|---|---|---|---|\n| S035 | customer-service: profil ve yaşam döngüsü | S03 | 5 | P0 |\n| S036 | KVKK/GDPR onay yönetimi | S03 | 3 | P0 |\n| S037 | KYC Tier 0/1 ve limit profili bağlama | S04 | 3 | P0 |\n| S038 | Veri sahibi talepleri (erişim/silme) ve crypto-shredding | S04 | 5 | P1 |\n"
+  },
+  {
+   "id": "E08",
+   "milestone": "M2",
+   "title": "[E08] Epic: Double-Entry Ledger",
+   "area": "backend",
+   "summary": "Değiştirilemez, çift kayıtlı defter; sistemin finansal doğruluk kaynağı.",
+   "labels": [
+    "type:epic",
+    "ms:M2",
+    "area:backend",
+    "mvp"
+   ],
+   "stories": [
+    {
+     "id": "S039",
+     "title": "[S039] ledger-service: hesap planı ve hesap açma",
+     "sprint": 3,
+     "area": "backend",
+     "points": 5,
+     "priority": "P0",
+     "description": "Hesap tipleri (müşteri yükümlülük, işyeri borç, PSP clearing, gelir, breakage, promo gider, suspense).",
+     "acceptance": [
+      "Her tenant için varsayılan hesap planı otomatik oluşur"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M2",
+      "sprint:S03",
+      "area:backend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-11-16 → 2026-11-27",
+     "body": "<!-- backlog-id: S039 -->\n**Epic:** E08 · **Milestone:** M2 · **Sprint:** S03 (2026-11-16 → 2026-11-27)\n**Alan:** `backend` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nHesap tipleri (müşteri yükümlülük, işyeri borç, PSP clearing, gelir, breakage, promo gider, suspense).\n\n### Kabul kriterleri\n- [ ] Her tenant için varsayılan hesap planı otomatik oluşur\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S040",
+     "title": "[S040] Journal posting API (atomik, idempotent, dengeli)",
+     "sprint": 3,
+     "area": "backend",
+     "points": 8,
+     "priority": "P0",
+     "description": "Borç=alacak zorunlu, append-only, idempotent posting.",
+     "acceptance": [
+      "Dengesiz journal reddedilir",
+      "Aynı referans ikinci kez post edilemez",
+      "UPDATE/DELETE DB seviyesinde yasak"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M2",
+      "sprint:S03",
+      "area:backend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-11-16 → 2026-11-27",
+     "body": "<!-- backlog-id: S040 -->\n**Epic:** E08 · **Milestone:** M2 · **Sprint:** S03 (2026-11-16 → 2026-11-27)\n**Alan:** `backend` · **Öncelik:** P0 · **Story point:** 8\n\n### Açıklama\nBorç=alacak zorunlu, append-only, idempotent posting.\n\n### Kabul kriterleri\n- [ ] Dengesiz journal reddedilir\n- [ ] Aynı referans ikinci kez post edilemez\n- [ ] UPDATE/DELETE DB seviyesinde yasak\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S041",
+     "title": "[S041] Bakiye hesaplama, snapshot ve eşzamanlılık",
+     "sprint": 4,
+     "area": "backend",
+     "points": 8,
+     "priority": "P0",
+     "description": "Running balance, hot-account stratejisi, negatif bakiye koruması.",
+     "acceptance": [
+      "1000 eşzamanlı harcamada çifte harcama yok (test)",
+      "p99 posting < 50ms"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M2",
+      "sprint:S04",
+      "area:backend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-11-30 → 2026-12-11",
+     "body": "<!-- backlog-id: S041 -->\n**Epic:** E08 · **Milestone:** M2 · **Sprint:** S04 (2026-11-30 → 2026-12-11)\n**Alan:** `backend` · **Öncelik:** P0 · **Story point:** 8\n\n### Açıklama\nRunning balance, hot-account stratejisi, negatif bakiye koruması.\n\n### Kabul kriterleri\n- [ ] 1000 eşzamanlı harcamada çifte harcama yok (test)\n- [ ] p99 posting < 50ms\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S042",
+     "title": "[S042] Hold (provizyon) ve release/capture",
+     "sprint": 4,
+     "area": "backend",
+     "points": 5,
+     "priority": "P0",
+     "description": "Pre-auth için hold hesapları; süre aşımı ile otomatik release.",
+     "acceptance": [
+      "Kısmi capture ve fazla tutarın serbest bırakılması"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M2",
+      "sprint:S04",
+      "area:backend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-11-30 → 2026-12-11",
+     "body": "<!-- backlog-id: S042 -->\n**Epic:** E08 · **Milestone:** M2 · **Sprint:** S04 (2026-11-30 → 2026-12-11)\n**Alan:** `backend` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nPre-auth için hold hesapları; süre aşımı ile otomatik release.\n\n### Kabul kriterleri\n- [ ] Kısmi capture ve fazla tutarın serbest bırakılması\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S043",
+     "title": "[S043] Ledger invariant testleri ve günlük bütünlük kontrolü",
+     "sprint": 4,
+     "area": "qa",
+     "points": 5,
+     "priority": "P0",
+     "description": "jqwik property test; günlük trial balance job + alarm.",
+     "acceptance": [
+      "Trial balance ≠ 0 ise kritik alarm",
+      "Mutation score ≥ %60"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M2",
+      "sprint:S04",
+      "area:qa",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-11-30 → 2026-12-11",
+     "body": "<!-- backlog-id: S043 -->\n**Epic:** E08 · **Milestone:** M2 · **Sprint:** S04 (2026-11-30 → 2026-12-11)\n**Alan:** `qa` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\njqwik property test; günlük trial balance job + alarm.\n\n### Kabul kriterleri\n- [ ] Trial balance ≠ 0 ise kritik alarm\n- [ ] Mutation score ≥ %60\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    }
+   ],
+   "body": "<!-- backlog-id: E08 -->\n**Milestone:** M2 · **Alan:** `backend` · **Toplam SP:** 31\n\n### Amaç\nDeğiştirilemez, çift kayıtlı defter; sistemin finansal doğruluk kaynağı.\n\n### Story'ler\n| ID | Başlık | Sprint | SP | Öncelik |\n|---|---|---|---|---|\n| S039 | ledger-service: hesap planı ve hesap açma | S03 | 5 | P0 |\n| S040 | Journal posting API (atomik, idempotent, dengeli) | S03 | 8 | P0 |\n| S041 | Bakiye hesaplama, snapshot ve eşzamanlılık | S04 | 8 | P0 |\n| S042 | Hold (provizyon) ve release/capture | S04 | 5 | P0 |\n| S043 | Ledger invariant testleri ve günlük bütünlük kontrolü | S04 | 5 | P0 |\n"
+  },
+  {
+   "id": "E09",
+   "milestone": "M2",
+   "title": "[E09] Epic: Wallet",
+   "area": "backend",
+   "summary": "Cüzdan hesapları, çoklu cüzdan, limit kontrolü, işlem geçmişi.",
+   "labels": [
+    "type:epic",
+    "ms:M2",
+    "area:backend",
+    "mvp"
+   ],
+   "stories": [
+    {
+     "id": "S044",
+     "title": "[S044] wallet-service: cüzdan açma (ana + bonus) ve durum yönetimi",
+     "sprint": 3,
+     "area": "backend",
+     "points": 5,
+     "priority": "P0",
+     "description": "Tenant konfigürasyonuna göre cüzdan tipleri; aktif/dondurulmuş/kapalı.",
+     "acceptance": [
+      "Kayıtta varsayılan cüzdanlar otomatik açılır"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M2",
+      "sprint:S03",
+      "area:backend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-11-16 → 2026-11-27",
+     "body": "<!-- backlog-id: S044 -->\n**Epic:** E09 · **Milestone:** M2 · **Sprint:** S03 (2026-11-16 → 2026-11-27)\n**Alan:** `backend` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nTenant konfigürasyonuna göre cüzdan tipleri; aktif/dondurulmuş/kapalı.\n\n### Kabul kriterleri\n- [ ] Kayıtta varsayılan cüzdanlar otomatik açılır\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S045",
+     "title": "[S045] Bakiye sorgulama ve harcama önceliği (bonus → ana)",
+     "sprint": 4,
+     "area": "backend",
+     "points": 3,
+     "priority": "P0",
+     "description": "Tenant kuralına göre harcama sırası.",
+     "acceptance": [
+      "Harcama sırası konfigürasyondan okunur (test)"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M2",
+      "sprint:S04",
+      "area:backend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-11-30 → 2026-12-11",
+     "body": "<!-- backlog-id: S045 -->\n**Epic:** E09 · **Milestone:** M2 · **Sprint:** S04 (2026-11-30 → 2026-12-11)\n**Alan:** `backend` · **Öncelik:** P0 · **Story point:** 3\n\n### Açıklama\nTenant kuralına göre harcama sırası.\n\n### Kabul kriterleri\n- [ ] Harcama sırası konfigürasyondan okunur (test)\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S046",
+     "title": "[S046] Limit motoru (tek işlem, günlük, aylık, bakiye tavanı)",
+     "sprint": 4,
+     "area": "backend",
+     "points": 5,
+     "priority": "P0",
+     "description": "KYC tier ve tenant limitleri; regülasyon tavanları.",
+     "acceptance": [
+      "Limit aşımında açıklayıcı hata kodu"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M2",
+      "sprint:S04",
+      "area:backend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-11-30 → 2026-12-11",
+     "body": "<!-- backlog-id: S046 -->\n**Epic:** E09 · **Milestone:** M2 · **Sprint:** S04 (2026-11-30 → 2026-12-11)\n**Alan:** `backend` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nKYC tier ve tenant limitleri; regülasyon tavanları.\n\n### Kabul kriterleri\n- [ ] Limit aşımında açıklayıcı hata kodu\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S047",
+     "title": "[S047] İşlem geçmişi okuma modeli (CQRS)",
+     "sprint": 4,
+     "area": "backend",
+     "points": 3,
+     "priority": "P0",
+     "description": "Event'lerden beslenen sorgu modeli; cursor pagination.",
+     "acceptance": [
+      "p95 < 150ms, 12 aylık geçmiş"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M2",
+      "sprint:S04",
+      "area:backend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-11-30 → 2026-12-11",
+     "body": "<!-- backlog-id: S047 -->\n**Epic:** E09 · **Milestone:** M2 · **Sprint:** S04 (2026-11-30 → 2026-12-11)\n**Alan:** `backend` · **Öncelik:** P0 · **Story point:** 3\n\n### Açıklama\nEvent'lerden beslenen sorgu modeli; cursor pagination.\n\n### Kabul kriterleri\n- [ ] p95 < 150ms, 12 aylık geçmiş\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    }
+   ],
+   "body": "<!-- backlog-id: E09 -->\n**Milestone:** M2 · **Alan:** `backend` · **Toplam SP:** 16\n\n### Amaç\nCüzdan hesapları, çoklu cüzdan, limit kontrolü, işlem geçmişi.\n\n### Story'ler\n| ID | Başlık | Sprint | SP | Öncelik |\n|---|---|---|---|---|\n| S044 | wallet-service: cüzdan açma (ana + bonus) ve durum yönetimi | S03 | 5 | P0 |\n| S045 | Bakiye sorgulama ve harcama önceliği (bonus → ana) | S04 | 3 | P0 |\n| S046 | Limit motoru (tek işlem, günlük, aylık, bakiye tavanı) | S04 | 5 | P0 |\n| S047 | İşlem geçmişi okuma modeli (CQRS) | S04 | 3 | P0 |\n"
+  },
+  {
+   "id": "E10",
+   "milestone": "M2",
+   "title": "[E10] Epic: Observability",
+   "area": "devops",
+   "summary": "OpenTelemetry, metrik, log, trace, SLO ve alarmlar.",
+   "labels": [
+    "type:epic",
+    "ms:M2",
+    "area:devops",
+    "mvp"
+   ],
+   "stories": [
+    {
+     "id": "S048",
+     "title": "[S048] OpenTelemetry enstrümantasyonu ve trace yayılımı",
+     "sprint": 3,
+     "area": "devops",
+     "points": 3,
+     "priority": "P0",
+     "description": "HTTP, Kafka, JDBC trace; correlation-id.",
+     "acceptance": [
+      "Uçtan uca trace Tempo'da görünür"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M2",
+      "sprint:S03",
+      "area:devops",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-11-16 → 2026-11-27",
+     "body": "<!-- backlog-id: S048 -->\n**Epic:** E10 · **Milestone:** M2 · **Sprint:** S03 (2026-11-16 → 2026-11-27)\n**Alan:** `devops` · **Öncelik:** P0 · **Story point:** 3\n\n### Açıklama\nHTTP, Kafka, JDBC trace; correlation-id.\n\n### Kabul kriterleri\n- [ ] Uçtan uca trace Tempo'da görünür\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S049",
+     "title": "[S049] Loki log standardı ve PII maskeleme",
+     "sprint": 3,
+     "area": "security",
+     "points": 3,
+     "priority": "P0",
+     "description": "JSON log, maskeleme filtreleri.",
+     "acceptance": [
+      "PAN/telefon/TCKN loglarda maskeli (test)"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M2",
+      "sprint:S03",
+      "area:security",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-11-16 → 2026-11-27",
+     "body": "<!-- backlog-id: S049 -->\n**Epic:** E10 · **Milestone:** M2 · **Sprint:** S03 (2026-11-16 → 2026-11-27)\n**Alan:** `security` · **Öncelik:** P0 · **Story point:** 3\n\n### Açıklama\nJSON log, maskeleme filtreleri.\n\n### Kabul kriterleri\n- [ ] PAN/telefon/TCKN loglarda maskeli (test)\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S050",
+     "title": "[S050] Grafana dashboard'ları, SLO ve alarm kuralları",
+     "sprint": 4,
+     "area": "devops",
+     "points": 5,
+     "priority": "P1",
+     "description": "RED metrikleri, iş metrikleri, error budget.",
+     "acceptance": [
+      "Her servis için SLO dashboard'ı"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M2",
+      "sprint:S04",
+      "area:devops",
+      "priority:P1",
+      "mvp"
+     ],
+     "sprint_window": "2026-11-30 → 2026-12-11",
+     "body": "<!-- backlog-id: S050 -->\n**Epic:** E10 · **Milestone:** M2 · **Sprint:** S04 (2026-11-30 → 2026-12-11)\n**Alan:** `devops` · **Öncelik:** P1 · **Story point:** 5\n\n### Açıklama\nRED metrikleri, iş metrikleri, error budget.\n\n### Kabul kriterleri\n- [ ] Her servis için SLO dashboard'ı\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    }
+   ],
+   "body": "<!-- backlog-id: E10 -->\n**Milestone:** M2 · **Alan:** `devops` · **Toplam SP:** 11\n\n### Amaç\nOpenTelemetry, metrik, log, trace, SLO ve alarmlar.\n\n### Story'ler\n| ID | Başlık | Sprint | SP | Öncelik |\n|---|---|---|---|---|\n| S048 | OpenTelemetry enstrümantasyonu ve trace yayılımı | S03 | 3 | P0 |\n| S049 | Loki log standardı ve PII maskeleme | S03 | 3 | P0 |\n| S050 | Grafana dashboard'ları, SLO ve alarm kuralları | S04 | 5 | P1 |\n"
+  },
+  {
+   "id": "E11",
+   "milestone": "M3",
+   "title": "[E11] Epic: Funding (Top-up)",
+   "area": "backend",
+   "summary": "Kartla yükleme, kayıtlı kart, otomatik yükleme, PSP adaptörleri.",
+   "labels": [
+    "type:epic",
+    "ms:M3",
+    "area:backend",
+    "mvp"
+   ],
+   "stories": [
+    {
+     "id": "S051",
+     "title": "[S051] funding-service: yükleme sagası ve PSP portu",
+     "sprint": 5,
+     "area": "backend",
+     "points": 8,
+     "priority": "P0",
+     "description": "Başlat → 3DS → PSP callback → ledger posting; compensation.",
+     "acceptance": [
+      "PSP timeout'unda durum sorgulama ile kesinleşir",
+      "Çift webhook çift yükleme yaratmaz"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M3",
+      "sprint:S05",
+      "area:backend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-12-14 → 2026-12-25",
+     "body": "<!-- backlog-id: S051 -->\n**Epic:** E11 · **Milestone:** M3 · **Sprint:** S05 (2026-12-14 → 2026-12-25)\n**Alan:** `backend` · **Öncelik:** P0 · **Story point:** 8\n\n### Açıklama\nBaşlat → 3DS → PSP callback → ledger posting; compensation.\n\n### Kabul kriterleri\n- [ ] PSP timeout'unda durum sorgulama ile kesinleşir\n- [ ] Çift webhook çift yükleme yaratmaz\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S052",
+     "title": "[S052] PSP adaptörü #1 (iyzico) + mock PSP",
+     "sprint": 5,
+     "area": "backend",
+     "points": 5,
+     "priority": "P0",
+     "description": "Anti-corruption layer; HMAC webhook doğrulama.",
+     "acceptance": [
+      "Sandbox ile E2E test",
+      "Kart verisi sistemimize girmez"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M3",
+      "sprint:S05",
+      "area:backend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-12-14 → 2026-12-25",
+     "body": "<!-- backlog-id: S052 -->\n**Epic:** E11 · **Milestone:** M3 · **Sprint:** S05 (2026-12-14 → 2026-12-25)\n**Alan:** `backend` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nAnti-corruption layer; HMAC webhook doğrulama.\n\n### Kabul kriterleri\n- [ ] Sandbox ile E2E test\n- [ ] Kart verisi sistemimize girmez\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S053",
+     "title": "[S053] Kayıtlı kart (tokenization) ve otomatik yükleme",
+     "sprint": 6,
+     "area": "backend",
+     "points": 5,
+     "priority": "P1",
+     "description": "PSP token saklama; eşik altına inince otomatik yükleme.",
+     "acceptance": [
+      "Otomatik yükleme günlük limitli ve iptal edilebilir"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M3",
+      "sprint:S06",
+      "area:backend",
+      "priority:P1",
+      "mvp"
+     ],
+     "sprint_window": "2026-12-28 → 2027-01-08",
+     "body": "<!-- backlog-id: S053 -->\n**Epic:** E11 · **Milestone:** M3 · **Sprint:** S06 (2026-12-28 → 2027-01-08)\n**Alan:** `backend` · **Öncelik:** P1 · **Story point:** 5\n\n### Açıklama\nPSP token saklama; eşik altına inince otomatik yükleme.\n\n### Kabul kriterleri\n- [ ] Otomatik yükleme günlük limitli ve iptal edilebilir\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S054",
+     "title": "[S054] Kasada nakit yükleme (POS üzerinden)",
+     "sprint": 6,
+     "area": "backend",
+     "points": 3,
+     "priority": "P2",
+     "description": "Kasiyer ile yükleme; kasa mutabakatı için kayıt.",
+     "acceptance": [
+      "Kasiyer günlük yükleme limiti uygulanır"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M3",
+      "sprint:S06",
+      "area:backend",
+      "priority:P2",
+      "mvp"
+     ],
+     "sprint_window": "2026-12-28 → 2027-01-08",
+     "body": "<!-- backlog-id: S054 -->\n**Epic:** E11 · **Milestone:** M3 · **Sprint:** S06 (2026-12-28 → 2027-01-08)\n**Alan:** `backend` · **Öncelik:** P2 · **Story point:** 3\n\n### Açıklama\nKasiyer ile yükleme; kasa mutabakatı için kayıt.\n\n### Kabul kriterleri\n- [ ] Kasiyer günlük yükleme limiti uygulanır\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    }
+   ],
+   "body": "<!-- backlog-id: E11 -->\n**Milestone:** M3 · **Alan:** `backend` · **Toplam SP:** 21\n\n### Amaç\nKartla yükleme, kayıtlı kart, otomatik yükleme, PSP adaptörleri.\n\n### Story'ler\n| ID | Başlık | Sprint | SP | Öncelik |\n|---|---|---|---|---|\n| S051 | funding-service: yükleme sagası ve PSP portu | S05 | 8 | P0 |\n| S052 | PSP adaptörü #1 (iyzico) + mock PSP | S05 | 5 | P0 |\n| S053 | Kayıtlı kart (tokenization) ve otomatik yükleme | S06 | 5 | P1 |\n| S054 | Kasada nakit yükleme (POS üzerinden) | S06 | 3 | P2 |\n"
+  },
+  {
+   "id": "E12",
+   "milestone": "M3",
+   "title": "[E12] Epic: Payments",
+   "area": "backend",
+   "summary": "QR/token ile ödeme, pre-auth/capture, iade, iptal.",
+   "labels": [
+    "type:epic",
+    "ms:M3",
+    "area:backend",
+    "mvp"
+   ],
+   "stories": [
+    {
+     "id": "S055",
+     "title": "[S055] Dinamik müşteri QR token (TOTP tabanlı)",
+     "sprint": 5,
+     "area": "security",
+     "points": 5,
+     "priority": "P0",
+     "description": "Cihaz anahtarıyla üretilen, 30 sn geçerli, tek kullanımlık token.",
+     "acceptance": [
+      "Replay edilen token reddedilir",
+      "Offline üretim desteklenir"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M3",
+      "sprint:S05",
+      "area:security",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-12-14 → 2026-12-25",
+     "body": "<!-- backlog-id: S055 -->\n**Epic:** E12 · **Milestone:** M3 · **Sprint:** S05 (2026-12-14 → 2026-12-25)\n**Alan:** `security` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nCihaz anahtarıyla üretilen, 30 sn geçerli, tek kullanımlık token.\n\n### Kabul kriterleri\n- [ ] Replay edilen token reddedilir\n- [ ] Offline üretim desteklenir\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S056",
+     "title": "[S056] payment-service: authorize/capture (tek adım ödeme)",
+     "sprint": 5,
+     "area": "backend",
+     "points": 8,
+     "priority": "P0",
+     "description": "Ödeme sagası: token doğrulama → limit/risk → ledger.",
+     "acceptance": [
+      "p99 < 300ms",
+      "Idempotent"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M3",
+      "sprint:S05",
+      "area:backend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-12-14 → 2026-12-25",
+     "body": "<!-- backlog-id: S056 -->\n**Epic:** E12 · **Milestone:** M3 · **Sprint:** S05 (2026-12-14 → 2026-12-25)\n**Alan:** `backend` · **Öncelik:** P0 · **Story point:** 8\n\n### Açıklama\nÖdeme sagası: token doğrulama → limit/risk → ledger.\n\n### Kabul kriterleri\n- [ ] p99 < 300ms\n- [ ] Idempotent\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S057",
+     "title": "[S057] Pre-auth (EV şarj/otopark): hold → final capture",
+     "sprint": 6,
+     "area": "backend",
+     "points": 5,
+     "priority": "P0",
+     "description": "Tutar belirsiz işlemler için provizyon ve kapanış.",
+     "acceptance": [
+      "Kısmi capture, süre aşımında otomatik iptal"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M3",
+      "sprint:S06",
+      "area:backend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-12-28 → 2027-01-08",
+     "body": "<!-- backlog-id: S057 -->\n**Epic:** E12 · **Milestone:** M3 · **Sprint:** S06 (2026-12-28 → 2027-01-08)\n**Alan:** `backend` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nTutar belirsiz işlemler için provizyon ve kapanış.\n\n### Kabul kriterleri\n- [ ] Kısmi capture, süre aşımında otomatik iptal\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S058",
+     "title": "[S058] İade (tam/kısmi) ve iptal (reversal)",
+     "sprint": 6,
+     "area": "backend",
+     "points": 5,
+     "priority": "P0",
+     "description": "Orijinal işleme referanslı iade; gün içi iptal.",
+     "acceptance": [
+      "İade toplamı orijinal tutarı aşamaz"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M3",
+      "sprint:S06",
+      "area:backend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-12-28 → 2027-01-08",
+     "body": "<!-- backlog-id: S058 -->\n**Epic:** E12 · **Milestone:** M3 · **Sprint:** S06 (2026-12-28 → 2027-01-08)\n**Alan:** `backend` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nOrijinal işleme referanslı iade; gün içi iptal.\n\n### Kabul kriterleri\n- [ ] İade toplamı orijinal tutarı aşamaz\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S059",
+     "title": "[S059] Basit risk: velocity ve limit kuralları (MVP)",
+     "sprint": 6,
+     "area": "backend",
+     "points": 5,
+     "priority": "P0",
+     "description": "Konfigüre edilebilir velocity kuralları; blok/uyarı.",
+     "acceptance": [
+      "Kural değişikliği yeniden deploy gerektirmez"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M3",
+      "sprint:S06",
+      "area:backend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-12-28 → 2027-01-08",
+     "body": "<!-- backlog-id: S059 -->\n**Epic:** E12 · **Milestone:** M3 · **Sprint:** S06 (2026-12-28 → 2027-01-08)\n**Alan:** `backend` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nKonfigüre edilebilir velocity kuralları; blok/uyarı.\n\n### Kabul kriterleri\n- [ ] Kural değişikliği yeniden deploy gerektirmez\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    }
+   ],
+   "body": "<!-- backlog-id: E12 -->\n**Milestone:** M3 · **Alan:** `backend` · **Toplam SP:** 28\n\n### Amaç\nQR/token ile ödeme, pre-auth/capture, iade, iptal.\n\n### Story'ler\n| ID | Başlık | Sprint | SP | Öncelik |\n|---|---|---|---|---|\n| S055 | Dinamik müşteri QR token (TOTP tabanlı) | S05 | 5 | P0 |\n| S056 | payment-service: authorize/capture (tek adım ödeme) | S05 | 8 | P0 |\n| S057 | Pre-auth (EV şarj/otopark): hold → final capture | S06 | 5 | P0 |\n| S058 | İade (tam/kısmi) ve iptal (reversal) | S06 | 5 | P0 |\n| S059 | Basit risk: velocity ve limit kuralları (MVP) | S06 | 5 | P0 |\n"
+  },
+  {
+   "id": "E13",
+   "milestone": "M3",
+   "title": "[E13] Epic: Merchant, Store & POS",
+   "area": "backend",
+   "summary": "İşyeri hiyerarşisi, terminaller, POS API ve Web POS.",
+   "labels": [
+    "type:epic",
+    "ms:M3",
+    "area:backend",
+    "mvp"
+   ],
+   "stories": [
+    {
+     "id": "S060",
+     "title": "[S060] merchant-service: işyeri → mağaza → terminal",
+     "sprint": 5,
+     "area": "backend",
+     "points": 5,
+     "priority": "P0",
+     "description": "Hiyerarşi, durumlar, mağaza bazlı ayarlar.",
+     "acceptance": [
+      "Terminal API anahtarı hash'li saklanır"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M3",
+      "sprint:S05",
+      "area:backend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-12-14 → 2026-12-25",
+     "body": "<!-- backlog-id: S060 -->\n**Epic:** E13 · **Milestone:** M3 · **Sprint:** S05 (2026-12-14 → 2026-12-25)\n**Alan:** `backend` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nHiyerarşi, durumlar, mağaza bazlı ayarlar.\n\n### Kabul kriterleri\n- [ ] Terminal API anahtarı hash'li saklanır\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S061",
+     "title": "[S061] POS REST API ve webhook'lar (OpenAPI)",
+     "sprint": 6,
+     "area": "backend",
+     "points": 5,
+     "priority": "P0",
+     "description": "Ödeme, iade, pre-auth, durum sorgu uçları; HMAC imzalı webhook.",
+     "acceptance": [
+      "OpenAPI dokümanı ve Postman koleksiyonu"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M3",
+      "sprint:S06",
+      "area:backend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-12-28 → 2027-01-08",
+     "body": "<!-- backlog-id: S061 -->\n**Epic:** E13 · **Milestone:** M3 · **Sprint:** S06 (2026-12-28 → 2027-01-08)\n**Alan:** `backend` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nÖdeme, iade, pre-auth, durum sorgu uçları; HMAC imzalı webhook.\n\n### Kabul kriterleri\n- [ ] OpenAPI dokümanı ve Postman koleksiyonu\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S062",
+     "title": "[S062] Web POS terminali (React PWA)",
+     "sprint": 6,
+     "area": "frontend",
+     "points": 8,
+     "priority": "P0",
+     "description": "Tutar gir, QR okut, onay, fiş, iade, provizyon akışları.",
+     "acceptance": [
+      "Tablet ve dokunmatik uyumlu",
+      "Playwright E2E"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M3",
+      "sprint:S06",
+      "area:frontend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-12-28 → 2027-01-08",
+     "body": "<!-- backlog-id: S062 -->\n**Epic:** E13 · **Milestone:** M3 · **Sprint:** S06 (2026-12-28 → 2027-01-08)\n**Alan:** `frontend` · **Öncelik:** P0 · **Story point:** 8\n\n### Açıklama\nTutar gir, QR okut, onay, fiş, iade, provizyon akışları.\n\n### Kabul kriterleri\n- [ ] Tablet ve dokunmatik uyumlu\n- [ ] Playwright E2E\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    }
+   ],
+   "body": "<!-- backlog-id: E13 -->\n**Milestone:** M3 · **Alan:** `backend` · **Toplam SP:** 18\n\n### Amaç\nİşyeri hiyerarşisi, terminaller, POS API ve Web POS.\n\n### Story'ler\n| ID | Başlık | Sprint | SP | Öncelik |\n|---|---|---|---|---|\n| S060 | merchant-service: işyeri → mağaza → terminal | S05 | 5 | P0 |\n| S061 | POS REST API ve webhook'lar (OpenAPI) | S06 | 5 | P0 |\n| S062 | Web POS terminali (React PWA) | S06 | 8 | P0 |\n"
+  },
+  {
+   "id": "E14",
+   "milestone": "M3",
+   "title": "[E14] Epic: Customer Mobile App (White-label)",
+   "area": "mobile",
+   "summary": "React Native (Expo) white-label müşteri uygulaması.",
+   "labels": [
+    "type:epic",
+    "ms:M3",
+    "area:mobile",
+    "mvp"
+   ],
+   "stories": [
+    {
+     "id": "S063",
+     "title": "[S063] Mobil uygulama iskeleti, tema motoru, i18n",
+     "sprint": 5,
+     "area": "mobile",
+     "points": 5,
+     "priority": "P0",
+     "description": "Tenant temasını çalışma zamanında yükleme; TR/EN.",
+     "acceptance": [
+      "Tek kod tabanından tenant bazlı build"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M3",
+      "sprint:S05",
+      "area:mobile",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-12-14 → 2026-12-25",
+     "body": "<!-- backlog-id: S063 -->\n**Epic:** E14 · **Milestone:** M3 · **Sprint:** S05 (2026-12-14 → 2026-12-25)\n**Alan:** `mobile` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nTenant temasını çalışma zamanında yükleme; TR/EN.\n\n### Kabul kriterleri\n- [ ] Tek kod tabanından tenant bazlı build\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S064",
+     "title": "[S064] Kayıt/giriş (OTP), cihaz bağlama, biyometrik",
+     "sprint": 5,
+     "area": "mobile",
+     "points": 5,
+     "priority": "P0",
+     "description": "Güvenli depolama, sertifika pinleme.",
+     "acceptance": [
+      "OWASP MASVS L2 kontrolleri"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M3",
+      "sprint:S05",
+      "area:mobile",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-12-14 → 2026-12-25",
+     "body": "<!-- backlog-id: S064 -->\n**Epic:** E14 · **Milestone:** M3 · **Sprint:** S05 (2026-12-14 → 2026-12-25)\n**Alan:** `mobile` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nGüvenli depolama, sertifika pinleme.\n\n### Kabul kriterleri\n- [ ] OWASP MASVS L2 kontrolleri\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S065",
+     "title": "[S065] Ana sayfa, bakiye, işlem geçmişi",
+     "sprint": 6,
+     "area": "mobile",
+     "points": 5,
+     "priority": "P0",
+     "description": "Bakiye kartları, son işlemler, filtreleme.",
+     "acceptance": [
+      "Erişilebilirlik: ekran okuyucu etiketleri"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M3",
+      "sprint:S06",
+      "area:mobile",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-12-28 → 2027-01-08",
+     "body": "<!-- backlog-id: S065 -->\n**Epic:** E14 · **Milestone:** M3 · **Sprint:** S06 (2026-12-28 → 2027-01-08)\n**Alan:** `mobile` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nBakiye kartları, son işlemler, filtreleme.\n\n### Kabul kriterleri\n- [ ] Erişilebilirlik: ekran okuyucu etiketleri\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S066",
+     "title": "[S066] Yükleme ve QR ile ödeme ekranları",
+     "sprint": 6,
+     "area": "mobile",
+     "points": 8,
+     "priority": "P0",
+     "description": "3DS webview, kayıtlı kart, dinamik QR, pre-auth durumu.",
+     "acceptance": [
+      "Detox/Maestro E2E"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M3",
+      "sprint:S06",
+      "area:mobile",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2026-12-28 → 2027-01-08",
+     "body": "<!-- backlog-id: S066 -->\n**Epic:** E14 · **Milestone:** M3 · **Sprint:** S06 (2026-12-28 → 2027-01-08)\n**Alan:** `mobile` · **Öncelik:** P0 · **Story point:** 8\n\n### Açıklama\n3DS webview, kayıtlı kart, dinamik QR, pre-auth durumu.\n\n### Kabul kriterleri\n- [ ] Detox/Maestro E2E\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    }
+   ],
+   "body": "<!-- backlog-id: E14 -->\n**Milestone:** M3 · **Alan:** `mobile` · **Toplam SP:** 23\n\n### Amaç\nReact Native (Expo) white-label müşteri uygulaması.\n\n### Story'ler\n| ID | Başlık | Sprint | SP | Öncelik |\n|---|---|---|---|---|\n| S063 | Mobil uygulama iskeleti, tema motoru, i18n | S05 | 5 | P0 |\n| S064 | Kayıt/giriş (OTP), cihaz bağlama, biyometrik | S05 | 5 | P0 |\n| S065 | Ana sayfa, bakiye, işlem geçmişi | S06 | 5 | P0 |\n| S066 | Yükleme ve QR ile ödeme ekranları | S06 | 8 | P0 |\n"
+  },
+  {
+   "id": "E15",
+   "milestone": "M3",
+   "title": "[E15] Epic: Notifications",
+   "area": "backend",
+   "summary": "Push, SMS, e-posta; tenant şablonları.",
+   "labels": [
+    "type:epic",
+    "ms:M3",
+    "area:backend",
+    "mvp"
+   ],
+   "stories": [
+    {
+     "id": "S067",
+     "title": "[S067] notification-service: kanal adaptörleri ve şablonlar",
+     "sprint": 5,
+     "area": "backend",
+     "points": 5,
+     "priority": "P1",
+     "description": "FCM/APNs, SMS, e-posta; tenant bazlı şablon ve dil.",
+     "acceptance": [
+      "Event'lerden tetiklenen bildirimler",
+      "Başarısız gönderim retry + DLQ"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M3",
+      "sprint:S05",
+      "area:backend",
+      "priority:P1",
+      "mvp"
+     ],
+     "sprint_window": "2026-12-14 → 2026-12-25",
+     "body": "<!-- backlog-id: S067 -->\n**Epic:** E15 · **Milestone:** M3 · **Sprint:** S05 (2026-12-14 → 2026-12-25)\n**Alan:** `backend` · **Öncelik:** P1 · **Story point:** 5\n\n### Açıklama\nFCM/APNs, SMS, e-posta; tenant bazlı şablon ve dil.\n\n### Kabul kriterleri\n- [ ] Event'lerden tetiklenen bildirimler\n- [ ] Başarısız gönderim retry + DLQ\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S068",
+     "title": "[S068] Bildirim tercihleri ve sessiz saatler",
+     "sprint": 6,
+     "area": "backend",
+     "points": 2,
+     "priority": "P2",
+     "description": "Müşteri tercih yönetimi.",
+     "acceptance": [
+      "Pazarlama bildirimi onaysız gönderilmez"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M3",
+      "sprint:S06",
+      "area:backend",
+      "priority:P2",
+      "mvp"
+     ],
+     "sprint_window": "2026-12-28 → 2027-01-08",
+     "body": "<!-- backlog-id: S068 -->\n**Epic:** E15 · **Milestone:** M3 · **Sprint:** S06 (2026-12-28 → 2027-01-08)\n**Alan:** `backend` · **Öncelik:** P2 · **Story point:** 2\n\n### Açıklama\nMüşteri tercih yönetimi.\n\n### Kabul kriterleri\n- [ ] Pazarlama bildirimi onaysız gönderilmez\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    }
+   ],
+   "body": "<!-- backlog-id: E15 -->\n**Milestone:** M3 · **Alan:** `backend` · **Toplam SP:** 7\n\n### Amaç\nPush, SMS, e-posta; tenant şablonları.\n\n### Story'ler\n| ID | Başlık | Sprint | SP | Öncelik |\n|---|---|---|---|---|\n| S067 | notification-service: kanal adaptörleri ve şablonlar | S05 | 5 | P1 |\n| S068 | Bildirim tercihleri ve sessiz saatler | S06 | 2 | P2 |\n"
+  },
+  {
+   "id": "E16",
+   "milestone": "M4",
+   "title": "[E16] Epic: Tenant Admin Portal",
+   "area": "frontend",
+   "summary": "Tenant yöneticileri için web portal (React).",
+   "labels": [
+    "type:epic",
+    "ms:M4",
+    "area:frontend",
+    "mvp"
+   ],
+   "stories": [
+    {
+     "id": "S069",
+     "title": "[S069] Portal iskeleti, design system, RBAC menü",
+     "sprint": 7,
+     "area": "frontend",
+     "points": 5,
+     "priority": "P0",
+     "description": "Tema, layout, rol bazlı menü, i18n.",
+     "acceptance": [
+      "WCAG 2.2 AA (axe) hatasız"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M4",
+      "sprint:S07",
+      "area:frontend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2027-01-11 → 2027-01-22",
+     "body": "<!-- backlog-id: S069 -->\n**Epic:** E16 · **Milestone:** M4 · **Sprint:** S07 (2027-01-11 → 2027-01-22)\n**Alan:** `frontend` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nTema, layout, rol bazlı menü, i18n.\n\n### Kabul kriterleri\n- [ ] WCAG 2.2 AA (axe) hatasız\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S070",
+     "title": "[S070] Dashboard (KPI ve grafikler)",
+     "sprint": 7,
+     "area": "frontend",
+     "points": 5,
+     "priority": "P0",
+     "description": "Yükümlülük, günlük yükleme/harcama, aktif cüzdan, başarı oranı.",
+     "acceptance": [
+      "Veriler reporting-service'ten, 1 dk gecikme"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M4",
+      "sprint:S07",
+      "area:frontend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2027-01-11 → 2027-01-22",
+     "body": "<!-- backlog-id: S070 -->\n**Epic:** E16 · **Milestone:** M4 · **Sprint:** S07 (2027-01-11 → 2027-01-22)\n**Alan:** `frontend` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nYükümlülük, günlük yükleme/harcama, aktif cüzdan, başarı oranı.\n\n### Kabul kriterleri\n- [ ] Veriler reporting-service'ten, 1 dk gecikme\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S071",
+     "title": "[S071] Müşteri yönetimi ve müşteri 360",
+     "sprint": 7,
+     "area": "frontend",
+     "points": 5,
+     "priority": "P0",
+     "description": "Arama, detay, cüzdanlar, işlemler, bloke/aç (maker-checker).",
+     "acceptance": [
+      "Hassas alanlar role göre maskeli"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M4",
+      "sprint:S07",
+      "area:frontend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2027-01-11 → 2027-01-22",
+     "body": "<!-- backlog-id: S071 -->\n**Epic:** E16 · **Milestone:** M4 · **Sprint:** S07 (2027-01-11 → 2027-01-22)\n**Alan:** `frontend` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nArama, detay, cüzdanlar, işlemler, bloke/aç (maker-checker).\n\n### Kabul kriterleri\n- [ ] Hassas alanlar role göre maskeli\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S072",
+     "title": "[S072] İşlem arama, detay ve iade başlatma",
+     "sprint": 7,
+     "area": "frontend",
+     "points": 5,
+     "priority": "P0",
+     "description": "Filtreler, export, iade talebi.",
+     "acceptance": [
+      "İade maker-checker ile onaylanır"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M4",
+      "sprint:S07",
+      "area:frontend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2027-01-11 → 2027-01-22",
+     "body": "<!-- backlog-id: S072 -->\n**Epic:** E16 · **Milestone:** M4 · **Sprint:** S07 (2027-01-11 → 2027-01-22)\n**Alan:** `frontend` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nFiltreler, export, iade talebi.\n\n### Kabul kriterleri\n- [ ] İade maker-checker ile onaylanır\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S073",
+     "title": "[S073] İşyeri/mağaza/terminal yönetimi",
+     "sprint": 8,
+     "area": "frontend",
+     "points": 3,
+     "priority": "P0",
+     "description": "CRUD, API anahtarı üretimi.",
+     "acceptance": [
+      "API anahtarı yalnızca bir kez gösterilir"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M4",
+      "sprint:S08",
+      "area:frontend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2027-01-25 → 2027-02-05",
+     "body": "<!-- backlog-id: S073 -->\n**Epic:** E16 · **Milestone:** M4 · **Sprint:** S08 (2027-01-25 → 2027-02-05)\n**Alan:** `frontend` · **Öncelik:** P0 · **Story point:** 3\n\n### Açıklama\nCRUD, API anahtarı üretimi.\n\n### Kabul kriterleri\n- [ ] API anahtarı yalnızca bir kez gösterilir\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S074",
+     "title": "[S074] Kullanıcı & rol yönetimi, maker-checker kuyruğu",
+     "sprint": 8,
+     "area": "frontend",
+     "points": 5,
+     "priority": "P0",
+     "description": "Tenant kullanıcıları, roller, onay bekleyenler.",
+     "acceptance": [
+      "Kendi talebini onaylayamaz (SoD)"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M4",
+      "sprint:S08",
+      "area:frontend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2027-01-25 → 2027-02-05",
+     "body": "<!-- backlog-id: S074 -->\n**Epic:** E16 · **Milestone:** M4 · **Sprint:** S08 (2027-01-25 → 2027-02-05)\n**Alan:** `frontend` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nTenant kullanıcıları, roller, onay bekleyenler.\n\n### Kabul kriterleri\n- [ ] Kendi talebini onaylayamaz (SoD)\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S075",
+     "title": "[S075] Tenant ayarları ekranı (konfigürasyon)",
+     "sprint": 8,
+     "area": "frontend",
+     "points": 3,
+     "priority": "P1",
+     "description": "Limitler, ücretler, marka, feature flag.",
+     "acceptance": [
+      "Değişiklikler versiyonlanır ve onaylanır"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M4",
+      "sprint:S08",
+      "area:frontend",
+      "priority:P1",
+      "mvp"
+     ],
+     "sprint_window": "2027-01-25 → 2027-02-05",
+     "body": "<!-- backlog-id: S075 -->\n**Epic:** E16 · **Milestone:** M4 · **Sprint:** S08 (2027-01-25 → 2027-02-05)\n**Alan:** `frontend` · **Öncelik:** P1 · **Story point:** 3\n\n### Açıklama\nLimitler, ücretler, marka, feature flag.\n\n### Kabul kriterleri\n- [ ] Değişiklikler versiyonlanır ve onaylanır\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    }
+   ],
+   "body": "<!-- backlog-id: E16 -->\n**Milestone:** M4 · **Alan:** `frontend` · **Toplam SP:** 31\n\n### Amaç\nTenant yöneticileri için web portal (React).\n\n### Story'ler\n| ID | Başlık | Sprint | SP | Öncelik |\n|---|---|---|---|---|\n| S069 | Portal iskeleti, design system, RBAC menü | S07 | 5 | P0 |\n| S070 | Dashboard (KPI ve grafikler) | S07 | 5 | P0 |\n| S071 | Müşteri yönetimi ve müşteri 360 | S07 | 5 | P0 |\n| S072 | İşlem arama, detay ve iade başlatma | S07 | 5 | P0 |\n| S073 | İşyeri/mağaza/terminal yönetimi | S08 | 3 | P0 |\n| S074 | Kullanıcı & rol yönetimi, maker-checker kuyruğu | S08 | 5 | P0 |\n| S075 | Tenant ayarları ekranı (konfigürasyon) | S08 | 3 | P1 |\n"
+  },
+  {
+   "id": "E17",
+   "milestone": "M4",
+   "title": "[E17] Epic: Platform Admin Console",
+   "area": "frontend",
+   "summary": "SaaS operatörü için tenant ve sistem yönetimi.",
+   "labels": [
+    "type:epic",
+    "ms:M4",
+    "area:frontend",
+    "mvp"
+   ],
+   "stories": [
+    {
+     "id": "S076",
+     "title": "[S076] Tenant listesi ve onboarding sihirbazı",
+     "sprint": 7,
+     "area": "frontend",
+     "points": 5,
+     "priority": "P0",
+     "description": "Tenant oluşturma, preset seçimi, marka.",
+     "acceptance": [
+      "Sihirbaz provisioning'i tetikler"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M4",
+      "sprint:S07",
+      "area:frontend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2027-01-11 → 2027-01-22",
+     "body": "<!-- backlog-id: S076 -->\n**Epic:** E17 · **Milestone:** M4 · **Sprint:** S07 (2027-01-11 → 2027-01-22)\n**Alan:** `frontend` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nTenant oluşturma, preset seçimi, marka.\n\n### Kabul kriterleri\n- [ ] Sihirbaz provisioning'i tetikler\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S077",
+     "title": "[S077] Plan/abonelik ve kullanım ölçümü (metering)",
+     "sprint": 8,
+     "area": "backend",
+     "points": 5,
+     "priority": "P1",
+     "description": "İşlem sayısı/hacim ölçümü, plan limitleri.",
+     "acceptance": [
+      "Aylık kullanım raporu"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M4",
+      "sprint:S08",
+      "area:backend",
+      "priority:P1",
+      "mvp"
+     ],
+     "sprint_window": "2027-01-25 → 2027-02-05",
+     "body": "<!-- backlog-id: S077 -->\n**Epic:** E17 · **Milestone:** M4 · **Sprint:** S08 (2027-01-25 → 2027-02-05)\n**Alan:** `backend` · **Öncelik:** P1 · **Story point:** 5\n\n### Açıklama\nİşlem sayısı/hacim ölçümü, plan limitleri.\n\n### Kabul kriterleri\n- [ ] Aylık kullanım raporu\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S078",
+     "title": "[S078] Sistem sağlığı görünümü",
+     "sprint": 8,
+     "area": "frontend",
+     "points": 2,
+     "priority": "P2",
+     "description": "Servis durumları, temel metrikler.",
+     "acceptance": [
+      "Grafana'ya derin bağlantılar"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M4",
+      "sprint:S08",
+      "area:frontend",
+      "priority:P2",
+      "mvp"
+     ],
+     "sprint_window": "2027-01-25 → 2027-02-05",
+     "body": "<!-- backlog-id: S078 -->\n**Epic:** E17 · **Milestone:** M4 · **Sprint:** S08 (2027-01-25 → 2027-02-05)\n**Alan:** `frontend` · **Öncelik:** P2 · **Story point:** 2\n\n### Açıklama\nServis durumları, temel metrikler.\n\n### Kabul kriterleri\n- [ ] Grafana'ya derin bağlantılar\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    }
+   ],
+   "body": "<!-- backlog-id: E17 -->\n**Milestone:** M4 · **Alan:** `frontend` · **Toplam SP:** 12\n\n### Amaç\nSaaS operatörü için tenant ve sistem yönetimi.\n\n### Story'ler\n| ID | Başlık | Sprint | SP | Öncelik |\n|---|---|---|---|---|\n| S076 | Tenant listesi ve onboarding sihirbazı | S07 | 5 | P0 |\n| S077 | Plan/abonelik ve kullanım ölçümü (metering) | S08 | 5 | P1 |\n| S078 | Sistem sağlığı görünümü | S08 | 2 | P2 |\n"
+  },
+  {
+   "id": "E18",
+   "milestone": "M4",
+   "title": "[E18] Epic: Operational Reporting",
+   "area": "backend",
+   "summary": "Operasyonel ve finansal raporlar, planlı raporlar, export.",
+   "labels": [
+    "type:epic",
+    "ms:M4",
+    "area:backend",
+    "mvp"
+   ],
+   "stories": [
+    {
+     "id": "S079",
+     "title": "[S079] reporting-service: okuma modelleri ve rapor API",
+     "sprint": 7,
+     "area": "backend",
+     "points": 5,
+     "priority": "P0",
+     "description": "Günlük özet, mağaza bazlı, müşteri bazlı raporlar.",
+     "acceptance": [
+      "Rapor sonuçları ledger ile tutarlı (mutabakat testi)"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M4",
+      "sprint:S07",
+      "area:backend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2027-01-11 → 2027-01-22",
+     "body": "<!-- backlog-id: S079 -->\n**Epic:** E18 · **Milestone:** M4 · **Sprint:** S07 (2027-01-11 → 2027-01-22)\n**Alan:** `backend` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nGünlük özet, mağaza bazlı, müşteri bazlı raporlar.\n\n### Kabul kriterleri\n- [ ] Rapor sonuçları ledger ile tutarlı (mutabakat testi)\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S080",
+     "title": "[S080] Yükümlülük (float) raporu ve günlük finansal özet",
+     "sprint": 8,
+     "area": "backend",
+     "points": 5,
+     "priority": "P0",
+     "description": "Toplam müşteri bakiyesi, hareket özeti.",
+     "acceptance": [
+      "Ledger trial balance ile birebir"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M4",
+      "sprint:S08",
+      "area:backend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2027-01-25 → 2027-02-05",
+     "body": "<!-- backlog-id: S080 -->\n**Epic:** E18 · **Milestone:** M4 · **Sprint:** S08 (2027-01-25 → 2027-02-05)\n**Alan:** `backend` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nToplam müşteri bakiyesi, hareket özeti.\n\n### Kabul kriterleri\n- [ ] Ledger trial balance ile birebir\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S081",
+     "title": "[S081] Export (CSV/XLSX/PDF) ve planlı raporlar",
+     "sprint": 8,
+     "area": "backend",
+     "points": 3,
+     "priority": "P1",
+     "description": "Asenkron export, e-posta ile gönderim.",
+     "acceptance": [
+      "Büyük exportlar arka planda, imzalı link"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M4",
+      "sprint:S08",
+      "area:backend",
+      "priority:P1",
+      "mvp"
+     ],
+     "sprint_window": "2027-01-25 → 2027-02-05",
+     "body": "<!-- backlog-id: S081 -->\n**Epic:** E18 · **Milestone:** M4 · **Sprint:** S08 (2027-01-25 → 2027-02-05)\n**Alan:** `backend` · **Öncelik:** P1 · **Story point:** 3\n\n### Açıklama\nAsenkron export, e-posta ile gönderim.\n\n### Kabul kriterleri\n- [ ] Büyük exportlar arka planda, imzalı link\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    }
+   ],
+   "body": "<!-- backlog-id: E18 -->\n**Milestone:** M4 · **Alan:** `backend` · **Toplam SP:** 13\n\n### Amaç\nOperasyonel ve finansal raporlar, planlı raporlar, export.\n\n### Story'ler\n| ID | Başlık | Sprint | SP | Öncelik |\n|---|---|---|---|---|\n| S079 | reporting-service: okuma modelleri ve rapor API | S07 | 5 | P0 |\n| S080 | Yükümlülük (float) raporu ve günlük finansal özet | S08 | 5 | P0 |\n| S081 | Export (CSV/XLSX/PDF) ve planlı raporlar | S08 | 3 | P1 |\n"
+  },
+  {
+   "id": "E19",
+   "milestone": "M4",
+   "title": "[E19] Epic: Audit & Inspection",
+   "area": "security",
+   "summary": "Değiştirilemez audit log, teftiş ekranı, delil paketi.",
+   "labels": [
+    "type:epic",
+    "ms:M4",
+    "area:security",
+    "mvp"
+   ],
+   "stories": [
+    {
+     "id": "S082",
+     "title": "[S082] audit-service: hash-zincirli audit log",
+     "sprint": 7,
+     "area": "security",
+     "points": 8,
+     "priority": "P0",
+     "description": "Tüm servislerden audit event toplama; hash zinciri; WORM arşiv.",
+     "acceptance": [
+      "Zincir kırılması tespit edilir ve alarm üretir"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M4",
+      "sprint:S07",
+      "area:security",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2027-01-11 → 2027-01-22",
+     "body": "<!-- backlog-id: S082 -->\n**Epic:** E19 · **Milestone:** M4 · **Sprint:** S07 (2027-01-11 → 2027-01-22)\n**Alan:** `security` · **Öncelik:** P0 · **Story point:** 8\n\n### Açıklama\nTüm servislerden audit event toplama; hash zinciri; WORM arşiv.\n\n### Kabul kriterleri\n- [ ] Zincir kırılması tespit edilir ve alarm üretir\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S083",
+     "title": "[S083] Teftiş (müfettiş) ekranı ve sorgular",
+     "sprint": 8,
+     "area": "frontend",
+     "points": 5,
+     "priority": "P0",
+     "description": "Read-only müfettiş rolü; kullanıcı/varlık/zaman bazlı sorgu.",
+     "acceptance": [
+      "Müfettiş hiçbir veriyi değiştiremez"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M4",
+      "sprint:S08",
+      "area:frontend",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2027-01-25 → 2027-02-05",
+     "body": "<!-- backlog-id: S083 -->\n**Epic:** E19 · **Milestone:** M4 · **Sprint:** S08 (2027-01-25 → 2027-02-05)\n**Alan:** `frontend` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nRead-only müfettiş rolü; kullanıcı/varlık/zaman bazlı sorgu.\n\n### Kabul kriterleri\n- [ ] Müfettiş hiçbir veriyi değiştiremez\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S084",
+     "title": "[S084] Delil paketi (evidence pack) export",
+     "sprint": 8,
+     "area": "security",
+     "points": 3,
+     "priority": "P1",
+     "description": "İmzalı, hash'li denetim paketi.",
+     "acceptance": [
+      "Paket bütünlüğü bağımsız doğrulanabilir"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M4",
+      "sprint:S08",
+      "area:security",
+      "priority:P1",
+      "mvp"
+     ],
+     "sprint_window": "2027-01-25 → 2027-02-05",
+     "body": "<!-- backlog-id: S084 -->\n**Epic:** E19 · **Milestone:** M4 · **Sprint:** S08 (2027-01-25 → 2027-02-05)\n**Alan:** `security` · **Öncelik:** P1 · **Story point:** 3\n\n### Açıklama\nİmzalı, hash'li denetim paketi.\n\n### Kabul kriterleri\n- [ ] Paket bütünlüğü bağımsız doğrulanabilir\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    }
+   ],
+   "body": "<!-- backlog-id: E19 -->\n**Milestone:** M4 · **Alan:** `security` · **Toplam SP:** 16\n\n### Amaç\nDeğiştirilemez audit log, teftiş ekranı, delil paketi.\n\n### Story'ler\n| ID | Başlık | Sprint | SP | Öncelik |\n|---|---|---|---|---|\n| S082 | audit-service: hash-zincirli audit log | S07 | 8 | P0 |\n| S083 | Teftiş (müfettiş) ekranı ve sorgular | S08 | 5 | P0 |\n| S084 | Delil paketi (evidence pack) export | S08 | 3 | P1 |\n"
+  },
+  {
+   "id": "E20",
+   "milestone": "M4",
+   "title": "[E20] Epic: MVP Release Readiness",
+   "area": "qa",
+   "summary": "UAT, performans baz çizgisi, güvenlik incelemesi, dokümantasyon, pilot.",
+   "labels": [
+    "type:epic",
+    "ms:M4",
+    "area:qa",
+    "mvp"
+   ],
+   "stories": [
+    {
+     "id": "S085",
+     "title": "[S085] E2E regresyon paketi ve UAT",
+     "sprint": 8,
+     "area": "qa",
+     "points": 5,
+     "priority": "P0",
+     "description": "Kritik yolculukların otomasyonu; pilot tenant ile UAT.",
+     "acceptance": [
+      "Kritik senaryolar %100 geçer"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M4",
+      "sprint:S08",
+      "area:qa",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2027-01-25 → 2027-02-05",
+     "body": "<!-- backlog-id: S085 -->\n**Epic:** E20 · **Milestone:** M4 · **Sprint:** S08 (2027-01-25 → 2027-02-05)\n**Alan:** `qa` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nKritik yolculukların otomasyonu; pilot tenant ile UAT.\n\n### Kabul kriterleri\n- [ ] Kritik senaryolar %100 geçer\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S086",
+     "title": "[S086] Performans baz çizgisi (1.000 TPS)",
+     "sprint": 8,
+     "area": "perf",
+     "points": 5,
+     "priority": "P0",
+     "description": "Gatling ile ödeme/yükleme yük testi.",
+     "acceptance": [
+      "1.000 TPS'de p99 < 300ms"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M4",
+      "sprint:S08",
+      "area:perf",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2027-01-25 → 2027-02-05",
+     "body": "<!-- backlog-id: S086 -->\n**Epic:** E20 · **Milestone:** M4 · **Sprint:** S08 (2027-01-25 → 2027-02-05)\n**Alan:** `perf` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nGatling ile ödeme/yükleme yük testi.\n\n### Kabul kriterleri\n- [ ] 1.000 TPS'de p99 < 300ms\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S087",
+     "title": "[S087] MVP güvenlik incelemesi ve DAST",
+     "sprint": 8,
+     "area": "security",
+     "points": 3,
+     "priority": "P0",
+     "description": "OWASP ZAP, tehdit modeli güncellemesi.",
+     "acceptance": [
+      "High/Critical açık yok"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M4",
+      "sprint:S08",
+      "area:security",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2027-01-25 → 2027-02-05",
+     "body": "<!-- backlog-id: S087 -->\n**Epic:** E20 · **Milestone:** M4 · **Sprint:** S08 (2027-01-25 → 2027-02-05)\n**Alan:** `security` · **Öncelik:** P0 · **Story point:** 3\n\n### Açıklama\nOWASP ZAP, tehdit modeli güncellemesi.\n\n### Kabul kriterleri\n- [ ] High/Critical açık yok\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S088",
+     "title": "[S088] Kullanıcı ve API dokümantasyonu, runbook'lar",
+     "sprint": 8,
+     "area": "docs",
+     "points": 3,
+     "priority": "P0",
+     "description": "Admin kılavuzu, POS API portal, operasyon runbook'ları.",
+     "acceptance": [
+      "Dokümanlar yayında"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M4",
+      "sprint:S08",
+      "area:docs",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2027-01-25 → 2027-02-05",
+     "body": "<!-- backlog-id: S088 -->\n**Epic:** E20 · **Milestone:** M4 · **Sprint:** S08 (2027-01-25 → 2027-02-05)\n**Alan:** `docs` · **Öncelik:** P0 · **Story point:** 3\n\n### Açıklama\nAdmin kılavuzu, POS API portal, operasyon runbook'ları.\n\n### Kabul kriterleri\n- [ ] Dokümanlar yayında\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S089",
+     "title": "[S089] MVP v1.0 sürümü ve pilot canlıya geçiş",
+     "sprint": 8,
+     "area": "devops",
+     "points": 3,
+     "priority": "P0",
+     "description": "Release, go-live checklist, hypercare planı.",
+     "acceptance": [
+      "Go/No-Go onayı alındı"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M4",
+      "sprint:S08",
+      "area:devops",
+      "priority:P0",
+      "mvp"
+     ],
+     "sprint_window": "2027-01-25 → 2027-02-05",
+     "body": "<!-- backlog-id: S089 -->\n**Epic:** E20 · **Milestone:** M4 · **Sprint:** S08 (2027-01-25 → 2027-02-05)\n**Alan:** `devops` · **Öncelik:** P0 · **Story point:** 3\n\n### Açıklama\nRelease, go-live checklist, hypercare planı.\n\n### Kabul kriterleri\n- [ ] Go/No-Go onayı alındı\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    }
+   ],
+   "body": "<!-- backlog-id: E20 -->\n**Milestone:** M4 · **Alan:** `qa` · **Toplam SP:** 19\n\n### Amaç\nUAT, performans baz çizgisi, güvenlik incelemesi, dokümantasyon, pilot.\n\n### Story'ler\n| ID | Başlık | Sprint | SP | Öncelik |\n|---|---|---|---|---|\n| S085 | E2E regresyon paketi ve UAT | S08 | 5 | P0 |\n| S086 | Performans baz çizgisi (1.000 TPS) | S08 | 5 | P0 |\n| S087 | MVP güvenlik incelemesi ve DAST | S08 | 3 | P0 |\n| S088 | Kullanıcı ve API dokümantasyonu, runbook'lar | S08 | 3 | P0 |\n| S089 | MVP v1.0 sürümü ve pilot canlıya geçiş | S08 | 3 | P0 |\n"
+  },
+  {
+   "id": "E21",
+   "milestone": "M5",
+   "title": "[E21] Epic: Loyalty & Campaigns",
+   "area": "backend",
+   "summary": "Puan/yıldız, tier, kampanya kural motoru, cashback, kupon.",
+   "labels": [
+    "type:epic",
+    "ms:M5",
+    "area:backend"
+   ],
+   "stories": [
+    {
+     "id": "S090",
+     "title": "[S090] loyalty-service: puan hesabı ve tier yönetimi",
+     "sprint": 9,
+     "area": "backend",
+     "points": 8,
+     "priority": "P1",
+     "description": "Harcama başına puan, tier atlama, puan son kullanma.",
+     "acceptance": [
+      "Puan hareketleri ledger'dan ayrı ama mutabık"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M5",
+      "sprint:S09",
+      "area:backend",
+      "priority:P1"
+     ],
+     "sprint_window": "2027-02-08 → 2027-02-19",
+     "body": "<!-- backlog-id: S090 -->\n**Epic:** E21 · **Milestone:** M5 · **Sprint:** S09 (2027-02-08 → 2027-02-19)\n**Alan:** `backend` · **Öncelik:** P1 · **Story point:** 8\n\n### Açıklama\nHarcama başına puan, tier atlama, puan son kullanma.\n\n### Kabul kriterleri\n- [ ] Puan hareketleri ledger'dan ayrı ama mutabık\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S091",
+     "title": "[S091] Kampanya kural motoru (koşul → ödül DSL)",
+     "sprint": 9,
+     "area": "backend",
+     "points": 8,
+     "priority": "P1",
+     "description": "Zaman, mağaza, ürün kategorisi, segment koşulları.",
+     "acceptance": [
+      "Kural simülasyonu (dry-run)"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M5",
+      "sprint:S09",
+      "area:backend",
+      "priority:P1"
+     ],
+     "sprint_window": "2027-02-08 → 2027-02-19",
+     "body": "<!-- backlog-id: S091 -->\n**Epic:** E21 · **Milestone:** M5 · **Sprint:** S09 (2027-02-08 → 2027-02-19)\n**Alan:** `backend` · **Öncelik:** P1 · **Story point:** 8\n\n### Açıklama\nZaman, mağaza, ürün kategorisi, segment koşulları.\n\n### Kabul kriterleri\n- [ ] Kural simülasyonu (dry-run)\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S092",
+     "title": "[S092] Cashback ve bonus yükleme kampanyaları",
+     "sprint": 10,
+     "area": "backend",
+     "points": 5,
+     "priority": "P1",
+     "description": "Yüklemeye bonus, harcamaya cashback; promo gider muhasebesi.",
+     "acceptance": [
+      "Bütçe tavanı aşılamaz"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M5",
+      "sprint:S10",
+      "area:backend",
+      "priority:P1"
+     ],
+     "sprint_window": "2027-02-22 → 2027-03-05",
+     "body": "<!-- backlog-id: S092 -->\n**Epic:** E21 · **Milestone:** M5 · **Sprint:** S10 (2027-02-22 → 2027-03-05)\n**Alan:** `backend` · **Öncelik:** P1 · **Story point:** 5\n\n### Açıklama\nYüklemeye bonus, harcamaya cashback; promo gider muhasebesi.\n\n### Kabul kriterleri\n- [ ] Bütçe tavanı aşılamaz\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S093",
+     "title": "[S093] Kupon ve kod yönetimi",
+     "sprint": 10,
+     "area": "backend",
+     "points": 3,
+     "priority": "P2",
+     "description": "Tek/çok kullanımlık kuponlar.",
+     "acceptance": [
+      "Kupon kullanımı idempotent"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M5",
+      "sprint:S10",
+      "area:backend",
+      "priority:P2"
+     ],
+     "sprint_window": "2027-02-22 → 2027-03-05",
+     "body": "<!-- backlog-id: S093 -->\n**Epic:** E21 · **Milestone:** M5 · **Sprint:** S10 (2027-02-22 → 2027-03-05)\n**Alan:** `backend` · **Öncelik:** P2 · **Story point:** 3\n\n### Açıklama\nTek/çok kullanımlık kuponlar.\n\n### Kabul kriterleri\n- [ ] Kupon kullanımı idempotent\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S094",
+     "title": "[S094] Kampanya ekranları (portal + mobil)",
+     "sprint": 10,
+     "area": "frontend",
+     "points": 5,
+     "priority": "P1",
+     "description": "Kampanya oluşturma, raporlama; mobilde ödüller.",
+     "acceptance": [
+      "Kampanya performans raporu"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M5",
+      "sprint:S10",
+      "area:frontend",
+      "priority:P1"
+     ],
+     "sprint_window": "2027-02-22 → 2027-03-05",
+     "body": "<!-- backlog-id: S094 -->\n**Epic:** E21 · **Milestone:** M5 · **Sprint:** S10 (2027-02-22 → 2027-03-05)\n**Alan:** `frontend` · **Öncelik:** P1 · **Story point:** 5\n\n### Açıklama\nKampanya oluşturma, raporlama; mobilde ödüller.\n\n### Kabul kriterleri\n- [ ] Kampanya performans raporu\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    }
+   ],
+   "body": "<!-- backlog-id: E21 -->\n**Milestone:** M5 · **Alan:** `backend` · **Toplam SP:** 29\n\n### Amaç\nPuan/yıldız, tier, kampanya kural motoru, cashback, kupon.\n\n### Story'ler\n| ID | Başlık | Sprint | SP | Öncelik |\n|---|---|---|---|---|\n| S090 | loyalty-service: puan hesabı ve tier yönetimi | S09 | 8 | P1 |\n| S091 | Kampanya kural motoru (koşul → ödül DSL) | S09 | 8 | P1 |\n| S092 | Cashback ve bonus yükleme kampanyaları | S10 | 5 | P1 |\n| S093 | Kupon ve kod yönetimi | S10 | 3 | P2 |\n| S094 | Kampanya ekranları (portal + mobil) | S10 | 5 | P1 |\n"
+  },
+  {
+   "id": "E22",
+   "milestone": "M5",
+   "title": "[E22] Epic: Gift Cards & Vouchers",
+   "area": "backend",
+   "summary": "Dijital/fiziksel hediye kartları ve e-kodlar.",
+   "labels": [
+    "type:epic",
+    "ms:M5",
+    "area:backend"
+   ],
+   "stories": [
+    {
+     "id": "S095",
+     "title": "[S095] voucher-service: hediye kartı üretimi ve aktivasyon",
+     "sprint": 9,
+     "area": "backend",
+     "points": 5,
+     "priority": "P1",
+     "description": "Toplu üretim, aktivasyon, bakiye, son kullanma.",
+     "acceptance": [
+      "Kart kodları tahmin edilemez (entropi ≥ 64 bit)"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M5",
+      "sprint:S09",
+      "area:backend",
+      "priority:P1"
+     ],
+     "sprint_window": "2027-02-08 → 2027-02-19",
+     "body": "<!-- backlog-id: S095 -->\n**Epic:** E22 · **Milestone:** M5 · **Sprint:** S09 (2027-02-08 → 2027-02-19)\n**Alan:** `backend` · **Öncelik:** P1 · **Story point:** 5\n\n### Açıklama\nToplu üretim, aktivasyon, bakiye, son kullanma.\n\n### Kabul kriterleri\n- [ ] Kart kodları tahmin edilemez (entropi ≥ 64 bit)\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S096",
+     "title": "[S096] Hediye kartını cüzdana aktarma ve hediye gönderme",
+     "sprint": 10,
+     "area": "backend",
+     "points": 3,
+     "priority": "P1",
+     "description": "Bakiye birleştirme, arkadaşa hediye.",
+     "acceptance": [
+      "Aktarım ledger'da izlenebilir"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M5",
+      "sprint:S10",
+      "area:backend",
+      "priority:P1"
+     ],
+     "sprint_window": "2027-02-22 → 2027-03-05",
+     "body": "<!-- backlog-id: S096 -->\n**Epic:** E22 · **Milestone:** M5 · **Sprint:** S10 (2027-02-22 → 2027-03-05)\n**Alan:** `backend` · **Öncelik:** P1 · **Story point:** 3\n\n### Açıklama\nBakiye birleştirme, arkadaşa hediye.\n\n### Kabul kriterleri\n- [ ] Aktarım ledger'da izlenebilir\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S097",
+     "title": "[S097] Breakage hesaplama ve muhasebeleştirme",
+     "sprint": 10,
+     "area": "backend",
+     "points": 5,
+     "priority": "P1",
+     "description": "Süresi dolan bakiyelerin gelir kaydı (tenant kuralı).",
+     "acceptance": [
+      "Tüketici mevzuatına uygun süre konfigürasyonu"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M5",
+      "sprint:S10",
+      "area:backend",
+      "priority:P1"
+     ],
+     "sprint_window": "2027-02-22 → 2027-03-05",
+     "body": "<!-- backlog-id: S097 -->\n**Epic:** E22 · **Milestone:** M5 · **Sprint:** S10 (2027-02-22 → 2027-03-05)\n**Alan:** `backend` · **Öncelik:** P1 · **Story point:** 5\n\n### Açıklama\nSüresi dolan bakiyelerin gelir kaydı (tenant kuralı).\n\n### Kabul kriterleri\n- [ ] Tüketici mevzuatına uygun süre konfigürasyonu\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    }
+   ],
+   "body": "<!-- backlog-id: E22 -->\n**Milestone:** M5 · **Alan:** `backend` · **Toplam SP:** 13\n\n### Amaç\nDijital/fiziksel hediye kartları ve e-kodlar.\n\n### Story'ler\n| ID | Başlık | Sprint | SP | Öncelik |\n|---|---|---|---|---|\n| S095 | voucher-service: hediye kartı üretimi ve aktivasyon | S09 | 5 | P1 |\n| S096 | Hediye kartını cüzdana aktarma ve hediye gönderme | S10 | 3 | P1 |\n| S097 | Breakage hesaplama ve muhasebeleştirme | S10 | 5 | P1 |\n"
+  },
+  {
+   "id": "E23",
+   "milestone": "M6",
+   "title": "[E23] Epic: Advanced Risk & Fraud",
+   "area": "backend",
+   "summary": "Gerçek zamanlı fraud motoru, skor, vaka yönetimi.",
+   "labels": [
+    "type:epic",
+    "ms:M6",
+    "area:backend"
+   ],
+   "stories": [
+    {
+     "id": "S098",
+     "title": "[S098] risk-service: gerçek zamanlı kural motoru ve skor",
+     "sprint": 11,
+     "area": "backend",
+     "points": 8,
+     "priority": "P1",
+     "description": "Streaming özellikler (Kafka Streams), kural + skor.",
+     "acceptance": [
+      "Karar süresi p99 < 50ms"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M6",
+      "sprint:S11",
+      "area:backend",
+      "priority:P1"
+     ],
+     "sprint_window": "2027-03-08 → 2027-03-19",
+     "body": "<!-- backlog-id: S098 -->\n**Epic:** E23 · **Milestone:** M6 · **Sprint:** S11 (2027-03-08 → 2027-03-19)\n**Alan:** `backend` · **Öncelik:** P1 · **Story point:** 8\n\n### Açıklama\nStreaming özellikler (Kafka Streams), kural + skor.\n\n### Kabul kriterleri\n- [ ] Karar süresi p99 < 50ms\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S099",
+     "title": "[S099] Cihaz parmak izi ve hesap ele geçirme tespiti",
+     "sprint": 11,
+     "area": "security",
+     "points": 5,
+     "priority": "P1",
+     "description": "Cihaz/IP/konum sinyalleri.",
+     "acceptance": [
+      "Şüpheli oturumda step-up"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M6",
+      "sprint:S11",
+      "area:security",
+      "priority:P1"
+     ],
+     "sprint_window": "2027-03-08 → 2027-03-19",
+     "body": "<!-- backlog-id: S099 -->\n**Epic:** E23 · **Milestone:** M6 · **Sprint:** S11 (2027-03-08 → 2027-03-19)\n**Alan:** `security` · **Öncelik:** P1 · **Story point:** 5\n\n### Açıklama\nCihaz/IP/konum sinyalleri.\n\n### Kabul kriterleri\n- [ ] Şüpheli oturumda step-up\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S100",
+     "title": "[S100] Vaka yönetimi (case management)",
+     "sprint": 12,
+     "area": "frontend",
+     "points": 5,
+     "priority": "P1",
+     "description": "Alarm kuyruğu, atama, karar, not.",
+     "acceptance": [
+      "Kararlar audit'e düşer"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M6",
+      "sprint:S12",
+      "area:frontend",
+      "priority:P1"
+     ],
+     "sprint_window": "2027-03-22 → 2027-04-02",
+     "body": "<!-- backlog-id: S100 -->\n**Epic:** E23 · **Milestone:** M6 · **Sprint:** S12 (2027-03-22 → 2027-04-02)\n**Alan:** `frontend` · **Öncelik:** P1 · **Story point:** 5\n\n### Açıklama\nAlarm kuyruğu, atama, karar, not.\n\n### Kabul kriterleri\n- [ ] Kararlar audit'e düşer\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    }
+   ],
+   "body": "<!-- backlog-id: E23 -->\n**Milestone:** M6 · **Alan:** `backend` · **Toplam SP:** 18\n\n### Amaç\nGerçek zamanlı fraud motoru, skor, vaka yönetimi.\n\n### Story'ler\n| ID | Başlık | Sprint | SP | Öncelik |\n|---|---|---|---|---|\n| S098 | risk-service: gerçek zamanlı kural motoru ve skor | S11 | 8 | P1 |\n| S099 | Cihaz parmak izi ve hesap ele geçirme tespiti | S11 | 5 | P1 |\n| S100 | Vaka yönetimi (case management) | S12 | 5 | P1 |\n"
+  },
+  {
+   "id": "E24",
+   "milestone": "M6",
+   "title": "[E24] Epic: AML & Compliance",
+   "area": "compliance",
+   "summary": "Yaptırım/PEP taraması, işlem izleme, MASAK raporları, KYC Tier 2/3.",
+   "labels": [
+    "type:epic",
+    "ms:M6",
+    "area:compliance"
+   ],
+   "stories": [
+    {
+     "id": "S101",
+     "title": "[S101] compliance-service: yaptırım/PEP tarama entegrasyonu",
+     "sprint": 11,
+     "area": "compliance",
+     "points": 5,
+     "priority": "P1",
+     "description": "Onboarding ve periyodik tarama; fuzzy eşleşme.",
+     "acceptance": [
+      "Eşleşme vakası uyum kuyruğuna düşer"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M6",
+      "sprint:S11",
+      "area:compliance",
+      "priority:P1"
+     ],
+     "sprint_window": "2027-03-08 → 2027-03-19",
+     "body": "<!-- backlog-id: S101 -->\n**Epic:** E24 · **Milestone:** M6 · **Sprint:** S11 (2027-03-08 → 2027-03-19)\n**Alan:** `compliance` · **Öncelik:** P1 · **Story point:** 5\n\n### Açıklama\nOnboarding ve periyodik tarama; fuzzy eşleşme.\n\n### Kabul kriterleri\n- [ ] Eşleşme vakası uyum kuyruğuna düşer\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S102",
+     "title": "[S102] İşlem izleme senaryoları (structuring vb.)",
+     "sprint": 12,
+     "area": "compliance",
+     "points": 8,
+     "priority": "P1",
+     "description": "Batch + streaming senaryolar.",
+     "acceptance": [
+      "Senaryo parametreleri tenant bazlı"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M6",
+      "sprint:S12",
+      "area:compliance",
+      "priority:P1"
+     ],
+     "sprint_window": "2027-03-22 → 2027-04-02",
+     "body": "<!-- backlog-id: S102 -->\n**Epic:** E24 · **Milestone:** M6 · **Sprint:** S12 (2027-03-22 → 2027-04-02)\n**Alan:** `compliance` · **Öncelik:** P1 · **Story point:** 8\n\n### Açıklama\nBatch + streaming senaryolar.\n\n### Kabul kriterleri\n- [ ] Senaryo parametreleri tenant bazlı\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S103",
+     "title": "[S103] Şüpheli işlem bildirimi (STR) hazırlama ve regülatif raporlar",
+     "sprint": 12,
+     "area": "compliance",
+     "points": 5,
+     "priority": "P1",
+     "description": "MASAK formatına uygun rapor taslağı.",
+     "acceptance": [
+      "Rapor oluşturma audit'lenir"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M6",
+      "sprint:S12",
+      "area:compliance",
+      "priority:P1"
+     ],
+     "sprint_window": "2027-03-22 → 2027-04-02",
+     "body": "<!-- backlog-id: S103 -->\n**Epic:** E24 · **Milestone:** M6 · **Sprint:** S12 (2027-03-22 → 2027-04-02)\n**Alan:** `compliance` · **Öncelik:** P1 · **Story point:** 5\n\n### Açıklama\nMASAK formatına uygun rapor taslağı.\n\n### Kabul kriterleri\n- [ ] Rapor oluşturma audit'lenir\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S104",
+     "title": "[S104] KYC Tier 2/3: kimlik doğrulama sağlayıcısı entegrasyonu",
+     "sprint": 12,
+     "area": "backend",
+     "points": 5,
+     "priority": "P1",
+     "description": "e-Devlet/NFC çip okuma sağlayıcı adaptörü.",
+     "acceptance": [
+      "Başarılı doğrulama ile tier yükselir ve limitler güncellenir"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M6",
+      "sprint:S12",
+      "area:backend",
+      "priority:P1"
+     ],
+     "sprint_window": "2027-03-22 → 2027-04-02",
+     "body": "<!-- backlog-id: S104 -->\n**Epic:** E24 · **Milestone:** M6 · **Sprint:** S12 (2027-03-22 → 2027-04-02)\n**Alan:** `backend` · **Öncelik:** P1 · **Story point:** 5\n\n### Açıklama\ne-Devlet/NFC çip okuma sağlayıcı adaptörü.\n\n### Kabul kriterleri\n- [ ] Başarılı doğrulama ile tier yükselir ve limitler güncellenir\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    }
+   ],
+   "body": "<!-- backlog-id: E24 -->\n**Milestone:** M6 · **Alan:** `compliance` · **Toplam SP:** 23\n\n### Amaç\nYaptırım/PEP taraması, işlem izleme, MASAK raporları, KYC Tier 2/3.\n\n### Story'ler\n| ID | Başlık | Sprint | SP | Öncelik |\n|---|---|---|---|---|\n| S101 | compliance-service: yaptırım/PEP tarama entegrasyonu | S11 | 5 | P1 |\n| S102 | İşlem izleme senaryoları (structuring vb.) | S12 | 8 | P1 |\n| S103 | Şüpheli işlem bildirimi (STR) hazırlama ve regülatif raporlar | S12 | 5 | P1 |\n| S104 | KYC Tier 2/3: kimlik doğrulama sağlayıcısı entegrasyonu | S12 | 5 | P1 |\n"
+  },
+  {
+   "id": "E25",
+   "milestone": "M7",
+   "title": "[E25] Epic: Settlement & Reconciliation",
+   "area": "backend",
+   "summary": "İşyeri takası, PSP/banka mutabakatı.",
+   "labels": [
+    "type:epic",
+    "ms:M7",
+    "area:backend"
+   ],
+   "stories": [
+    {
+     "id": "S105",
+     "title": "[S105] settlement-service: günlük takas hesaplama",
+     "sprint": 13,
+     "area": "backend",
+     "points": 8,
+     "priority": "P1",
+     "description": "İşyeri bazında net tutar, ücret kesintisi.",
+     "acceptance": [
+      "Takas toplamı ledger ile birebir"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M7",
+      "sprint:S13",
+      "area:backend",
+      "priority:P1"
+     ],
+     "sprint_window": "2027-04-05 → 2027-04-16",
+     "body": "<!-- backlog-id: S105 -->\n**Epic:** E25 · **Milestone:** M7 · **Sprint:** S13 (2027-04-05 → 2027-04-16)\n**Alan:** `backend` · **Öncelik:** P1 · **Story point:** 8\n\n### Açıklama\nİşyeri bazında net tutar, ücret kesintisi.\n\n### Kabul kriterleri\n- [ ] Takas toplamı ledger ile birebir\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S106",
+     "title": "[S106] PSP ve banka dosyası mutabakatı",
+     "sprint": 13,
+     "area": "backend",
+     "points": 8,
+     "priority": "P1",
+     "description": "Dosya parse, otomatik eşleşme, istisna kuyruğu.",
+     "acceptance": [
+      "Otomatik eşleşme oranı ≥ %98"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M7",
+      "sprint:S13",
+      "area:backend",
+      "priority:P1"
+     ],
+     "sprint_window": "2027-04-05 → 2027-04-16",
+     "body": "<!-- backlog-id: S106 -->\n**Epic:** E25 · **Milestone:** M7 · **Sprint:** S13 (2027-04-05 → 2027-04-16)\n**Alan:** `backend` · **Öncelik:** P1 · **Story point:** 8\n\n### Açıklama\nDosya parse, otomatik eşleşme, istisna kuyruğu.\n\n### Kabul kriterleri\n- [ ] Otomatik eşleşme oranı ≥ %98\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S107",
+     "title": "[S107] Mutabakat istisna ekranı",
+     "sprint": 14,
+     "area": "frontend",
+     "points": 3,
+     "priority": "P1",
+     "description": "Eşleşmeyen kayıtların çözümü.",
+     "acceptance": [
+      "Çözümler maker-checker ile"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M7",
+      "sprint:S14",
+      "area:frontend",
+      "priority:P1"
+     ],
+     "sprint_window": "2027-04-19 → 2027-04-30",
+     "body": "<!-- backlog-id: S107 -->\n**Epic:** E25 · **Milestone:** M7 · **Sprint:** S14 (2027-04-19 → 2027-04-30)\n**Alan:** `frontend` · **Öncelik:** P1 · **Story point:** 3\n\n### Açıklama\nEşleşmeyen kayıtların çözümü.\n\n### Kabul kriterleri\n- [ ] Çözümler maker-checker ile\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    }
+   ],
+   "body": "<!-- backlog-id: E25 -->\n**Milestone:** M7 · **Alan:** `backend` · **Toplam SP:** 19\n\n### Amaç\nİşyeri takası, PSP/banka mutabakatı.\n\n### Story'ler\n| ID | Başlık | Sprint | SP | Öncelik |\n|---|---|---|---|---|\n| S105 | settlement-service: günlük takas hesaplama | S13 | 8 | P1 |\n| S106 | PSP ve banka dosyası mutabakatı | S13 | 8 | P1 |\n| S107 | Mutabakat istisna ekranı | S14 | 3 | P1 |\n"
+  },
+  {
+   "id": "E26",
+   "milestone": "M7",
+   "title": "[E26] Epic: Accounting & ERP",
+   "area": "backend",
+   "summary": "GL eşleme, yevmiye export, e-Fatura, ERP adaptörleri.",
+   "labels": [
+    "type:epic",
+    "ms:M7",
+    "area:backend"
+   ],
+   "stories": [
+    {
+     "id": "S108",
+     "title": "[S108] accounting-service: GL eşleme ve yevmiye üretimi",
+     "sprint": 13,
+     "area": "backend",
+     "points": 5,
+     "priority": "P1",
+     "description": "Ledger hesaplarından tenant hesap planına eşleme.",
+     "acceptance": [
+      "Günlük yevmiye dengeli"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M7",
+      "sprint:S13",
+      "area:backend",
+      "priority:P1"
+     ],
+     "sprint_window": "2027-04-05 → 2027-04-16",
+     "body": "<!-- backlog-id: S108 -->\n**Epic:** E26 · **Milestone:** M7 · **Sprint:** S13 (2027-04-05 → 2027-04-16)\n**Alan:** `backend` · **Öncelik:** P1 · **Story point:** 5\n\n### Açıklama\nLedger hesaplarından tenant hesap planına eşleme.\n\n### Kabul kriterleri\n- [ ] Günlük yevmiye dengeli\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S109",
+     "title": "[S109] e-Fatura/e-Arşiv entegrasyonu (ücret faturaları)",
+     "sprint": 14,
+     "area": "backend",
+     "points": 5,
+     "priority": "P2",
+     "description": "Entegratör adaptörü.",
+     "acceptance": [
+      "Fatura durumları izlenir"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M7",
+      "sprint:S14",
+      "area:backend",
+      "priority:P2"
+     ],
+     "sprint_window": "2027-04-19 → 2027-04-30",
+     "body": "<!-- backlog-id: S109 -->\n**Epic:** E26 · **Milestone:** M7 · **Sprint:** S14 (2027-04-19 → 2027-04-30)\n**Alan:** `backend` · **Öncelik:** P2 · **Story point:** 5\n\n### Açıklama\nEntegratör adaptörü.\n\n### Kabul kriterleri\n- [ ] Fatura durumları izlenir\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S110",
+     "title": "[S110] ERP adaptörleri (SAP, Logo)",
+     "sprint": 14,
+     "area": "backend",
+     "points": 5,
+     "priority": "P2",
+     "description": "Yevmiye aktarımı.",
+     "acceptance": [
+      "Aktarım idempotent ve mutabık"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M7",
+      "sprint:S14",
+      "area:backend",
+      "priority:P2"
+     ],
+     "sprint_window": "2027-04-19 → 2027-04-30",
+     "body": "<!-- backlog-id: S110 -->\n**Epic:** E26 · **Milestone:** M7 · **Sprint:** S14 (2027-04-19 → 2027-04-30)\n**Alan:** `backend` · **Öncelik:** P2 · **Story point:** 5\n\n### Açıklama\nYevmiye aktarımı.\n\n### Kabul kriterleri\n- [ ] Aktarım idempotent ve mutabık\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    }
+   ],
+   "body": "<!-- backlog-id: E26 -->\n**Milestone:** M7 · **Alan:** `backend` · **Toplam SP:** 15\n\n### Amaç\nGL eşleme, yevmiye export, e-Fatura, ERP adaptörleri.\n\n### Story'ler\n| ID | Başlık | Sprint | SP | Öncelik |\n|---|---|---|---|---|\n| S108 | accounting-service: GL eşleme ve yevmiye üretimi | S13 | 5 | P1 |\n| S109 | e-Fatura/e-Arşiv entegrasyonu (ücret faturaları) | S14 | 5 | P2 |\n| S110 | ERP adaptörleri (SAP, Logo) | S14 | 5 | P2 |\n"
+  },
+  {
+   "id": "E27",
+   "milestone": "M7",
+   "title": "[E27] Epic: Bank & Open Banking Integrations",
+   "area": "backend",
+   "summary": "Havale/EFT, sanal IBAN, açık bankacılık ile yükleme.",
+   "labels": [
+    "type:epic",
+    "ms:M7",
+    "area:backend"
+   ],
+   "stories": [
+    {
+     "id": "S111",
+     "title": "[S111] Sanal IBAN ile havale/EFT yükleme",
+     "sprint": 13,
+     "area": "backend",
+     "points": 5,
+     "priority": "P2",
+     "description": "Banka bildirimi ile otomatik cüzdana yansıma.",
+     "acceptance": [
+      "Eşleşmeyen havale istisna kuyruğuna düşer"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M7",
+      "sprint:S13",
+      "area:backend",
+      "priority:P2"
+     ],
+     "sprint_window": "2027-04-05 → 2027-04-16",
+     "body": "<!-- backlog-id: S111 -->\n**Epic:** E27 · **Milestone:** M7 · **Sprint:** S13 (2027-04-05 → 2027-04-16)\n**Alan:** `backend` · **Öncelik:** P2 · **Story point:** 5\n\n### Açıklama\nBanka bildirimi ile otomatik cüzdana yansıma.\n\n### Kabul kriterleri\n- [ ] Eşleşmeyen havale istisna kuyruğuna düşer\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S112",
+     "title": "[S112] Açık bankacılık (ÖHVPS/PSD2) ödeme başlatma",
+     "sprint": 14,
+     "area": "backend",
+     "points": 8,
+     "priority": "P2",
+     "description": "Hesaptan yükleme.",
+     "acceptance": [
+      "Sandbox ile E2E"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M7",
+      "sprint:S14",
+      "area:backend",
+      "priority:P2"
+     ],
+     "sprint_window": "2027-04-19 → 2027-04-30",
+     "body": "<!-- backlog-id: S112 -->\n**Epic:** E27 · **Milestone:** M7 · **Sprint:** S14 (2027-04-19 → 2027-04-30)\n**Alan:** `backend` · **Öncelik:** P2 · **Story point:** 8\n\n### Açıklama\nHesaptan yükleme.\n\n### Kabul kriterleri\n- [ ] Sandbox ile E2E\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S113",
+     "title": "[S113] PSP adaptörü #2 (Stripe/Adyen) ve akıllı yönlendirme",
+     "sprint": 14,
+     "area": "backend",
+     "points": 5,
+     "priority": "P2",
+     "description": "Çoklu PSP, failover.",
+     "acceptance": [
+      "PSP arızasında otomatik geçiş"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M7",
+      "sprint:S14",
+      "area:backend",
+      "priority:P2"
+     ],
+     "sprint_window": "2027-04-19 → 2027-04-30",
+     "body": "<!-- backlog-id: S113 -->\n**Epic:** E27 · **Milestone:** M7 · **Sprint:** S14 (2027-04-19 → 2027-04-30)\n**Alan:** `backend` · **Öncelik:** P2 · **Story point:** 5\n\n### Açıklama\nÇoklu PSP, failover.\n\n### Kabul kriterleri\n- [ ] PSP arızasında otomatik geçiş\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    }
+   ],
+   "body": "<!-- backlog-id: E27 -->\n**Milestone:** M7 · **Alan:** `backend` · **Toplam SP:** 18\n\n### Amaç\nHavale/EFT, sanal IBAN, açık bankacılık ile yükleme.\n\n### Story'ler\n| ID | Başlık | Sprint | SP | Öncelik |\n|---|---|---|---|---|\n| S111 | Sanal IBAN ile havale/EFT yükleme | S13 | 5 | P2 |\n| S112 | Açık bankacılık (ÖHVPS/PSD2) ödeme başlatma | S14 | 8 | P2 |\n| S113 | PSP adaptörü #2 (Stripe/Adyen) ve akıllı yönlendirme | S14 | 5 | P2 |\n"
+  },
+  {
+   "id": "E28",
+   "milestone": "M7",
+   "title": "[E28] Epic: Analytics & BI",
+   "area": "data",
+   "summary": "CDC → ClickHouse analitik hattı ve gelişmiş raporlar.",
+   "labels": [
+    "type:epic",
+    "ms:M7",
+    "area:data"
+   ],
+   "stories": [
+    {
+     "id": "S114",
+     "title": "[S114] CDC hattı: Debezium → Kafka → ClickHouse",
+     "sprint": 13,
+     "area": "data",
+     "points": 8,
+     "priority": "P1",
+     "description": "Gerçek zamanlıya yakın analitik veri ambarı.",
+     "acceptance": [
+      "Uçtan uca gecikme < 1 dk"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M7",
+      "sprint:S13",
+      "area:data",
+      "priority:P1"
+     ],
+     "sprint_window": "2027-04-05 → 2027-04-16",
+     "body": "<!-- backlog-id: S114 -->\n**Epic:** E28 · **Milestone:** M7 · **Sprint:** S13 (2027-04-05 → 2027-04-16)\n**Alan:** `data` · **Öncelik:** P1 · **Story point:** 8\n\n### Açıklama\nGerçek zamanlıya yakın analitik veri ambarı.\n\n### Kabul kriterleri\n- [ ] Uçtan uca gecikme < 1 dk\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S115",
+     "title": "[S115] Gelişmiş BI dashboard'ları ve kohort analizi",
+     "sprint": 14,
+     "area": "data",
+     "points": 5,
+     "priority": "P2",
+     "description": "Müşteri segmentleri, tutunma, yükleme davranışı.",
+     "acceptance": [
+      "Tenant izolasyonu analitikte de korunur"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M7",
+      "sprint:S14",
+      "area:data",
+      "priority:P2"
+     ],
+     "sprint_window": "2027-04-19 → 2027-04-30",
+     "body": "<!-- backlog-id: S115 -->\n**Epic:** E28 · **Milestone:** M7 · **Sprint:** S14 (2027-04-19 → 2027-04-30)\n**Alan:** `data` · **Öncelik:** P2 · **Story point:** 5\n\n### Açıklama\nMüşteri segmentleri, tutunma, yükleme davranışı.\n\n### Kabul kriterleri\n- [ ] Tenant izolasyonu analitikte de korunur\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    }
+   ],
+   "body": "<!-- backlog-id: E28 -->\n**Milestone:** M7 · **Alan:** `data` · **Toplam SP:** 13\n\n### Amaç\nCDC → ClickHouse analitik hattı ve gelişmiş raporlar.\n\n### Story'ler\n| ID | Başlık | Sprint | SP | Öncelik |\n|---|---|---|---|---|\n| S114 | CDC hattı: Debezium → Kafka → ClickHouse | S13 | 8 | P1 |\n| S115 | Gelişmiş BI dashboard'ları ve kohort analizi | S14 | 5 | P2 |\n"
+  },
+  {
+   "id": "E29",
+   "milestone": "M8",
+   "title": "[E29] Epic: Production Hardening",
+   "area": "devops",
+   "summary": "Performans, chaos, DR ve operasyonel olgunluk.",
+   "labels": [
+    "type:epic",
+    "ms:M8",
+    "area:devops"
+   ],
+   "stories": [
+    {
+     "id": "S116",
+     "title": "[S116] Performans: 5.000 TPS ve 24 saat soak testi",
+     "sprint": 15,
+     "area": "perf",
+     "points": 8,
+     "priority": "P0",
+     "description": "Kapasite planı, darboğaz giderme.",
+     "acceptance": [
+      "5.000 TPS'de p99 < 300ms, hata < %0.01"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M8",
+      "sprint:S15",
+      "area:perf",
+      "priority:P0"
+     ],
+     "sprint_window": "2027-05-03 → 2027-05-14",
+     "body": "<!-- backlog-id: S116 -->\n**Epic:** E29 · **Milestone:** M8 · **Sprint:** S15 (2027-05-03 → 2027-05-14)\n**Alan:** `perf` · **Öncelik:** P0 · **Story point:** 8\n\n### Açıklama\nKapasite planı, darboğaz giderme.\n\n### Kabul kriterleri\n- [ ] 5.000 TPS'de p99 < 300ms, hata < %0.01\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S117",
+     "title": "[S117] Chaos engineering tatbikatları",
+     "sprint": 15,
+     "area": "devops",
+     "points": 5,
+     "priority": "P1",
+     "description": "Pod/node/Kafka/DB arıza senaryoları.",
+     "acceptance": [
+      "Finansal tutarlılık bozulmaz"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M8",
+      "sprint:S15",
+      "area:devops",
+      "priority:P1"
+     ],
+     "sprint_window": "2027-05-03 → 2027-05-14",
+     "body": "<!-- backlog-id: S117 -->\n**Epic:** E29 · **Milestone:** M8 · **Sprint:** S15 (2027-05-03 → 2027-05-14)\n**Alan:** `devops` · **Öncelik:** P1 · **Story point:** 5\n\n### Açıklama\nPod/node/Kafka/DB arıza senaryoları.\n\n### Kabul kriterleri\n- [ ] Finansal tutarlılık bozulmaz\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S118",
+     "title": "[S118] DR tatbikatı (RPO ≤ 1 dk, RTO ≤ 15 dk)",
+     "sprint": 16,
+     "area": "devops",
+     "points": 5,
+     "priority": "P0",
+     "description": "Bölge kaybı senaryosu.",
+     "acceptance": [
+      "Tatbikat raporu"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M8",
+      "sprint:S16",
+      "area:devops",
+      "priority:P0"
+     ],
+     "sprint_window": "2027-05-17 → 2027-05-28",
+     "body": "<!-- backlog-id: S118 -->\n**Epic:** E29 · **Milestone:** M8 · **Sprint:** S16 (2027-05-17 → 2027-05-28)\n**Alan:** `devops` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nBölge kaybı senaryosu.\n\n### Kabul kriterleri\n- [ ] Tatbikat raporu\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S119",
+     "title": "[S119] Argo Rollouts canary ve otomatik analiz",
+     "sprint": 15,
+     "area": "devops",
+     "points": 3,
+     "priority": "P1",
+     "description": "Metrik bazlı otomatik geri alma.",
+     "acceptance": [
+      "Hatalı sürüm otomatik geri alınır"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M8",
+      "sprint:S15",
+      "area:devops",
+      "priority:P1"
+     ],
+     "sprint_window": "2027-05-03 → 2027-05-14",
+     "body": "<!-- backlog-id: S119 -->\n**Epic:** E29 · **Milestone:** M8 · **Sprint:** S15 (2027-05-03 → 2027-05-14)\n**Alan:** `devops` · **Öncelik:** P1 · **Story point:** 3\n\n### Açıklama\nMetrik bazlı otomatik geri alma.\n\n### Kabul kriterleri\n- [ ] Hatalı sürüm otomatik geri alınır\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    }
+   ],
+   "body": "<!-- backlog-id: E29 -->\n**Milestone:** M8 · **Alan:** `devops` · **Toplam SP:** 21\n\n### Amaç\nPerformans, chaos, DR ve operasyonel olgunluk.\n\n### Story'ler\n| ID | Başlık | Sprint | SP | Öncelik |\n|---|---|---|---|---|\n| S116 | Performans: 5.000 TPS ve 24 saat soak testi | S15 | 8 | P0 |\n| S117 | Chaos engineering tatbikatları | S15 | 5 | P1 |\n| S118 | DR tatbikatı (RPO ≤ 1 dk, RTO ≤ 15 dk) | S16 | 5 | P0 |\n| S119 | Argo Rollouts canary ve otomatik analiz | S15 | 3 | P1 |\n"
+  },
+  {
+   "id": "E30",
+   "milestone": "M8",
+   "title": "[E30] Epic: Security Certification & Compliance Readiness",
+   "area": "security",
+   "summary": "Bağımsız pentest, PCI-DSS SAQ, SOC 2/ISO 27001 hazırlığı.",
+   "labels": [
+    "type:epic",
+    "ms:M8",
+    "area:security"
+   ],
+   "stories": [
+    {
+     "id": "S120",
+     "title": "[S120] Bağımsız penetrasyon testi ve kapanış",
+     "sprint": 15,
+     "area": "security",
+     "points": 5,
+     "priority": "P0",
+     "description": "Web, mobil, API, altyapı.",
+     "acceptance": [
+      "Critical/High bulgu kalmadı"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M8",
+      "sprint:S15",
+      "area:security",
+      "priority:P0"
+     ],
+     "sprint_window": "2027-05-03 → 2027-05-14",
+     "body": "<!-- backlog-id: S120 -->\n**Epic:** E30 · **Milestone:** M8 · **Sprint:** S15 (2027-05-03 → 2027-05-14)\n**Alan:** `security` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nWeb, mobil, API, altyapı.\n\n### Kabul kriterleri\n- [ ] Critical/High bulgu kalmadı\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S121",
+     "title": "[S121] PCI-DSS SAQ A ve kontrol kanıtları",
+     "sprint": 16,
+     "area": "compliance",
+     "points": 3,
+     "priority": "P0",
+     "description": "Kapsam daraltma kanıtları.",
+     "acceptance": [
+      "SAQ tamamlandı"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M8",
+      "sprint:S16",
+      "area:compliance",
+      "priority:P0"
+     ],
+     "sprint_window": "2027-05-17 → 2027-05-28",
+     "body": "<!-- backlog-id: S121 -->\n**Epic:** E30 · **Milestone:** M8 · **Sprint:** S16 (2027-05-17 → 2027-05-28)\n**Alan:** `compliance` · **Öncelik:** P0 · **Story point:** 3\n\n### Açıklama\nKapsam daraltma kanıtları.\n\n### Kabul kriterleri\n- [ ] SAQ tamamlandı\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S122",
+     "title": "[S122] SOC 2 / ISO 27001 kontrol kanıt otomasyonu",
+     "sprint": 16,
+     "area": "compliance",
+     "points": 5,
+     "priority": "P1",
+     "description": "Kontrol matrisi → kanıt toplama.",
+     "acceptance": [
+      "Kontrol matrisi 'Effective' oranı ≥ %90"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M8",
+      "sprint:S16",
+      "area:compliance",
+      "priority:P1"
+     ],
+     "sprint_window": "2027-05-17 → 2027-05-28",
+     "body": "<!-- backlog-id: S122 -->\n**Epic:** E30 · **Milestone:** M8 · **Sprint:** S16 (2027-05-17 → 2027-05-28)\n**Alan:** `compliance` · **Öncelik:** P1 · **Story point:** 5\n\n### Açıklama\nKontrol matrisi → kanıt toplama.\n\n### Kabul kriterleri\n- [ ] Kontrol matrisi 'Effective' oranı ≥ %90\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    }
+   ],
+   "body": "<!-- backlog-id: E30 -->\n**Milestone:** M8 · **Alan:** `security` · **Toplam SP:** 13\n\n### Amaç\nBağımsız pentest, PCI-DSS SAQ, SOC 2/ISO 27001 hazırlığı.\n\n### Story'ler\n| ID | Başlık | Sprint | SP | Öncelik |\n|---|---|---|---|---|\n| S120 | Bağımsız penetrasyon testi ve kapanış | S15 | 5 | P0 |\n| S121 | PCI-DSS SAQ A ve kontrol kanıtları | S16 | 3 | P0 |\n| S122 | SOC 2 / ISO 27001 kontrol kanıt otomasyonu | S16 | 5 | P1 |\n"
+  },
+  {
+   "id": "E31",
+   "milestone": "M8",
+   "title": "[E31] Epic: GA Launch & Multi-tenant Rollout",
+   "area": "governance",
+   "summary": "Çoklu tenant pilotu, GA sürümü, destek organizasyonu.",
+   "labels": [
+    "type:epic",
+    "ms:M8",
+    "area:governance"
+   ],
+   "stories": [
+    {
+     "id": "S123",
+     "title": "[S123] Çoklu sektör pilotu (EV şarj + otopark)",
+     "sprint": 16,
+     "area": "governance",
+     "points": 5,
+     "priority": "P0",
+     "description": "İki yeni sektör tenant'ının canlıya alınması.",
+     "acceptance": [
+      "Pilot KPI'ları hedefte"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M8",
+      "sprint:S16",
+      "area:governance",
+      "priority:P0"
+     ],
+     "sprint_window": "2027-05-17 → 2027-05-28",
+     "body": "<!-- backlog-id: S123 -->\n**Epic:** E31 · **Milestone:** M8 · **Sprint:** S16 (2027-05-17 → 2027-05-28)\n**Alan:** `governance` · **Öncelik:** P0 · **Story point:** 5\n\n### Açıklama\nİki yeni sektör tenant'ının canlıya alınması.\n\n### Kabul kriterleri\n- [ ] Pilot KPI'ları hedefte\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S124",
+     "title": "[S124] Destek süreçleri, SLA ve status page",
+     "sprint": 16,
+     "area": "docs",
+     "points": 3,
+     "priority": "P1",
+     "description": "L1/L2/L3 destek, olay iletişimi.",
+     "acceptance": [
+      "SLA dokümanı yayında"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M8",
+      "sprint:S16",
+      "area:docs",
+      "priority:P1"
+     ],
+     "sprint_window": "2027-05-17 → 2027-05-28",
+     "body": "<!-- backlog-id: S124 -->\n**Epic:** E31 · **Milestone:** M8 · **Sprint:** S16 (2027-05-17 → 2027-05-28)\n**Alan:** `docs` · **Öncelik:** P1 · **Story point:** 3\n\n### Açıklama\nL1/L2/L3 destek, olay iletişimi.\n\n### Kabul kriterleri\n- [ ] SLA dokümanı yayında\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    },
+    {
+     "id": "S125",
+     "title": "[S125] GA v2.0 sürümü",
+     "sprint": 16,
+     "area": "devops",
+     "points": 2,
+     "priority": "P0",
+     "description": "Release ve lansman.",
+     "acceptance": [
+      "Go/No-Go onayı alındı"
+     ],
+     "labels": [
+      "type:story",
+      "ms:M8",
+      "sprint:S16",
+      "area:devops",
+      "priority:P0"
+     ],
+     "sprint_window": "2027-05-17 → 2027-05-28",
+     "body": "<!-- backlog-id: S125 -->\n**Epic:** E31 · **Milestone:** M8 · **Sprint:** S16 (2027-05-17 → 2027-05-28)\n**Alan:** `devops` · **Öncelik:** P0 · **Story point:** 2\n\n### Açıklama\nRelease ve lansman.\n\n### Kabul kriterleri\n- [ ] Go/No-Go onayı alındı\n\n### Definition of Done\n- [ ] Kod + testler (unit/integration) ve kalite kapıları yeşil\n- [ ] Güvenlik taramaları temiz, audit/kontrol matrisi güncellendi\n- [ ] Dokümantasyon (OpenAPI/README/runbook) güncel\n- [ ] Fonksiyon matrisinde durum güncellendi\n"
+    }
+   ],
+   "body": "<!-- backlog-id: E31 -->\n**Milestone:** M8 · **Alan:** `governance` · **Toplam SP:** 10\n\n### Amaç\nÇoklu tenant pilotu, GA sürümü, destek organizasyonu.\n\n### Story'ler\n| ID | Başlık | Sprint | SP | Öncelik |\n|---|---|---|---|---|\n| S123 | Çoklu sektör pilotu (EV şarj + otopark) | S16 | 5 | P0 |\n| S124 | Destek süreçleri, SLA ve status page | S16 | 3 | P1 |\n| S125 | GA v2.0 sürümü | S16 | 2 | P0 |\n"
+  }
+ ]
+}

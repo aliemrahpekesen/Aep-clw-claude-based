@@ -1,0 +1,112 @@
+name: backlog-sync
+
+# Backlog-as-code: .github/project/backlog.json -> GitHub labels, milestones, epics & stories.
+# Idempotent: every issue carries a hidden "backlog-id" marker; existing issues are updated, never duplicated.
+on:
+  push:
+    paths:
+      - ".github/project/backlog.json"
+      - ".github/workflows/backlog-sync.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: backlog-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sync labels, milestones and issues
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const data = JSON.parse(fs.readFileSync('.github/project/backlog.json', 'utf8'));
+            const { owner, repo } = context.repo;
+            const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+
+            // ---- labels ----
+            const existingLabels = new Set(
+              (await github.paginate(github.rest.issues.listLabelsForRepo, { owner, repo, per_page: 100 })).map(l => l.name));
+            for (const l of data.labels) {
+              if (existingLabels.has(l.name)) {
+                await github.rest.issues.updateLabel({ owner, repo, name: l.name, color: l.color, description: l.description });
+              } else {
+                await github.rest.issues.createLabel({ owner, repo, name: l.name, color: l.color, description: l.description });
+              }
+            }
+            core.info(`labels synced: ${data.labels.length}`);
+
+            // ---- milestones ----
+            const msList = await github.paginate(github.rest.issues.listMilestones, { owner, repo, state: 'all', per_page: 100 });
+            const msByCode = {};
+            for (const m of data.milestones) {
+              let found = msList.find(x => x.title.startsWith(m.code + ' '));
+              if (found) {
+                found = (await github.rest.issues.updateMilestone({ owner, repo, milestone_number: found.number,
+                  title: m.title, description: m.description, due_on: m.due_on })).data;
+              } else {
+                found = (await github.rest.issues.createMilestone({ owner, repo,
+                  title: m.title, description: m.description, due_on: m.due_on })).data;
+              }
+              msByCode[m.code] = found.number;
+            }
+            core.info(`milestones synced: ${Object.keys(msByCode).length}`);
+
+            // ---- existing issues by backlog-id marker ----
+            const all = await github.paginate(github.rest.issues.listForRepo, { owner, repo, state: 'all', per_page: 100 });
+            const byId = {};
+            for (const i of all) {
+              if (i.pull_request) continue;
+              const m = /<!-- backlog-id: (\w+) -->/.exec(i.body || '');
+              if (m) byId[m[1]] = i;
+            }
+
+            async function upsert(id, title, body, labels, milestone) {
+              const existing = byId[id];
+              if (existing) {
+                // keep labels added by humans (status etc.), ensure ours are present
+                const current = existing.labels.map(l => typeof l === 'string' ? l : l.name);
+                const merged = Array.from(new Set([...current, ...labels]));
+                const res = await github.rest.issues.update({ owner, repo, issue_number: existing.number,
+                  title, body, labels: merged, milestone });
+                return res.data;
+              }
+              const res = await github.rest.issues.create({ owner, repo, title, body, labels, milestone });
+              await sleep(1200); // stay under secondary rate limits
+              byId[id] = res.data;
+              return res.data;
+            }
+
+            async function linkSubIssue(parentNumber, child) {
+              try {
+                await github.request('POST /repos/{owner}/{repo}/issues/{issue_number}/sub_issues', {
+                  owner, repo, issue_number: parentNumber, sub_issue_id: child.id,
+                  headers: { 'X-GitHub-Api-Version': '2022-11-28' } });
+              } catch (e) {
+                if (!/already|exists|422/i.test(String(e.status) + e.message)) core.warning(`sub-issue link ${parentNumber}<-${child.number}: ${e.message}`);
+              }
+            }
+
+            let created = 0;
+            for (const e of data.epics) {
+              const before = !!byId[e.id];
+              const epic = await upsert(e.id, e.title, e.body, e.labels, msByCode[e.milestone]);
+              if (!before) created++;
+              for (const s of e.stories) {
+                const sb = !!byId[s.id];
+                const story = await upsert(s.id, s.title, s.body, s.labels, msByCode[e.milestone]);
+                if (!sb) { created++; await linkSubIssue(epic.number, story); }
+              }
+            }
+            core.summary.addHeading('Backlog sync').addRaw(
+              `Labels: ${data.labels.length}, milestones: ${data.milestones.length}, epics: ${data.epics.length}, ` +
+              `stories: ${data.epics.reduce((a, e) => a + e.stories.length, 0)}, newly created issues: ${created}`).write();
