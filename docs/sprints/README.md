@@ -5,4 +5,4 @@ fonksiyon ve kontrol matrisi değişiklik özetleri. Süreç: [../governance/wor
 
 | Sprint | Paket | Durum |
 |---|---|---|
-| S00 — Inception & Architecture | [sprint-00](sprint-00/sprint-review.md) | Onay bekliyor |
+| S00 — Inception & Architecture | [review](sprint-00/sprint-review.md) · [ilerleme](sprint-00/progress-report.md) | Onay bekliyor |
