@@ -610,7 +610,7 @@ sequenceDiagram
     TS->>K: tenant.onboarded.v1
     K-->>K: notification (hoş geldin e-postası), reporting (tenant dim), audit
     ORC-->>ADM: Tenant ACTIVE + admin davet linki
-    Note over ORC: Her adım idempotent; hata → compensation<br/>(Keycloak org sil, Vault key disable, CR geri al)
+    Note over ORC: Her adım idempotent, hata → compensation<br/>(Keycloak org sil, Vault key disable, CR geri al)
 ```
 
 **Mobil white-label pipeline:** `tenant.onboarded.v1` + branding tamamlandığında GitHub Actions

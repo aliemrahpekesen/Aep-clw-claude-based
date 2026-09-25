@@ -215,7 +215,7 @@ Saga'larda `correlationId` tüm adımlar ve kompanzasyonlar boyunca **aynı** ka
 
 ```mermaid
 flowchart LR
-    A["1. Tasarım<br/>api/&lt;service&gt;/openapi.yaml<br/>(feature branch)"] --> B["2. Lint<br/>Spectral: clw-ruleset"]
+    A["1. Tasarım<br/>api/SERVICE/openapi.yaml<br/>(feature branch)"] --> B["2. Lint<br/>Spectral: clw-ruleset"]
     B --> C["3. Review<br/>API Guild (CA + ilgili BE/FE/MOB)<br/>PR onayı zorunlu"]
     C --> D["4. Breaking change kontrolü<br/>oasdiff (main ile karşılaştır)"]
     D --> E["5. Kod üretimi<br/>openapi-generator: Spring interface (server),<br/>TS client (TanStack Query hooks), SDK'lar"]
